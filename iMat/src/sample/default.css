@@ -1,0 +1,42 @@
+.text-normal{
+     -fx-font-size: 16px;
+     -fx-font-family: "Avenir Book";
+}
+
+.text-small{
+      -fx-font-size: 12px;
+      -fx-font-family: "Avenir Book";
+}
+
+.text-large{
+      -fx-font-size: 20px;
+      -fx-font-family: "Avenir Book";
+}
+
+.text-title{
+    -fx-font-size: 24px;
+    -fx-font-family: "Avenir Book";
+    -fx-font-weight: bold;
+}
+
+#logo{
+    -fx-font-size: 48px;
+    -fx-font-family: "Courier New";
+    -fx-font-weight: bold;
+}
+
+
+/* ---------------------------template------------------------------
+
+    -fx-background-color: -fx-background;       // default JavaFX color
+    -fx-background-color: rgba(0,0,0,0.75);     // transparent
+
+.class-name:hover{                              // hover effect
+    -fx-background-color: #FCFCFC;
+}
+
+.class-name:pressed{                            // pressed effect
+    -fx-background-color: #D0D0D0;
+}
+
+*/
