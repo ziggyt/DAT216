@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("iMat.fxml"));
         primaryStage.setTitle("iMat");
         primaryStage.setScene(new Scene(root, 1280, 880));
-        primaryStage.getIcons().add(new Image("https://raw.githubusercontent.com/ziggyt/DAT216/master/imat_icon.gif"));
+        primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/imat_icon.gif")));
         primaryStage.show();
     }
 
