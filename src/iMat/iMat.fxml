@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -21,36 +22,72 @@
                     <left>
                         <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <VBox layoutX="39.0" layoutY="14.0" prefHeight="80.0" prefWidth="180.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <VBox layoutX="39.0" layoutY="14.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                     <children>
-                                        <ToggleButton fx:id="allCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Alla Produkter">
+                                        <ToggleButton fx:id="allCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Alla varor">
                                             <font>
-                                                <Font size="13.0" />
+                                                <Font size="14.0" />
                                             </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="text-normal" />
+                                    <String fx:value="category-button" />
+                                 </styleClass>
                                         </ToggleButton>
                                         <ToggleButton fx:id="favCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Favoriter">
                                             <font>
                                                 <Font size="13.0" />
                                             </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="text-normal" />
+                                    <String fx:value="category-button" />
+                                 </styleClass>
                                         </ToggleButton>
                                     </children>
                                 </VBox>
-                                <VBox layoutX="10.0" layoutY="101.0" prefHeight="604.0" prefWidth="180.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                                <VBox layoutX="10.0" layoutY="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
                                     <children>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="180.0" styleClass="text-large" text="Kategorier" />
                               <ToggleButton fx:id="breadCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Bröd">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="text-normal" />
+                                    <String fx:value="category-button" />
+                                 </styleClass>
                               </ToggleButton>
                                         <ToggleButton fx:id="dairiesCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Mejeri">
                                             <font>
                                                 <Font size="13.0" />
                                             </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="text-normal" />
+                                    <String fx:value="category-button" />
+                                 </styleClass>
                                         </ToggleButton>
                               <ToggleButton fx:id="meatCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Kött">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="text-normal" />
+                                    <String fx:value="category-button" />
+                                 </styleClass>
                               </ToggleButton>
                                     </children>
                                 </VBox>

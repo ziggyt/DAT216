@@ -19,6 +19,10 @@
     -fx-font-weight: bold;
 }
 
+.category-button{
+
+}
+
 #logo{
     -fx-font-size: 48px;
     -fx-font-family: "Courier New";
