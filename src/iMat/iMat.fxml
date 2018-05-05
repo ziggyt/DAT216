@@ -3,40 +3,47 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1200.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-          <children>
-              <BorderPane prefHeight="200.0" prefWidth="200.0">
-                  <top>
-                      <AnchorPane prefHeight="100.0" BorderPane.alignment="CENTER">
-                         <children>
-                             <Label fx:id="logo" layoutX="21.0" layoutY="21.0" text="iMat" />
-                             <TextField layoutX="362.0" layoutY="33.0" prefHeight="35.0" prefWidth="476.0" />
-                         </children>
-                      </AnchorPane>
-                  </top>
-                  <left>
-                      <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <VBox layoutX="39.0" layoutY="14.0" prefHeight="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <ToggleButton mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" selected="true" text="Button1" />
-                              <ToggleButton mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Button2" />
-                              <ToggleButton mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Button3" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  </left>
-                  <right>
-                      <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER" />
-                  </right>
-                  <center>
-                      <AnchorPane BorderPane.alignment="CENTER" />
-                  </center>
-              </BorderPane>
-          </children>
-       </StackPane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0"
+            prefWidth="1200.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <top>
+                        <AnchorPane prefHeight="100.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label fx:id="logo" layoutX="21.0" layoutY="21.0" text="iMat"/>
+                                <TextField layoutX="362.0" layoutY="33.0" prefHeight="35.0" prefWidth="476.0"/>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <VBox layoutX="39.0" layoutY="14.0" prefHeight="200.0" AnchorPane.leftAnchor="10.0"
+                                      AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <children>
+                                        <ToggleButton fx:id="button1" mnemonicParsing="false" prefHeight="35.0"
+                                                      prefWidth="180.0" text="Button1"/>
+                                        <ToggleButton fx:id="button2" mnemonicParsing="false" prefHeight="35.0"
+                                                      prefWidth="180.0" text="Button2"/>
+                                        <ToggleButton fx:id="button3" mnemonicParsing="false" prefHeight="35.0"
+                                                      prefWidth="180.0" text="Button3"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <right>
+                        <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER"/>
+                    </right>
+                    <center>
+                        <AnchorPane BorderPane.alignment="CENTER"/>
+                    </center>
+                </BorderPane>
+            </children>
+        </StackPane>
+    </children>
 </AnchorPane>
