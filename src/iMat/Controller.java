@@ -19,7 +19,8 @@ public class Controller implements Initializable {
     @FXML private ToggleButton breadCategoryButton;
     @FXML private ToggleButton dairiesCategoryButton;
     @FXML private ToggleButton meatCategoryButton;
-    @FXML private Label categoryTitle;
+    @FXML private Label categoryTitleLabel;
+    @FXML private Label categoryAmountLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,7 +42,7 @@ public class Controller implements Initializable {
                     oldValue.setSelected(true);
                 } else {
                     ToggleButton selected = (ToggleButton)categoryToggleGroup.getSelectedToggle();
-                    categoryTitle.setText(selected.getText());
+                    categoryTitleLabel.setText(selected.getText());
                 }
             }
         });

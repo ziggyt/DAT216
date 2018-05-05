@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -100,7 +101,28 @@
                     <center>
                         <AnchorPane BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="categoryTitle" layoutX="14.0" styleClass="text-title" text="Alla varor" />
+                        <GridPane layoutX="14.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="categoryTitleLabel" styleClass="text-title" text="Alla varor">
+                                 <GridPane.margin>
+                                    <Insets right="15.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="categoryAmountLabel" text="(antal varor)" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
                      </children></AnchorPane>
                     </center>
                 </BorderPane>
