@@ -14,18 +14,24 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    @FXML private ToggleButton button1;
-    @FXML private ToggleButton button2;
-    @FXML private ToggleButton button3;
+    @FXML private ToggleButton allCategoryButton;
+    @FXML private ToggleButton favCategoryButton;
+    @FXML private ToggleButton breadCategoryButton;
+    @FXML private ToggleButton dairiesCategoryButton;
+    @FXML private ToggleButton meatCategoryButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         final ToggleGroup categoryToggleGroup = new ToggleGroup();
-        button1.setToggleGroup(categoryToggleGroup);
-        button2.setToggleGroup(categoryToggleGroup);
-        button3.setToggleGroup(categoryToggleGroup);
-        button1.setSelected(true);
+        allCategoryButton.setToggleGroup(categoryToggleGroup);
+        favCategoryButton.setToggleGroup(categoryToggleGroup);
+
+        breadCategoryButton.setToggleGroup(categoryToggleGroup);
+        dairiesCategoryButton.setToggleGroup(categoryToggleGroup);
+        meatCategoryButton.setToggleGroup(categoryToggleGroup);
+
+        allCategoryButton.setSelected(true);
 
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
