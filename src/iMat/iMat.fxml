@@ -98,7 +98,10 @@
                         <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER" />
                     </right>
                     <center>
-                        <AnchorPane BorderPane.alignment="CENTER" />
+                        <AnchorPane BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="categoryTitle" layoutX="14.0" styleClass="text-title" text="Alla varor" />
+                     </children></AnchorPane>
                     </center>
                 </BorderPane>
             </children>

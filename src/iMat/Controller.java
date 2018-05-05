@@ -19,6 +19,7 @@ public class Controller implements Initializable {
     @FXML private ToggleButton breadCategoryButton;
     @FXML private ToggleButton dairiesCategoryButton;
     @FXML private ToggleButton meatCategoryButton;
+    @FXML private Label categoryTitle;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -38,6 +39,9 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                 if(newValue == null) {
                     oldValue.setSelected(true);
+                } else {
+                    ToggleButton selected = (ToggleButton)categoryToggleGroup.getSelectedToggle();
+                    categoryTitle.setText(selected.getText());
                 }
             }
         });
