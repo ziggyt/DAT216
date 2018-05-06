@@ -93,7 +93,7 @@ public class Controller implements Initializable {
                         case "fruitCategoryButton":
                             shownProducts = bc.getProducts(ProductCategory.FRUIT);
                             break;
-                        case "VegetablesCategoryButton":
+                        case "vegetablesCategoryButton":
                             shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
                             break;
                     }
