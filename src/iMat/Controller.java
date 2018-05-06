@@ -90,6 +90,12 @@ public class Controller implements Initializable {
                         case "meatCategoryButton":
                             shownProducts = bc.getProducts(ProductCategory.MEAT);
                             break;
+                        case "fruitCategoryButton":
+                            shownProducts = bc.getProducts(ProductCategory.FRUIT);
+                            break;
+                        case "VegetablesCategoryButton":
+                            shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
+                            break;
                     }
                     updateProductList();
                     updateAmountFound();
