@@ -24,6 +24,15 @@
 }
 
 
+/*tmp name*/
+
+/* should round corners but doesnt atm*/
+.imgEffects {
+    -fx-border-width: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+
 @keyframes colorRotate {
     100% {
         -webkit-filter: hue-rotate(360deg);
@@ -42,7 +51,6 @@
 
 }
 
-/*not necessary*/
 
 
 

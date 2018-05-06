@@ -13,14 +13,14 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <ImageView fx:id="productImageView" fitHeight="130.0" fitWidth="130.0" layoutX="-1.0" layoutY="14.0" pickOnBounds="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <ImageView fx:id="productImageView" fitHeight="130.0" fitWidth="130.0" layoutX="-1.0" layoutY="14.0" pickOnBounds="true" styleClass="imgEffects" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                             <image>
                                 <Image url="@resources/imat_icon.gif" />
                             </image>
                         </ImageView>
                         <Label fx:id="priceLabel" layoutX="14.0" layoutY="171.0" styleClass="text-normal" text="Price" />
                         <Label fx:id="nameLabel" layoutX="14.0" layoutY="144.0" styleClass="text-large" text="Product name" />
-                  <ImageView fx:id="favoriteItemImage" fitHeight="64.0" fitWidth="64.0" layoutX="140.0" onMouseClicked="#onClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="favoriteItemImage" fitHeight="64.0" fitWidth="64.0" layoutX="140.0" onMouseClicked="#onClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="130.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
