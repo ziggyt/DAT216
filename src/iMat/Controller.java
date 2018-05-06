@@ -35,6 +35,7 @@ public class Controller implements Initializable {
     @FXML private Label categoryAmountLabel;
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>();
+    private List<Product> shownProducts;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,6 +44,8 @@ public class Controller implements Initializable {
             ProductListItem productListItem = new ProductListItem(product, this);
             productListItemMap.put(product.getName(), productListItem);
         }
+        shownProducts = bc.getProducts();
+        updateProductList();
 
         final ToggleGroup categoryToggleGroup = new ToggleGroup();
         allCategoryButton.setToggleGroup(categoryToggleGroup);
@@ -64,25 +67,31 @@ public class Controller implements Initializable {
                     categoryTitleLabel.setText(selected.getText());
                     switch (selected.getId()) {
                         case "allCategoryButton":
+                            shownProducts = bc.getProducts();
                             break;
                         case "favCategoryButton":
+                            shownProducts = bc.favorites();
                             break;
                         case "breadCategoryButton":
+                            shownProducts = bc.getProducts(ProductCategory.BREAD);
                             break;
                         case "dairiesCategoryButton":
+                            shownProducts = bc.getProducts(ProductCategory.DAIRIES);
                             break;
                         case "meatCategoryButton":
+                            shownProducts = bc.getProducts(ProductCategory.MEAT);
                             break;
                     }
+                    updateProductList();
                 }
             }
         });
     }
 
-    private void updateProductList(ProductCategory pc){
+    private void updateProductList(){
         listFlowPane.getChildren().clear();
 
-        for (Product product : bc.getProducts(pc)) {
+        for (Product product : shownProducts) {
             listFlowPane.getChildren().add(productListItemMap.get(product.getName()));
         }
     }
