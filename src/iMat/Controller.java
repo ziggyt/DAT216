@@ -8,11 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -20,6 +25,7 @@ public class Controller implements Initializable {
 
     private IMatDataHandler bc = IMatDataHandler.getInstance();
 
+    @FXML private FlowPane listFlowPane;
     @FXML private ToggleButton allCategoryButton;
     @FXML private ToggleButton favCategoryButton;
     @FXML private ToggleButton breadCategoryButton;
@@ -59,5 +65,41 @@ public class Controller implements Initializable {
                 }
             }
         });
+    }
+
+    private void updateProductList(ProductCategory pc){
+        listFlowPane.getChildren().clear();
+
+        for (Product product : bc.getProducts(pc)) {
+            listFlowPane.getChildren().add(productListItemMap.get(product.getName()));
+        }
+    }
+
+    public Image getSquareImage(Image image){
+
+        int x = 0;
+        int y = 0;
+        int width = 0;
+        int height = 0;
+
+        if(image.getWidth() > image.getHeight()){
+            width = (int) image.getHeight();
+            height = (int) image.getHeight();
+            x = (int)(image.getWidth() - width)/2;
+            y = 0;
+        }
+
+        else if(image.getHeight() > image.getWidth()){
+            width = (int) image.getWidth();
+            height = (int) image.getWidth();
+            x = 0;
+            y = (int) (image.getHeight() - height)/2;
+        }
+
+        else{
+            //Width equals Height, return original image
+            return image;
+        }
+        return new WritableImage(image.getPixelReader(), x, y, width, height);
     }
 }

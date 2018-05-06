@@ -117,7 +117,7 @@
                         </FlowPane>
                         <ScrollPane layoutX="78.0" layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane prefHeight="200.0" />
+                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>
