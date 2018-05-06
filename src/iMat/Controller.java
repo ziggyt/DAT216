@@ -31,6 +31,8 @@ public class Controller implements Initializable {
     @FXML private ToggleButton breadCategoryButton;
     @FXML private ToggleButton dairiesCategoryButton;
     @FXML private ToggleButton meatCategoryButton;
+    @FXML private ToggleButton fruitCategoryButton;
+    @FXML private ToggleButton vegetablesCategoryButton;
     @FXML private Label categoryTitleLabel;
     @FXML private Label categoryAmountLabel;
 
@@ -47,6 +49,7 @@ public class Controller implements Initializable {
         }
         shownProducts = bc.getProducts();
         updateProductList();
+        updateAmountFound();
 
         listFlowPane.setHgap(21);
         listFlowPane.setVgap(21);
@@ -56,6 +59,8 @@ public class Controller implements Initializable {
         breadCategoryButton.setToggleGroup(categoryToggleGroup);
         dairiesCategoryButton.setToggleGroup(categoryToggleGroup);
         meatCategoryButton.setToggleGroup(categoryToggleGroup);
+        fruitCategoryButton.setToggleGroup(categoryToggleGroup);
+        vegetablesCategoryButton.setToggleGroup(categoryToggleGroup);
         allCategoryButton.setSelected(true);
 
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -86,13 +91,14 @@ public class Controller implements Initializable {
                             break;
                     }
                     updateProductList();
+                    updateAmountFound();
                 }
             }
         });
     }
 
     /**
-     * Adds the products from the shownProducts list to the listFlowPane in th main view
+     * Adds the products from the shownProducts list to the listFlowPane in the main view
      */
     private void updateProductList(){
         listFlowPane.getChildren().clear();
@@ -100,6 +106,15 @@ public class Controller implements Initializable {
         for (Product product : shownProducts) {
             listFlowPane.getChildren().add(productListItemMap.get(product.getName()));
         }
+    }
+
+
+    /**
+     * Shows the amount of shown products
+     */
+    private void updateAmountFound(){
+        categoryAmountLabel.setText(Integer.toString(shownProducts.size()) + " träffar");
+
     }
 
     public Image getSquareImage(Image image){
