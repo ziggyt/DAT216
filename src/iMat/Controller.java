@@ -62,6 +62,18 @@ public class Controller implements Initializable {
                 } else {
                     ToggleButton selected = (ToggleButton)categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
+                    switch (selected.getId()) {
+                        case "allCategoryButton":
+                            break;
+                        case "favCategoryButton":
+                            break;
+                        case "breadCategoryButton":
+                            break;
+                        case "dairiesCategoryButton":
+                            break;
+                        case "meatCategoryButton":
+                            break;
+                    }
                 }
             }
         });
