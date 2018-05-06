@@ -1,9 +1,11 @@
 package iMat;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
@@ -18,6 +20,7 @@ class ProductListItem extends AnchorPane {
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
     @FXML private Button buyButton;
+    @FXML private ImageView favoriteItemImage;
 
     ProductListItem(Product product, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_listitem.fxml"));
@@ -33,8 +36,51 @@ class ProductListItem extends AnchorPane {
         this.product = product;
         this.parentController = controller;
 
-        //productImageView.setImage(controller.getSquareImage( /*add product image here*/ ));
+        //Image setup
+        productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));
+
+        //Text setup
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " kr");
+    }
+
+
+    /**
+     * Checks if star on product is clicked and sets according status
+     */
+    @FXML
+    protected void onClick(Event event) {
+        if (!parentController.getFavStatus(product)){
+            parentController.addToFavorites(this.product);
+        }
+        else{
+            parentController.removeFromFavorites(this.product);
+        }
+        parentController.updateFavImage();
+
+    }
+
+
+    /**
+     * Supposed to hint when mouse enters the star but doesn't work for now
+     */
+
+    @FXML
+    public void favIconMouseEntered(){
+        this.favoriteItemImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/favorite_item_hint.png")));
+        parentController.updateFavImage();
+    }
+
+    @FXML
+    public void favIconMouseExited(){
+        parentController.updateFavImage();
+    }
+
+    /**
+     * Updates the ImageViews Image property
+     */
+    public void setFavoriteItemImage(Image favoriteItemImage) {
+        this.favoriteItemImage.setImage(favoriteItemImage);
     }
 }

@@ -50,6 +50,7 @@ public class Controller implements Initializable {
         shownProducts = bc.getProducts();
         updateProductList();
         updateAmountFound();
+        updateFavImage();
 
         listFlowPane.setHgap(21);
         listFlowPane.setVgap(21);
@@ -117,6 +118,28 @@ public class Controller implements Initializable {
 
     }
 
+    /**
+     * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
+     */
+
+    public void updateFavImage(){
+        for (Product product : bc.getProducts()) {
+            if(bc.isFavorite(product)) {
+                productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_selected.png")));
+            }
+
+            else{
+                productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_notselected.png")));
+
+            }
+        }
+    }
+
+
+
+
+
+
     public Image getSquareImage(Image image){
 
         int x = 0;
@@ -144,4 +167,28 @@ public class Controller implements Initializable {
         }
         return new WritableImage(image.getPixelReader(), x, y, width, height);
     }
+
+    //Helpers, here for now. Accessed from ProductListItem
+
+    public Image getProductImage(Product p){
+
+        return  bc.getFXImage(p);
+    }
+
+    public boolean getFavStatus(Product p){
+
+        return bc.isFavorite(p);
+    }
+
+    public void addToFavorites(Product p){
+        bc.addFavorite(p);
+        updateProductList();
+    }
+
+    public void removeFromFavorites(Product p){
+        bc.removeFavorite(p);
+        updateProductList();
+    }
+
 }
+
