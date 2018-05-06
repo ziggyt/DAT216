@@ -34,8 +34,9 @@ public class Controller implements Initializable {
     @FXML private Label categoryTitleLabel;
     @FXML private Label categoryAmountLabel;
 
-    private Map<String, ProductListItem> productListItemMap = new HashMap<>();
-    private List<Product> shownProducts;
+    private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the Products with their names as keys
+    private List<Product> shownProducts; // List of products to be shown in the main view
+    final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,7 +48,6 @@ public class Controller implements Initializable {
         shownProducts = bc.getProducts();
         updateProductList();
 
-        final ToggleGroup categoryToggleGroup = new ToggleGroup();
         allCategoryButton.setToggleGroup(categoryToggleGroup);
         favCategoryButton.setToggleGroup(categoryToggleGroup);
 
@@ -61,10 +61,12 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                 if(newValue == null) {
-                    oldValue.setSelected(true);
+                    oldValue.setSelected(true); // Stops the currently selected toggle from being unselected when pressed
                 } else {
+
                     ToggleButton selected = (ToggleButton)categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
+
                     switch (selected.getId()) {
                         case "allCategoryButton":
                             shownProducts = bc.getProducts();
@@ -88,6 +90,9 @@ public class Controller implements Initializable {
         });
     }
 
+    /**
+     * Adds the products form the shownProducts list to the listFlowPane in th main view
+     */
     private void updateProductList(){
         listFlowPane.getChildren().clear();
 
