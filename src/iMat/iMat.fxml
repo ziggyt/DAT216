@@ -7,11 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1200.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
         <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                <BorderPane>
                     <top>
                         <AnchorPane prefHeight="100.0" BorderPane.alignment="CENTER">
                             <children>
@@ -115,9 +115,9 @@
                               </Label>
                            </children>
                         </FlowPane>
-                        <ScrollPane layoutX="78.0" layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                        <ScrollPane layoutY="63.0" prefHeight="645.0" prefViewportHeight="200.0" prefViewportWidth="775.0" prefWidth="653.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" />
+                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" prefWidth="800.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>
