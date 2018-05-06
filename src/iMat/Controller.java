@@ -48,13 +48,14 @@ public class Controller implements Initializable {
         shownProducts = bc.getProducts();
         updateProductList();
 
+        listFlowPane.setHgap(21);
+        listFlowPane.setVgap(21);
+
         allCategoryButton.setToggleGroup(categoryToggleGroup);
         favCategoryButton.setToggleGroup(categoryToggleGroup);
-
         breadCategoryButton.setToggleGroup(categoryToggleGroup);
         dairiesCategoryButton.setToggleGroup(categoryToggleGroup);
         meatCategoryButton.setToggleGroup(categoryToggleGroup);
-
         allCategoryButton.setSelected(true);
 
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {

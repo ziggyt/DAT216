@@ -115,9 +115,9 @@
                               </Label>
                            </children>
                         </FlowPane>
-                        <ScrollPane layoutY="63.0" prefHeight="645.0" prefViewportHeight="200.0" prefViewportWidth="775.0" prefWidth="653.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                        <ScrollPane layoutY="63.0" prefViewportHeight="200.0" prefViewportWidth="775.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" prefWidth="800.0" />
+                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" prefWidth="863.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>
