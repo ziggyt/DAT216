@@ -91,7 +91,7 @@ public class Controller implements Initializable {
     }
 
     /**
-     * Adds the products form the shownProducts list to the listFlowPane in th main view
+     * Adds the products from the shownProducts list to the listFlowPane in th main view
      */
     private void updateProductList(){
         listFlowPane.getChildren().clear();
