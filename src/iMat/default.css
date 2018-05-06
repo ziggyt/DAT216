@@ -23,11 +23,30 @@
 
 }
 
-#logo{
-    -fx-font-size: 48px;
-    -fx-font-family: "Courier New";
-    -fx-font-weight: bold;
+
+@keyframes colorRotate {
+    100% {
+        -webkit-filter: hue-rotate(360deg);
+    }
 }
+
+#logo{
+    -fx-font-size: 65px;
+    -fx-font-family: "Perfectly Together";
+    -fx-stroke: black;
+    -fx-stroke-width: 5;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4424b;
+    -fx-rotate: -5;
+    -fx-animation: colorRotate 3s linear infinite;
+
+
+}
+
+/*not necessary*/
+
+
+
 
 
 /* ---------------------------template------------------------------
