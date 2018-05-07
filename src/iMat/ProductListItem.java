@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,8 +23,7 @@ class ProductListItem extends AnchorPane {
     @FXML private Label priceLabel;
     @FXML private Button buyButton;
     @FXML private ImageView favoriteItemImageView;
-
-
+    @FXML private SplitPane productSplitPane;
     @FXML private ImageView ecoImageView;
     private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
 
@@ -48,6 +48,8 @@ class ProductListItem extends AnchorPane {
         //Text setup
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " kr");
+        productSplitPane.setDividerPositions(0,0,0);
+
     }
 
 

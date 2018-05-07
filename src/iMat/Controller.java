@@ -10,6 +10,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.*;
 
@@ -271,6 +272,15 @@ public class Controller implements Initializable {
             }
         } else {
             register.addItem(si);
+        }
+    }
+
+    //Produces an error, why?
+    void removeItemFromCart(Product p) {
+        for (ShoppingItem item : register.getItems()) {
+            if (item.getProduct().getName().equals(p.getName())) {
+                register.removeItem(item);
+            }
         }
     }
 
