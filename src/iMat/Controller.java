@@ -4,20 +4,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
 
@@ -34,6 +28,8 @@ public class Controller implements Initializable {
     @FXML private ToggleButton vegetablesCategoryButton;
     @FXML private Label categoryTitleLabel;
     @FXML private Label categoryAmountLabel;
+    @FXML private Button sortByNameButton;
+    @FXML private Button sortByPriceButton;
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the Products with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
@@ -141,6 +137,21 @@ public class Controller implements Initializable {
 
             }
         }
+    }
+
+    @FXML
+    private void sortByName(){
+        shownProducts.sort(Comparator.comparing(Product::getName));
+        updateProductList();
+
+    }
+
+
+    @FXML
+    private void sortByPrice(){
+        shownProducts.sort(Comparator.comparing(Product::getPrice));
+        updateProductList();
+
     }
 
 
