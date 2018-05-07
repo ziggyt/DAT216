@@ -49,7 +49,7 @@ class ProductListItem extends AnchorPane {
      * Checks if star on product is clicked and sets according status
      */
     @FXML
-    protected void onClick(Event event) {
+    protected void favIconOnClick(Event event) {
         if (!parentController.getFavStatus(product)){
             parentController.addToFavorites(this.product);
         }
