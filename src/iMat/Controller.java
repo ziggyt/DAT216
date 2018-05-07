@@ -64,6 +64,7 @@ public class Controller implements Initializable {
         updateProductList();
         updateAmountFound();
         updateFavImage();
+        updateEcoImage();
 
         listFlowPane.setHgap(21);
         listFlowPane.setVgap(21);
@@ -158,6 +159,15 @@ public class Controller implements Initializable {
             }
         }
     }
+
+    public void updateEcoImage() {
+        for (Product product : bc.getProducts()) {
+            if (product.isEcological()) {
+                productListItemMap.get(product.getName()).setEcoImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/eco.png"))));
+            }
+
+            }
+        }
 
     @FXML
     private void sortByName() {

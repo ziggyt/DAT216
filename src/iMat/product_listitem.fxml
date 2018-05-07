@@ -20,10 +20,11 @@
                         </ImageView>
                         <Label fx:id="priceLabel" layoutX="14.0" layoutY="171.0" styleClass="text-normal" text="Price" />
                         <Label fx:id="nameLabel" layoutX="14.0" layoutY="144.0" styleClass="text-large" text="Product name" />
-                  <ImageView fx:id="favoriteItemImage" fitHeight="40.0" fitWidth="40.0" layoutX="163.0" onMouseClicked="#favIconOnClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <ImageView fx:id="favoriteItemImageView" fitHeight="40.0" fitWidth="40.0" layoutX="163.0" onMouseClicked="#favIconOnClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <image>
                         <Image url="@resources/favorite_item_notselected.png" />
                      </image></ImageView>
+                  <ImageView fx:id="ecoImageView" fitHeight="64.0" fitWidth="64.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="126.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="5.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="50.0">

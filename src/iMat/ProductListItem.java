@@ -21,7 +21,10 @@ class ProductListItem extends AnchorPane {
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
     @FXML private Button buyButton;
-    @FXML private ImageView favoriteItemImage;
+    @FXML private ImageView favoriteItemImageView;
+
+
+    @FXML private ImageView ecoImageView;
     private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
 
 
@@ -84,7 +87,7 @@ class ProductListItem extends AnchorPane {
      */
     @FXML
     public void favIconMouseEntered(){
-        this.favoriteItemImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+        this.favoriteItemImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/favorite_item_hint.png")));
     }
 
@@ -97,6 +100,10 @@ class ProductListItem extends AnchorPane {
      * Updates the ImageViews Image property
      */
     public void setFavoriteItemImage(Image favoriteItemImage) {
-        this.favoriteItemImage.setImage(favoriteItemImage);
+        this.favoriteItemImageView.setImage(favoriteItemImage);
+    }
+
+    public void setEcoImage(Image ecoImage) {
+        this.ecoImageView.setImage(ecoImage);
     }
 }
