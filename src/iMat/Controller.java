@@ -17,19 +17,36 @@ public class Controller implements Initializable {
 
     private IMatDataHandler bc = IMatDataHandler.getInstance();
 
-    @FXML private FlowPane listFlowPane;
-    @FXML private FlowPane registerFlowPane;
-    @FXML private ToggleButton allCategoryButton;
-    @FXML private ToggleButton favCategoryButton;
-    @FXML private ToggleButton breadCategoryButton;
-    @FXML private ToggleButton dairiesCategoryButton;
-    @FXML private ToggleButton meatCategoryButton;
-    @FXML private ToggleButton fruitCategoryButton;
-    @FXML private ToggleButton vegetablesCategoryButton;
-    @FXML private Label categoryTitleLabel;
-    @FXML private Label categoryAmountLabel;
-    @FXML private Button sortByNameButton;
-    @FXML private Button sortByPriceButton;
+    @FXML
+    private FlowPane listFlowPane;
+    @FXML
+    private FlowPane registerFlowPane;
+    @FXML
+    private ToggleButton allCategoryButton;
+    @FXML
+    private ToggleButton favCategoryButton;
+    @FXML
+    private ToggleButton breadCategoryButton;
+    @FXML
+    private ToggleButton dairiesCategoryButton;
+    @FXML
+    private ToggleButton meatCategoryButton;
+    @FXML
+    private ToggleButton fruitCategoryButton;
+    @FXML
+    private ToggleButton vegetablesCategoryButton;
+    @FXML
+    private Label categoryTitleLabel;
+    @FXML
+    private Label categoryAmountLabel;
+    @FXML
+    private Button sortByNameButton;
+    @FXML
+    private Button sortByPriceButton;
+
+    //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
+    private boolean sortedDirectionName = false;
+    private boolean sortedDirectionPrice = false;
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the Products with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
@@ -62,11 +79,11 @@ public class Controller implements Initializable {
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if(newValue == null) {
+                if (newValue == null) {
                     oldValue.setSelected(true); // Stops the currently selected toggle from being unselected when pressed
                 } else {
 
-                    ToggleButton selected = (ToggleButton)categoryToggleGroup.getSelectedToggle();
+                    ToggleButton selected = (ToggleButton) categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
 
                     switch (selected.getId()) {
@@ -102,7 +119,7 @@ public class Controller implements Initializable {
     /**
      * Adds the products from the shownProducts list to the listFlowPane in the main view
      */
-    private void updateProductList(){
+    private void updateProductList() {
         listFlowPane.getChildren().clear();
 
         for (Product product : shownProducts) {
@@ -110,14 +127,14 @@ public class Controller implements Initializable {
         }
     }
 
-    public void updateRegisterItemList(ShoppingItem item){
+    public void updateRegisterItemList(ShoppingItem item) {
 
     }
 
     /**
      * Shows the amount of shown products
      */
-    private void updateAmountFound(){
+    private void updateAmountFound() {
         categoryAmountLabel.setText("(" + shownProducts.size() + " träffar)");
 
     }
@@ -126,13 +143,11 @@ public class Controller implements Initializable {
      * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
      */
 
-    public void updateFavImage(){
+    public void updateFavImage() {
         for (Product product : bc.getProducts()) {
-            if(bc.isFavorite(product)) {
+            if (bc.isFavorite(product)) {
                 productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_selected.png")));
-            }
-
-            else{
+            } else {
                 productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_notselected.png")));
 
             }
@@ -140,19 +155,31 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void sortByName(){
-        shownProducts.sort(Comparator.comparing(Product::getName));
+    private void sortByName() {
+        if (!sortedDirectionName) {
+            shownProducts.sort(Comparator.comparing(Product::getName));
+        } else {
+            Collections.reverse(shownProducts);
+        }
+        sortedDirectionName = !sortedDirectionName;
         updateProductList();
-
     }
+
 
 
     @FXML
     private void sortByPrice(){
-        shownProducts.sort(Comparator.comparing(Product::getPrice));
+        if(!sortedDirectionPrice) {
+            shownProducts.sort(Comparator.comparing(Product::getPrice));
+        }
+        else {
+            Collections.reverse(shownProducts);
+        }
+        sortedDirectionPrice = !sortedDirectionPrice;
         updateProductList();
 
     }
+
 
 
 

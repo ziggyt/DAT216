@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
         <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -295,12 +295,12 @@
                               <FlowPane fx:id="listFlowPane" prefHeight="200.0" prefWidth="863.0" />
                            </content>
                         </ScrollPane>
-                        <Button fx:id="sortByNameButton" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByName" prefHeight="29.0" prefWidth="129.0" text="Sortera efter namn">
+                        <Button fx:id="sortByNameButton" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByName" text="Sortera efter namn">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sortByPriceButton" layoutX="147.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" prefHeight="29.0" prefWidth="130.0" text="Sortera efter pris">
+                        <Button fx:id="sortByPriceButton" layoutX="157.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
                            <font>
                               <Font size="13.0" />
                            </font>
