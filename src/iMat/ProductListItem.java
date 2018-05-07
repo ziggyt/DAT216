@@ -53,7 +53,7 @@ class ProductListItem extends AnchorPane {
 
     @FXML
     protected void purchaseItem(){
-        parentController.purchaseItem(this.product, this.amount);
+        parentController.purchaseItem(new ShoppingItem(this.product, this.amount));
     }
 
     /**
@@ -61,11 +61,11 @@ class ProductListItem extends AnchorPane {
      */
     @FXML
     protected void favIconOnClick(Event event) {
-        if (!parentController.getFavStatus(product)){
-            parentController.addToFavorites(product);
+        if (!parentController.getFavStatus(this.product)){
+            parentController.addToFavorites(this.product);
         }
         else{
-            parentController.removeFromFavorites(product);
+            parentController.removeFromFavorites(this.product);
         }
         parentController.updateFavImage();
 

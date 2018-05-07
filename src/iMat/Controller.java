@@ -20,7 +20,7 @@ public class Controller implements Initializable {
     @FXML
     private FlowPane listFlowPane;
     @FXML
-    private FlowPane registerFlowPane;
+    private FlowPane registerListFlowPane;
     @FXML
     private ToggleButton allCategoryButton;
     @FXML
@@ -48,10 +48,11 @@ public class Controller implements Initializable {
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
 
-    private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the Products with their names as keys
+    private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
+    private Map<String, RegisterListItem> registerListItemMap = new HashMap<>(); // Map of all the RegisterListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
-    private ShoppingCart shoppingCart;
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
+    private ShoppingCart register;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,7 +61,12 @@ public class Controller implements Initializable {
             ProductListItem productListItem = new ProductListItem(product, this);
             productListItemMap.put(product.getName(), productListItem);
         }
+        for (Product product : bc.getProducts()) {
+            RegisterListItem registerListItem = new RegisterListItem(product, this);
+            registerListItemMap.put(product.getName(), registerListItem);
+        }
         shownProducts = bc.getProducts();
+        register = bc.getShoppingCart();
         updateProductList();
         updateAmountFound();
         updateFavImage();
@@ -116,6 +122,13 @@ public class Controller implements Initializable {
                 }
             }
         });
+
+        register.addShoppingCartListener(new ShoppingCartListener() {
+            @Override
+            public void shoppingCartChanged(CartEvent cartEvent) {
+                updateRegisterList();
+            }
+        });
     }
 
     /**
@@ -129,12 +142,15 @@ public class Controller implements Initializable {
         }
     }
 
-    public void updateRegisterItemList(ShoppingItem item) {
+    /**
+     * Adds the products from the register item list to the registerListFlowPane in the register view
+     */
+    private void updateRegisterList(){
+        registerListFlowPane.getChildren().clear();
 
-    }
-
-    private void updateShoppingcart(){
-        shoppingCart = bc.getShoppingCart();
+        for (ShoppingItem si : register.getItems()) {
+            registerListFlowPane.getChildren().add(registerListItemMap.get(si.getProduct().getName()));
+        }
     }
 
     /**
@@ -149,7 +165,7 @@ public class Controller implements Initializable {
      * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
      */
 
-    public void updateFavImage() {
+    void updateFavImage() {
         for (Product product : bc.getProducts()) {
             if (bc.isFavorite(product)) {
                 productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_selected.png")));
@@ -195,13 +211,7 @@ public class Controller implements Initializable {
 
     }
 
-
-
-
-
-
-
-    public Image getSquareImage(Image image){
+    Image getSquareImage(Image image){
 
         int x = 0;
         int y = 0;
@@ -231,31 +241,47 @@ public class Controller implements Initializable {
 
     //Helpers, here for now. Accessed from ProductListItem
 
-    public Image getProductImage(Product p){
+    Image getProductImage(Product p){
 
         return  bc.getFXImage(p);
     }
 
-    public boolean getFavStatus(Product p){
+    boolean getFavStatus(Product p){
 
         return bc.isFavorite(p);
     }
 
-    public void addToFavorites(Product p){
+    void addToFavorites(Product p){
         bc.addFavorite(p);
         updateProductList();
     }
 
-    public void removeFromFavorites(Product p){
+    void removeFromFavorites(Product p){
         bc.removeFavorite(p);
         updateProductList();
     }
 
-    public void purchaseItem(Product p, int amount){
-        bc.getShoppingCart().addItem(new ShoppingItem(p, amount));
-        updateShoppingcart();
-
-
+    void purchaseItem(ShoppingItem si){
+        if (isInRegister(si.getProduct())) {
+            for (ShoppingItem item : register.getItems()) {
+                if (item.getProduct().equals(si.getProduct())) {
+                    item.setAmount(item.getAmount()+si.getAmount());
+                    break;
+                }
+            }
+        } else {
+            register.addItem(si);
+        }
     }
+
+    private Boolean isInRegister(Product p) {
+        for (ShoppingItem si : register.getItems()) {
+            if (si.getProduct().equals(p)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 

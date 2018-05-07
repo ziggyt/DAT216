@@ -10,7 +10,7 @@ import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
-public class RegisterListItem extends AnchorPane{
+public class RegisterListItem extends AnchorPane {
 
     private Controller parentController;
     private Product product;

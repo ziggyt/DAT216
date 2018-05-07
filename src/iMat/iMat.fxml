@@ -270,11 +270,11 @@
                         </AnchorPane>
                     </left>
                     <right>
-                        <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefWidth="250.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane layoutY="70.0" prefHeight="620.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <ScrollPane layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane fx:id="registerFlowPane" prefHeight="200.0" prefWidth="200.0" />
+                              <FlowPane fx:id="registerListFlowPane" prefHeight="300.0" prefWidth="230.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>
@@ -298,7 +298,7 @@
                         </FlowPane>
                         <ScrollPane hbarPolicy="NEVER" layoutY="63.0" prefViewportHeight="200.0" prefViewportWidth="775.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane fx:id="listFlowPane" prefHeight="200.0" prefWidth="865.0" />
+                              <FlowPane fx:id="listFlowPane" prefHeight="300.0" prefWidth="815.0" />
                            </content>
                         </ScrollPane>
                         <Button fx:id="sortByNameButton" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByName" text="Sortera efter namn">
