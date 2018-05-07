@@ -50,6 +50,7 @@ public class Controller implements Initializable {
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the Products with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
+    private ShoppingCart shoppingCart;
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
 
     @Override
@@ -129,6 +130,10 @@ public class Controller implements Initializable {
 
     public void updateRegisterItemList(ShoppingItem item) {
 
+    }
+
+    private void updateShoppingcart(){
+        shoppingCart = bc.getShoppingCart();
     }
 
     /**
@@ -236,8 +241,11 @@ public class Controller implements Initializable {
         updateProductList();
     }
 
-    public IMatDataHandler getBc() {
-        return bc;
+    public void purchaseItem(Product p, int amount){
+        bc.getShoppingCart().addItem(new ShoppingItem(p, amount));
+        updateShoppingcart();
+
+
     }
 }
 

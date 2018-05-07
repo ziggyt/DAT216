@@ -22,6 +22,8 @@ class ProductListItem extends AnchorPane {
     @FXML private Label priceLabel;
     @FXML private Button buyButton;
     @FXML private ImageView favoriteItemImage;
+    private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
+
 
     ProductListItem(Product product, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_listitem.fxml"));
@@ -48,7 +50,7 @@ class ProductListItem extends AnchorPane {
 
     @FXML
     protected void purchaseItem(){
-        parentController.getBc().getShoppingCart().addItem(new ShoppingItem(product, 1));
+        parentController.purchaseItem(this.product, this.amount);
     }
 
     /**
@@ -64,6 +66,16 @@ class ProductListItem extends AnchorPane {
         }
         parentController.updateFavImage();
 
+    }
+
+    @FXML
+    private void incrementAmount(){
+        amount++;
+    }
+
+    @FXML
+    private void decrementAmount(){
+        amount--;
     }
 
 
