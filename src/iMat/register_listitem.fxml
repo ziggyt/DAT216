@@ -14,28 +14,28 @@
             <Image url="@resources/imat_icon.gif" />
          </image>
       </ImageView>
-      <Label layoutX="123.0" layoutY="46.0" prefHeight="36.0" prefWidth="99.0" styleClass="text-large" text="Kaffe" />
-      <Label layoutX="236.0" layoutY="54.0" text="1 st" />
-      <Label layoutX="331.0" layoutY="54.0" text="50kr" />
+      <Label layoutX="123.0" layoutY="46.0" prefHeight="36.0" prefWidth="99.0" styleClass="text-title" text="Kaffe" />
+      <Label layoutX="236.0" layoutY="50.0" styleClass="text-large" text="1 st" />
+      <Label layoutX="350.0" layoutY="54.0" styleClass="text-large" text="50kr" />
       <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="437.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/icon_close.png" />
          </image>
       </ImageView>
-      <Button layoutX="290.0" layoutY="63.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="278.0" layoutY="65.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/icon_close.png" />
+                  <Image url="@resources/User-Interface-Minus-icon.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="290.0" layoutY="33.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="278.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/icon_close.png" />
+                  <Image url="@resources/Very-Basic-Plus-icon.png" />
                </image>
             </ImageView>
          </graphic>
