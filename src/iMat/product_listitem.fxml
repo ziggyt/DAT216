@@ -12,28 +12,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="250.0" prefWidth="200.0" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="250.0" prefWidth="200.0" styleClass="imgEffects" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <SplitPane dividerPositions="0.8" layoutX="14.0" layoutY="8.0" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane prefHeight="200.0">
                     <children>
-                        <ImageView fx:id="productImageView" fitHeight="130.0" fitWidth="130.0" layoutX="-1.0" layoutY="14.0" pickOnBounds="true" styleClass="imgEffects" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <ImageView fx:id="productImageView" fitHeight="130.0" fitWidth="130.0" layoutX="-1.0" layoutY="14.0" pickOnBounds="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                             <image>
                                 <Image url="@resources/imat_icon.gif" />
                             </image>
                         </ImageView>
                         <Label fx:id="priceLabel" layoutX="14.0" layoutY="171.0" styleClass="text-normal" text="Price" />
                         <Label fx:id="nameLabel" layoutX="14.0" layoutY="144.0" styleClass="text-large" text="Product name" />
-                  <ImageView fx:id="favoriteItemImage" fitHeight="64.0" fitWidth="64.0" layoutX="140.0" onMouseClicked="#favIconOnClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="130.0">
+                  <ImageView fx:id="favoriteItemImage" fitHeight="40.0" fitWidth="40.0" layoutX="163.0" onMouseClicked="#favIconOnClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <image>
                         <Image url="@resources/favorite_item_notselected.png" />
                      </image></ImageView>
                     </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane prefHeight="50.0">
                <children>
-                  <Button fx:id="buyButton" layoutX="134.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Köp" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="9.0" />
+                  <Button fx:id="buyButton" layoutX="134.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Köp" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0" />
                </children></AnchorPane>
             </items>
         </SplitPane>
