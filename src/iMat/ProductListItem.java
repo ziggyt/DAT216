@@ -62,14 +62,12 @@ class ProductListItem extends AnchorPane {
 
 
     /**
-     * Supposed to hint when mouse enters the star but doesn't work for now
+     * Hints when mouse enters the star
      */
-
     @FXML
     public void favIconMouseEntered(){
         this.favoriteItemImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/favorite_item_hint.png")));
-        parentController.updateFavImage();
     }
 
     @FXML
