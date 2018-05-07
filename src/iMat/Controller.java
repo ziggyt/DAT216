@@ -26,6 +26,7 @@ public class Controller implements Initializable {
     private IMatDataHandler bc = IMatDataHandler.getInstance();
 
     @FXML private FlowPane listFlowPane;
+    @FXML private FlowPane registerFlowPane;
     @FXML private ToggleButton allCategoryButton;
     @FXML private ToggleButton favCategoryButton;
     @FXML private ToggleButton breadCategoryButton;

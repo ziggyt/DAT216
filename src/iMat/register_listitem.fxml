@@ -9,20 +9,20 @@
 
 <AnchorPane prefHeight="115.0" prefWidth="471.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.RegisterListitem">
    <children>
-      <ImageView fitHeight="127.0" fitWidth="115.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="productImageView" fitHeight="127.0" fitWidth="115.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@resources/imat_icon.gif" />
          </image>
       </ImageView>
-      <Label layoutX="123.0" layoutY="46.0" prefHeight="36.0" prefWidth="99.0" styleClass="text-title" text="Kaffe" />
-      <Label layoutX="236.0" layoutY="50.0" styleClass="text-large" text="1 st" />
-      <Label layoutX="350.0" layoutY="54.0" styleClass="text-large" text="50kr" />
-      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="437.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="nameLabel" layoutX="123.0" layoutY="46.0" prefHeight="36.0" prefWidth="99.0" styleClass="text-title" text="Kaffe" />
+      <Label fx:id="quantityLabel" layoutX="236.0" layoutY="50.0" styleClass="text-large" text="1 st" />
+      <Label fx:id="priceLabel" layoutX="350.0" layoutY="54.0" styleClass="text-large" text="50kr" />
+      <ImageView fx:id="closeIconImageView" fitHeight="30.0" fitWidth="31.0" layoutX="437.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/icon_close.png" />
          </image>
       </ImageView>
-      <Button layoutX="278.0" layoutY="65.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
+      <Button fx:id="minusButton" layoutX="278.0" layoutY="65.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,7 +31,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="278.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
+      <Button fx:id="plusButton" layoutX="278.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
