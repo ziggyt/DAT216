@@ -11,9 +11,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
+import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -116,6 +114,9 @@ public class Controller implements Initializable {
         }
     }
 
+    public void updateRegisterItemList(ShoppingItem item){
+
+    }
 
     /**
      * Shows the amount of shown products
@@ -197,5 +198,8 @@ public class Controller implements Initializable {
         updateProductList();
     }
 
+    public IMatDataHandler getBc() {
+        return bc;
+    }
 }
 

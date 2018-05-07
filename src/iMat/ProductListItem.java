@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -44,6 +45,11 @@ class ProductListItem extends AnchorPane {
         priceLabel.setText(product.getPrice() + " kr");
     }
 
+
+    @FXML
+    protected void purchaseItem(){
+        parentController.getBc().getShoppingCart().addItem(new ShoppingItem(product, 1));
+    }
 
     /**
      * Checks if star on product is clicked and sets according status
