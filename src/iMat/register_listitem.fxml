@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Label fx:id="nameLabel" layoutX="69.0" layoutY="1.0" prefWidth="120.0" styleClass="text-large" text="Kaffe" />
-      <Label fx:id="quantityLabel" layoutX="87.0" layoutY="36.0" styleClass="text-large" text="1 st" />
+      <Label fx:id="quantityLabel" layoutX="87.0" layoutY="36.0" styleClass="text-large" text="X st" />
       <Label fx:id="priceLabel" layoutX="186.0" layoutY="38.0" styleClass="text-large" text="50kr" />
       <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" layoutX="186.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
