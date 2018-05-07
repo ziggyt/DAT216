@@ -120,7 +120,7 @@ public class Controller implements Initializable {
      * Shows the amount of shown products
      */
     private void updateAmountFound(){
-        categoryAmountLabel.setText(Integer.toString(shownProducts.size()) + " träffar");
+        categoryAmountLabel.setText("(" + shownProducts.size() + " träffar)");
 
     }
 
