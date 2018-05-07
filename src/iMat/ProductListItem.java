@@ -57,10 +57,10 @@ class ProductListItem extends AnchorPane {
     @FXML
     protected void favIconOnClick(Event event) {
         if (!parentController.getFavStatus(product)){
-            parentController.addToFavorites(this.product);
+            parentController.addToFavorites(product);
         }
         else{
-            parentController.removeFromFavorites(this.product);
+            parentController.removeFromFavorites(product);
         }
         parentController.updateFavImage();
 
