@@ -280,6 +280,7 @@ public class Controller implements Initializable {
         for (ShoppingItem item : register.getItems()) {
             if (item.getProduct().getName().equals(p.getName())) {
                 register.removeItem(item);
+                break;
             }
         }
     }
