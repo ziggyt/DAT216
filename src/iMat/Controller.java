@@ -43,10 +43,6 @@ public class Controller implements Initializable {
     private Label categoryAmountLabel;
     @FXML
     private Label cartTotalLabel;
-    @FXML
-    private Button sortByNameButton;
-    @FXML
-    private Button sortByPriceButton;
 
     //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
     private boolean sortedDirectionName = false;
@@ -75,6 +71,30 @@ public class Controller implements Initializable {
         listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
         listFlowPane.setPadding(new Insets(10, 10, 10,64));
+
+        /* All available categories
+    POD,
+    BREAD,-------
+    BERRY,
+    CITRUS_FRUIT,
+    HOT_DRINKS,
+    COLD_DRINKS,
+    EXOTIC_FRUIT,
+    FISH,
+    VEGETABLE_FRUIT,------
+    CABBAGE,
+    MEAT,----------
+    DAIRIES,-------
+    MELONS,
+    FLOUR_SUGAR_SALT,
+    NUTS_AND_SEEDS,
+    PASTA,
+    POTATO_RICE,
+    ROOT_VEGETABLE,
+    FRUIT,-----
+    SWEET,
+    HERB;
+    */
 
         allCategoryButton.setToggleGroup(categoryToggleGroup);
         favCategoryButton.setToggleGroup(categoryToggleGroup);
