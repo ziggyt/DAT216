@@ -72,7 +72,7 @@ class ProductListItem extends AnchorPane {
         parentController.updateFavImage();
 
     }
-
+ /*
     @FXML
     private void incrementAmount(){
         amount++;
@@ -82,7 +82,7 @@ class ProductListItem extends AnchorPane {
     private void decrementAmount(){
         amount--;
     }
-
+*/
 
     /**
      * Hints when mouse enters the star

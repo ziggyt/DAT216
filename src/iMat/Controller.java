@@ -41,6 +41,8 @@ public class Controller implements Initializable {
     @FXML
     private Label categoryAmountLabel;
     @FXML
+    private Label cartTotalLabel;
+    @FXML
     private Button sortByNameButton;
     @FXML
     private Button sortByPriceButton;
@@ -67,6 +69,7 @@ public class Controller implements Initializable {
         updateAmountFound();
         updateFavImage();
         updateEcoImage();
+        updateCartTotal();
 
         listFlowPane.setHgap(21);
         listFlowPane.setVgap(21);
@@ -123,6 +126,7 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
+                updateCartTotal();
             }
         });
     }
@@ -273,6 +277,12 @@ public class Controller implements Initializable {
     void removeItemFromCart(ShoppingItem si) {
         cart.removeItem(si);
     }
+
+    void updateCartTotal() {
+        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()));
+
+    }
+
 
     private Boolean isInCart(Product p) {
         for (ShoppingItem si : cart.getItems()) {

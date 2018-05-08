@@ -54,14 +54,15 @@ public class CartListItem extends AnchorPane {
         //Text setup
         nameLabel.setText(si.getProduct().getName());
         priceLabel.setText(si.getTotal() + " kr");
-        quantityLabel.setText(si.getAmount() + " st");
+        quantityLabel.setText((int)si.getAmount() + " st");
     }
 
     @FXML
     protected void incAmount(){
         shoppingItem.setAmount(shoppingItem.getAmount()+1);
-        priceLabel.setText(shoppingItem.getTotal() + " kr");
-        quantityLabel.setText(shoppingItem.getAmount() + " st");
+        priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
+        quantityLabel.setText((int)shoppingItem.getAmount() + " st");
+        parentController.updateCartTotal();
     }
 
     @FXML
@@ -69,8 +70,9 @@ public class CartListItem extends AnchorPane {
         if(shoppingItem.getAmount()>1){
             shoppingItem.setAmount(shoppingItem.getAmount()-1);
         }
-        priceLabel.setText(shoppingItem.getTotal() + " kr");
-        quantityLabel.setText(shoppingItem.getAmount() + " st");
+        priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
+        quantityLabel.setText((int)shoppingItem.getAmount() + " st");
+        parentController.updateCartTotal();
     }
 
     @FXML

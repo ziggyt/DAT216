@@ -273,8 +273,11 @@
                               <FlowPane fx:id="cartListFlowPane" prefHeight="300.0" prefWidth="230.0" />
                            </content>
                         </ScrollPane>
-                        <Label fx:id="cartTotalLabel" layoutX="14.0" layoutY="45.0" />
-                        <ImageView fitHeight="39.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                        <Label fx:id="cartTotalLabel" layoutX="14.0" layoutY="36.0" prefHeight="34.0" prefWidth="222.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <ImageView fitHeight="39.0" fitWidth="44.0" layoutX="-5.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/shopping_cart.png" />
                            </image>
