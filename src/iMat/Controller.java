@@ -21,7 +21,7 @@ public class Controller implements Initializable {
     @FXML
     private FlowPane listFlowPane;
     @FXML
-    private FlowPane registerListFlowPane;
+    private FlowPane cartListFlowPane;
     @FXML
     private ToggleButton allCategoryButton;
     @FXML
@@ -50,10 +50,10 @@ public class Controller implements Initializable {
     private boolean sortedDirectionPrice = false;
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
-    private Map<String, RegisterListItem> registerListItemMap = new HashMap<>(); // Map of all the RegisterListItems with their names as keys
+    private Map<String, CartListItem> cartListItemMap = new HashMap<>(); // Map of all the CartListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
-    private ShoppingCart register;
+    private ShoppingCart cart;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,11 +63,11 @@ public class Controller implements Initializable {
             productListItemMap.put(product.getName(), productListItem);
         }
         for (Product product : bc.getProducts()) {
-            RegisterListItem registerListItem = new RegisterListItem(product, this);
-            registerListItemMap.put(product.getName(), registerListItem);
+            CartListItem cartListItem = new CartListItem(product, this);
+            cartListItemMap.put(product.getName(), cartListItem);
         }
         shownProducts = bc.getProducts();
-        register = bc.getShoppingCart();
+        cart = bc.getShoppingCart();
         updateProductList();
         updateAmountFound();
         updateFavImage();
@@ -124,10 +124,10 @@ public class Controller implements Initializable {
             }
         });
 
-        register.addShoppingCartListener(new ShoppingCartListener() {
+        cart.addShoppingCartListener(new ShoppingCartListener() {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
-                updateRegisterList();
+                updateCartList();
             }
         });
     }
@@ -144,23 +144,13 @@ public class Controller implements Initializable {
     }
 
     /**
-     * Adds the products from the register item list to the registerListFlowPane in the register view
+     * Adds the products from the cart item list to the cartListFlowPane in the shopping cart view
      */
-    private void updateRegisterList(){
-        registerListFlowPane.getChildren().clear();
+    private void updateCartList(){
+        cartListFlowPane.getChildren().clear();
 
-        for (ShoppingItem si : register.getItems()) {
-            registerListFlowPane.getChildren().add(registerListItemMap.get(si.getProduct().getName()));
-        }
-    }
-
-    public void updateRegisterOnChange(Product product, int amount){
-        if(isInRegister(product)){
-            for (ShoppingItem item : register.getItems()) {
-                if (item.getProduct().equals(product)) {
-                    item.setAmount(amount);
-                }
-            }
+        for (ShoppingItem si : cart.getItems()) {
+            cartListFlowPane.getChildren().add(cartListItemMap.get(si.getProduct().getName()));
         }
     }
 
@@ -273,33 +263,30 @@ public class Controller implements Initializable {
     }
 
     void purchaseItem(ShoppingItem si){
-        if (isInRegister(si.getProduct())) {
-            for (ShoppingItem item : register.getItems()) {
+        if (isInCart(si.getProduct())) {
+            for (ShoppingItem item : cart.getItems()) {
                 if (item.getProduct().equals(si.getProduct())) {
                     item.setAmount(item.getAmount()+si.getAmount());
-                    //registerListItemMap.get(item.getProduct().getName()).amountChanged((int)item.getAmount());
                     break;
                 }
             }
         } else {
-            register.addItem(si);
+            cart.addItem(si);
         }
     }
 
     //Produces an error, why?
     void removeItemFromCart(Product p) {
-        for (ShoppingItem item : register.getItems()) {
+        for (ShoppingItem item : cart.getItems()) {
             if (item.getProduct().getName().equals(p.getName())) {
-                item.setAmount(1);
-                registerListItemMap.get(p.getName()).resetAmount();
-                register.removeItem(item);
+                cart.removeItem(item);
                 break;
             }
         }
     }
 
-    private Boolean isInRegister(Product p) {
-        for (ShoppingItem si : register.getItems()) {
+    private Boolean isInCart(Product p) {
+        for (ShoppingItem si : cart.getItems()) {
             if (si.getProduct().equals(p)) {
                 return true;
             }

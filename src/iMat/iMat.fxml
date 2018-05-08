@@ -274,7 +274,7 @@
                      <children>
                         <ScrollPane layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <content>
-                              <FlowPane fx:id="registerListFlowPane" prefHeight="300.0" prefWidth="230.0" />
+                              <FlowPane fx:id="cartListFlowPane" prefHeight="300.0" prefWidth="230.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>

@@ -12,7 +12,7 @@ import se.chalmers.cse.dat216.project.Product;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-public class RegisterListItem extends AnchorPane {
+public class CartListItem extends AnchorPane {
 
     private Controller parentController;
     private Product product;
@@ -34,8 +34,8 @@ public class RegisterListItem extends AnchorPane {
     private ImageView closeIconImageView;
 
 
-    RegisterListItem(Product product, Controller controller) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register_listitem.fxml"));
+    CartListItem(Product product, Controller controller) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
