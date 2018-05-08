@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -15,8 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 public class CartListItem extends AnchorPane {
 
     private Controller parentController;
-    private Product product;
-    private int amount = 1;
+    private ShoppingItem shoppingItem;
 
     @FXML
     private ImageView productImageView;
@@ -34,7 +34,7 @@ public class CartListItem extends AnchorPane {
     private ImageView closeIconImageView;
 
 
-    CartListItem(Product product, Controller controller) {
+    CartListItem(ShoppingItem si, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -45,49 +45,18 @@ public class CartListItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.product = product;
+        this.shoppingItem = si;
         this.parentController = controller;
 
         //Image setup
-        productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));
+        productImageView.setImage(controller.getSquareImage(controller.getProductImage(si.getProduct())));
 
         //Text setup
-        nameLabel.setText(product.getName());
-        quantityLabel.setText(amount + " st");
-        priceLabel.setText(product.getPrice() + " kr");
+        nameLabel.setText(si.getProduct().getName());
+        priceLabel.setText(si.getTotal() + " kr");
+        quantityLabel.setText(si.getAmount() + " st");
     }
 
-    @FXML
-    protected void incAmount(){
-        amount++;
-        quantityLabel.setText(amount + " st");
-        priceLabel.setText(amount * product.getPrice() + " kr");
-        parentController.updateRegisterOnChange(product, amount);
-    }
-
-    @FXML
-    protected void decAmount(){
-        if(amount>1){
-            amount--;
-        }
-        quantityLabel.setText(amount + " st");
-        priceLabel.setText(amount * product.getPrice() + " kr");
-        parentController.updateRegisterOnChange(product, amount);
-    }
-
-    public void resetAmount(){
-        amount=1;
-        quantityLabel.setText(amount + " st");
-        priceLabel.setText(amount * product.getPrice() + " kr");
-
-    }
-
-    public void amountChanged(int amount){
-        this.amount = amount;
-        quantityLabel.setText(amount + " st");
-        priceLabel.setText(amount * product.getPrice() + " kr");
-
-    }
 
     @FXML
     public void closeIconMouseEntered() {
@@ -103,8 +72,8 @@ public class CartListItem extends AnchorPane {
 
     @FXML
     private void removeItem(){
-            parentController.removeItemFromCart(this.product);
-        }
+        parentController.removeItemFromCart(this.shoppingItem);
+    }
 
 
     /**

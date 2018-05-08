@@ -17,6 +17,7 @@ import java.io.IOException;
 class ProductListItem extends AnchorPane {
     private Controller parentController;
     private Product product;
+    private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
 
     @FXML private ImageView productImageView;
     @FXML private Label nameLabel;
@@ -25,7 +26,6 @@ class ProductListItem extends AnchorPane {
     @FXML private ImageView favoriteItemImageView;
     @FXML private SplitPane productSplitPane;
     @FXML private ImageView ecoImageView;
-    private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
 
 
     ProductListItem(Product product, Controller controller) {
@@ -55,7 +55,7 @@ class ProductListItem extends AnchorPane {
 
     @FXML
     protected void purchaseItem(){
-        parentController.purchaseItem(new ShoppingItem(this.product, this.amount));
+        parentController.purchaseItem(this.product, this.amount);
     }
 
     /**

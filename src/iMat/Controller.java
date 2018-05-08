@@ -50,7 +50,6 @@ public class Controller implements Initializable {
     private boolean sortedDirectionPrice = false;
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
-    private Map<String, CartListItem> cartListItemMap = new HashMap<>(); // Map of all the CartListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
     private ShoppingCart cart;
@@ -61,10 +60,6 @@ public class Controller implements Initializable {
         for (Product product : bc.getProducts()) {
             ProductListItem productListItem = new ProductListItem(product, this);
             productListItemMap.put(product.getName(), productListItem);
-        }
-        for (Product product : bc.getProducts()) {
-            CartListItem cartListItem = new CartListItem(product, this);
-            cartListItemMap.put(product.getName(), cartListItem);
         }
         shownProducts = bc.getProducts();
         cart = bc.getShoppingCart();
@@ -150,7 +145,7 @@ public class Controller implements Initializable {
         cartListFlowPane.getChildren().clear();
 
         for (ShoppingItem si : cart.getItems()) {
-            cartListFlowPane.getChildren().add(cartListItemMap.get(si.getProduct().getName()));
+            cartListFlowPane.getChildren().add(new CartListItem(si, this));
         }
     }
 
@@ -165,7 +160,6 @@ public class Controller implements Initializable {
     /**
      * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
      */
-
     void updateFavImage() {
         for (Product product : bc.getProducts()) {
             if (bc.isFavorite(product)) {
@@ -262,27 +256,22 @@ public class Controller implements Initializable {
         updateProductList();
     }
 
-    void purchaseItem(ShoppingItem si){
-        if (isInCart(si.getProduct())) {
+    void purchaseItem(Product p, int n){
+        if (isInCart(p)) {
             for (ShoppingItem item : cart.getItems()) {
-                if (item.getProduct().equals(si.getProduct())) {
-                    item.setAmount(item.getAmount()+si.getAmount());
+                if (item.getProduct().equals(p)) {
+                    item.setAmount(item.getAmount()+n);
+                    updateCartList();
                     break;
                 }
             }
         } else {
-            cart.addItem(si);
+            cart.addItem(new ShoppingItem(p, n));
         }
     }
 
-    //Produces an error, why?
-    void removeItemFromCart(Product p) {
-        for (ShoppingItem item : cart.getItems()) {
-            if (item.getProduct().getName().equals(p.getName())) {
-                cart.removeItem(item);
-                break;
-            }
-        }
+    void removeItemFromCart(ShoppingItem si) {
+        cart.removeItem(si);
     }
 
     private Boolean isInCart(Product p) {
