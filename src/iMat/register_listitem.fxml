@@ -14,25 +14,25 @@
          </image>
       </ImageView>
       <Label fx:id="nameLabel" layoutX="77.0" layoutY="1.0" prefHeight="27.0" prefWidth="129.0" styleClass="text-large" text="Kaffe" wrapText="true" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="1.0" />
-      <Label fx:id="quantityLabel" layoutX="87.0" layoutY="36.0" styleClass="text-large" text="X st" />
+      <Label fx:id="quantityLabel" layoutX="79.0" layoutY="36.0" styleClass="text-large" text="X st" />
       <Label fx:id="priceLabel" layoutX="165.0" layoutY="38.0" prefHeight="27.0" prefWidth="70.0" styleClass="text-large" text="50kr" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="38.0" />
-      <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" layoutX="209.0" layoutY="2.0" onMouseClicked="#removeItem" onMouseEntered="#closeIconMouseEntered" onMouseExited="#closeIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="2.0">
+      <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" layoutX="219.0" layoutY="2.0" onMouseClicked="#removeItem" onMouseEntered="#closeIconMouseEntered" onMouseExited="#closeIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@resources/icon_close.png" />
          </image>
       </ImageView>
-      <Button fx:id="minusButton" layoutX="123.0" layoutY="51.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="15.0" prefWidth="15.0">
+      <Button fx:id="minusButton" layoutX="120.0" layoutY="48.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="17.0" prefWidth="17.0">
          <graphic>
-            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
                <image>
                   <Image url="@resources/User-Interface-Minus-icon.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="plusButton" layoutX="123.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="15.0" prefWidth="15.0">
+      <Button fx:id="plusButton" layoutX="120.0" layoutY="28.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="17.0" prefWidth="17.0">
          <graphic>
-            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
                <image>
                   <Image url="@resources/Very-Basic-Plus-icon.png" />
                </image>
