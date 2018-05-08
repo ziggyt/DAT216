@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
@@ -71,8 +72,9 @@ public class Controller implements Initializable {
         updateEcoImage();
         updateCartTotal();
 
-        listFlowPane.setHgap(21);
+        listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
+        listFlowPane.setPadding(new Insets(10, 10, 10,64));
 
         allCategoryButton.setToggleGroup(categoryToggleGroup);
         favCategoryButton.setToggleGroup(categoryToggleGroup);
