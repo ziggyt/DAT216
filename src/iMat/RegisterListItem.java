@@ -61,6 +61,8 @@ public class RegisterListItem extends AnchorPane {
     protected void incAmount(){
         amount++;
         quantityLabel.setText(amount + " st");
+        priceLabel.setText(amount * product.getPrice() + " kr");
+        parentController.updateRegisterOnChange(product, amount);
     }
 
     @FXML
@@ -69,8 +71,23 @@ public class RegisterListItem extends AnchorPane {
             amount--;
         }
         quantityLabel.setText(amount + " st");
+        priceLabel.setText(amount * product.getPrice() + " kr");
+        parentController.updateRegisterOnChange(product, amount);
     }
 
+    public void resetAmount(){
+        amount=1;
+        quantityLabel.setText(amount + " st");
+        priceLabel.setText(amount * product.getPrice() + " kr");
+
+    }
+
+    public void amountChanged(int amount){
+        this.amount = amount;
+        quantityLabel.setText(amount + " st");
+        priceLabel.setText(amount * product.getPrice() + " kr");
+
+    }
 
     @FXML
     public void closeIconMouseEntered() {

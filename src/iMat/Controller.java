@@ -154,6 +154,16 @@ public class Controller implements Initializable {
         }
     }
 
+    public void updateRegisterOnChange(Product product, int amount){
+        if(isInRegister(product)){
+            for (ShoppingItem item : register.getItems()) {
+                if (item.getProduct().equals(product)) {
+                    item.setAmount(amount);
+                }
+            }
+        }
+    }
+
     /**
      * Shows the amount of shown products
      */
@@ -267,6 +277,7 @@ public class Controller implements Initializable {
             for (ShoppingItem item : register.getItems()) {
                 if (item.getProduct().equals(si.getProduct())) {
                     item.setAmount(item.getAmount()+si.getAmount());
+                    //registerListItemMap.get(item.getProduct().getName()).amountChanged((int)item.getAmount());
                     break;
                 }
             }
@@ -279,6 +290,8 @@ public class Controller implements Initializable {
     void removeItemFromCart(Product p) {
         for (ShoppingItem item : register.getItems()) {
             if (item.getProduct().getName().equals(p.getName())) {
+                item.setAmount(1);
+                registerListItemMap.get(p.getName()).resetAmount();
                 register.removeItem(item);
                 break;
             }
