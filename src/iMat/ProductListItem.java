@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,7 +23,10 @@ class ProductListItem extends AnchorPane {
     @FXML private ImageView productImageView;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    @FXML private Button plusButton;
+    @FXML private Button minusButton;
     @FXML private Button buyButton;
+    @FXML private TextField quantityTextField;
     @FXML private ImageView favoriteItemImageView;
     @FXML private SplitPane productSplitPane;
     @FXML private ImageView ecoImageView;
@@ -48,6 +52,7 @@ class ProductListItem extends AnchorPane {
         //Text setup
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " kr");
+        quantityTextField.setText(amount + " st");
         productSplitPane.setDividerPositions(0,0,0);
 
     }
@@ -73,17 +78,19 @@ class ProductListItem extends AnchorPane {
         parentController.updateFavImage();
 
     }
- /*
+
     @FXML
-    private void incrementAmount(){
+    private void incAmount(){
         amount++;
+        quantityTextField.setText(amount + " st");
     }
 
     @FXML
-    private void decrementAmount(){
+    private void decAmount(){
         amount--;
+        quantityTextField.setText(amount + " st");
     }
-*/
+
 
     /**
      * Hints when mouse enters the star
