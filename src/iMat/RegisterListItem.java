@@ -16,6 +16,7 @@ public class RegisterListItem extends AnchorPane {
 
     private Controller parentController;
     private Product product;
+    private int amount = 1;
 
     @FXML
     private ImageView productImageView;
@@ -52,7 +53,22 @@ public class RegisterListItem extends AnchorPane {
 
         //Text setup
         nameLabel.setText(product.getName());
+        quantityLabel.setText(amount + " st");
         priceLabel.setText(product.getPrice() + " kr");
+    }
+
+    @FXML
+    protected void incAmount(){
+        amount++;
+        quantityLabel.setText(amount + " st");
+    }
+
+    @FXML
+    protected void decAmount(){
+        if(amount>1){
+            amount--;
+        }
+        quantityLabel.setText(amount + " st");
     }
 
 

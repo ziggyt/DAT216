@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="70.0" prefWidth="230.0" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="70.0" prefWidth="230.0" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -21,7 +21,7 @@
             <Image url="@resources/icon_close.png" />
          </image>
       </ImageView>
-      <Button fx:id="minusButton" layoutX="123.0" layoutY="51.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="15.0" prefWidth="15.0">
+      <Button fx:id="minusButton" layoutX="123.0" layoutY="51.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="15.0" prefWidth="15.0">
          <graphic>
             <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +30,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="plusButton" layoutX="123.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="15.0" prefWidth="15.0">
+      <Button fx:id="plusButton" layoutX="123.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="15.0" prefWidth="15.0">
          <graphic>
             <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
