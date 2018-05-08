@@ -53,7 +53,7 @@ public class CartListItem extends AnchorPane {
 
         //Text setup
         nameLabel.setText(si.getProduct().getName());
-        priceLabel.setText(si.getTotal() + " kr");
+        priceLabel.setText(Math.round(si.getTotal()) + " kr");
         quantityLabel.setText((int)si.getAmount() + " st");
     }
 

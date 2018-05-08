@@ -56,6 +56,7 @@ class ProductListItem extends AnchorPane {
     @FXML
     protected void purchaseItem(){
         parentController.purchaseItem(this.product, this.amount);
+        parentController.updateCartTotal();
     }
 
     /**
