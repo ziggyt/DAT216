@@ -62,6 +62,8 @@ class ProductListItem extends AnchorPane {
     protected void purchaseItem(){
         parentController.purchaseItem(this.product, this.amount);
         parentController.updateCartTotal();
+        amount=1;
+        quantityTextField.setText(amount + " st");
     }
 
     /**
