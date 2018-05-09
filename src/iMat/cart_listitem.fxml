@@ -5,9 +5,25 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <fx:root prefHeight="70.0" prefWidth="230.0" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <AnchorPane fx:id="fadePane" prefHeight="70.0" prefWidth="244.0" style="-fx-background-color: #ff3d3d;">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="182.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/redo_icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Button fx:id="regretButton" layoutX="56.0" layoutY="17.0" mnemonicParsing="false" onAction="#regret" prefHeight="38.0" prefWidth="106.0" text="Ångra" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="17.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="greyPane" prefHeight="70.0" prefWidth="244.0" style="-fx-background-color: f2f2f2;" />
       <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@resources/imat_icon.gif" />

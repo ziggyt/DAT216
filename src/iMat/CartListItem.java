@@ -1,5 +1,6 @@
 package iMat;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -7,9 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -32,6 +36,17 @@ public class CartListItem extends AnchorPane {
     private Label priceLabel;
     @FXML
     private ImageView closeIconImageView;
+    @FXML
+    private AnchorPane fadePane;
+    @FXML
+    private AnchorPane greyPane;
+    @FXML
+    private Button regretButton;
+
+
+
+    private FadeTransition fade;
+
 
 
     CartListItem(ShoppingItem si, Controller controller) {
@@ -89,9 +104,31 @@ public class CartListItem extends AnchorPane {
 
     @FXML
     private void removeItem(){
-        parentController.removeItemFromCart(this.shoppingItem);
+        fadePane.toFront();
+        regretButton.toFront(); //Button cant belong to fadePane because it will get faded in and out
+        fadeAlert();
+        //parentController.removeItemFromCart(this.shoppingItem); //right now the item is not removed, we need to implement some sort of timer for removal
     }
 
+
+    @FXML
+    private void regret(){  //Rearranges the panes to show a grey background again and stops animation
+        greyPane.toBack();
+        regretButton.toBack();
+        fadePane.toBack();
+        fade.stop();
+
+    }
+
+    private void fadeAlert(){
+        fade = new FadeTransition(Duration.seconds(4), fadePane); //It will play animation for 4 seconds
+        fade.setFromValue(0.0); //the pane is invisible to start
+        fade.setToValue(0.9); //fades in to almost completely solid
+        fade.setCycleCount(4); //the amount of cycles during a set period of time (during 4 seconds it will fade in and fade out 4 times in this case
+        fade.setAutoReverse(true); //in order to make it go from solid to transparent (i think)
+        fade.play(); // start animation
+
+    }
 
     /**
      * Updates the ImageViews Image property
