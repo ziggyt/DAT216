@@ -89,7 +89,9 @@ class ProductListItem extends AnchorPane {
 
     @FXML
     private void decAmount(){
-        amount--;
+        if(amount>1) {
+            amount--;
+        }
         quantityTextField.setText(amount + " st");
     }
 
