@@ -74,7 +74,9 @@ public class CartListItem extends AnchorPane {
 
     @FXML
     protected void incAmount(){
-        shoppingItem.setAmount(shoppingItem.getAmount()+1);
+        if(shoppingItem.getAmount()<99) {
+            shoppingItem.setAmount(shoppingItem.getAmount() + 1);
+        }
         priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
         quantityLabel.setText((int)shoppingItem.getAmount() + " st");
         parentController.updateCartTotal();

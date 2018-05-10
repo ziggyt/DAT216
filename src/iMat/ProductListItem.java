@@ -104,7 +104,9 @@ class ProductListItem extends AnchorPane {
 
     @FXML
     private void incAmount(){
-        amount++;
+        if(amount<99) {
+            amount++;
+        }
         quantityTextField.setText(amount + " st");
     }
 
