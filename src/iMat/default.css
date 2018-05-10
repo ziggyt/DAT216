@@ -31,6 +31,10 @@
     -fx-background-color: -fx-background;
 }
 
+#checkoutView  {
+    -fx-background-color: -fx-background;
+}
+
 #logo{
     -fx-font-size: 65px;
     -fx-font-family: "Perfectly Together";

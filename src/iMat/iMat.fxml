@@ -31,6 +31,11 @@
          <center>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
+                  <AnchorPane fx:id="checkoutView" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="207.0" layoutY="81.0" text="Kassa" />
+                     </children>
+                  </AnchorPane>
                       <BorderPane fx:id="mainView">
                           <left>
                               <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
