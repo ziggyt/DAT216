@@ -37,7 +37,6 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="50.0">
                <children>
-                  <Button fx:id="buyButton" layoutX="142.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#purchaseItem" prefHeight="30.0" prefWidth="50.0" text="Köp" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="6.0" />
                   <Button fx:id="minusButton" layoutX="9.0" layoutY="12.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="23.0" prefWidth="23.0">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
@@ -47,6 +46,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <TextField fx:id="quantityTextField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="8.0" prefHeight="31.0" prefWidth="50.0" text="1 st">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
                   <Button fx:id="plusButton" layoutX="92.0" layoutY="12.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="23.0" prefWidth="23.0">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
@@ -56,11 +60,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TextField fx:id="quantityTextField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="8.0" prefHeight="31.0" prefWidth="50.0" text="1 st">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </TextField>
+                  <Button fx:id="buyButton" layoutX="142.0" layoutY="8.0" mnemonicParsing="false" onAction="#purchaseItem" prefHeight="30.0" prefWidth="50.0" text="Köp" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="6.0" />
                </children></AnchorPane>
             </items>
         </SplitPane>
