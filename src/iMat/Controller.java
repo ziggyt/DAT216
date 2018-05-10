@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
@@ -43,6 +44,8 @@ public class Controller implements Initializable {
     private Label categoryAmountLabel;
     @FXML
     private Label cartTotalLabel;
+    @FXML
+    private AnchorPane checkoutView2;
 
     //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
     private boolean sortedDirectionName = false;
@@ -217,8 +220,6 @@ public class Controller implements Initializable {
         updateProductList();
     }
 
-
-
     @FXML
     private void sortByPrice(){
         if(!sortedDirectionPrice) {
@@ -230,6 +231,11 @@ public class Controller implements Initializable {
         sortedDirectionPrice = !sortedDirectionPrice;
         updateProductList();
 
+    }
+
+    @FXML
+    private void toCheckOut(){
+        checkoutView2.toFront();
     }
 
     Image getSquareImage(Image image){
