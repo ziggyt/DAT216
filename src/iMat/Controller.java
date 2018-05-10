@@ -45,6 +45,8 @@ public class Controller implements Initializable {
     @FXML
     private Label cartTotalLabel;
     @FXML
+    private ScrollPane productScrollPane;
+    @FXML
     private AnchorPane checkoutView2;
 
     //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
@@ -141,6 +143,7 @@ public class Controller implements Initializable {
                             shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
                             break;
                     }
+                    productScrollPane.setVvalue(0); //Moves scrollposition back to top
                     updateProductList();
                     updateAmountFound();
                 }
@@ -219,6 +222,13 @@ public class Controller implements Initializable {
         sortedDirectionName = !sortedDirectionName;
         updateProductList();
     }
+
+    @FXML
+    private void sortByEco(){
+            shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
+            updateProductList();
+        }
+
 
     @FXML
     private void sortByPrice(){
