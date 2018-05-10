@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -31,9 +32,50 @@
          <center>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
-                  <AnchorPane fx:id="checkoutView" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="207.0" layoutY="81.0" text="Kassa" />
+                        <AnchorPane layoutX="122.0" layoutY="14.0">
+                           <children>
+                              <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="110.0" layoutY="80.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="316.0" layoutY="115.0" prefHeight="350.0" prefWidth="680.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+                           <children>
+                              <Label layoutX="42.0" layoutY="1.0" styleClass="text-large" text="Skriv in dina uppgifter" underline="true" />
+                              <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="25.0">
+                                 <children>
+                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Efternamn" styleClass="text-large">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <HBox spacing="25.0">
+                                       <children>
+                                          <TextField prefHeight="40.0" prefWidth="145.0" promptText="Postnummer" styleClass="text-large">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField prefHeight="40.0" prefWidth="250.0" promptText="Ort" styleClass="text-large" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                       <BorderPane fx:id="mainView">
@@ -335,7 +377,7 @@
                   <AnchorPane fx:id="topView" prefHeight="100.0" BorderPane.alignment="CENTER">
                       <children>
                           <Label fx:id="logo" layoutX="21.0" layoutY="21.0" text="iMat" />
-                          <TextField layoutX="362.0" layoutY="33.0" prefHeight="35.0" prefWidth="476.0" />
+                          <TextField layoutX="362.0" layoutY="33.0" prefHeight="40.0" prefWidth="476.0" />
                   <ImageView fitHeight="85.0" fitWidth="88.0" layoutX="173.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/imat_icon.gif" />

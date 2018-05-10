@@ -19,6 +19,12 @@
     -fx-font-weight: bold;
 }
 
+.text-topic{
+    -fx-font-size: 60px;
+    -fx-font-family: "Avenir Book";
+    -fx-font-weight: bold;
+}
+
 .category-button{
 
 }
@@ -31,7 +37,7 @@
     -fx-background-color: -fx-background;
 }
 
-#checkoutView  {
+#checkoutView1, #checkoutView2, #checkoutView3  {
     -fx-background-color: -fx-background;
 }
 
