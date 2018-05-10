@@ -1,10 +1,13 @@
 package iMat;
 
 import javafx.animation.FadeTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -14,6 +17,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 import javax.swing.*;
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -27,7 +31,7 @@ public class CartListItem extends AnchorPane {
     @FXML
     private Label nameLabel;
     @FXML
-    private Label quantityLabel;
+    private TextField quantityTextField;
     @FXML
     private Button plusButton;
     @FXML
@@ -69,7 +73,30 @@ public class CartListItem extends AnchorPane {
         //Text setup
         nameLabel.setText(si.getProduct().getName());
         priceLabel.setText(Math.round(si.getTotal()) + " kr");
-        quantityLabel.setText((int)si.getAmount() + " st");
+        quantityTextField.setText((int)si.getAmount() + "");
+
+        // Forces the field to be numeric only and limits to 2 digits
+        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Check for non numeric characters
+                if (!newValue.matches("\\d*")) {
+                    // Remove all non numeric characters
+                    quantityTextField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                // Check if text is set to longer than 2
+                if (quantityTextField.getText().length() >= 2) {
+                    // Set length to 2
+                    quantityTextField.setText(quantityTextField.getText().substring(0, 2));
+                }
+                // Update amount
+                shoppingItem.setAmount(Integer.parseInt(quantityTextField.getText()));
+                // Update price labels
+                priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
+                parentController.updateCartTotal();
+
+            }
+        });
     }
 
     @FXML
@@ -77,9 +104,7 @@ public class CartListItem extends AnchorPane {
         if(shoppingItem.getAmount()<99) {
             shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         }
-        priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
-        quantityLabel.setText((int)shoppingItem.getAmount() + " st");
-        parentController.updateCartTotal();
+        quantityTextField.setText((int)shoppingItem.getAmount() + "");
     }
 
     @FXML
@@ -87,9 +112,7 @@ public class CartListItem extends AnchorPane {
         if(shoppingItem.getAmount()>1){
             shoppingItem.setAmount(shoppingItem.getAmount()-1);
         }
-        priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
-        quantityLabel.setText((int)shoppingItem.getAmount() + " st");
-        parentController.updateCartTotal();
+        quantityTextField.setText((int)shoppingItem.getAmount() + "");
     }
 
     @FXML
