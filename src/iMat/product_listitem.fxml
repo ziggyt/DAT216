@@ -46,7 +46,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TextField fx:id="quantityTextField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="8.0" prefHeight="31.0" prefWidth="50.0" text="1 st">
+                  <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="37.0" layoutY="8.0" prefHeight="31.0" prefWidth="50.0" text="1">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

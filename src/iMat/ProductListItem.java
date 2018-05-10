@@ -1,5 +1,7 @@
 package iMat;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,15 +48,34 @@ class ProductListItem extends AnchorPane {
         this.product = product;
         this.parentController = controller;
 
-        //Image setup
-        productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));
-
-        //Text setup
-        nameLabel.setText(product.getName());
-        priceLabel.setText(product.getPrice() + " kr");
-        quantityTextField.setText(amount + " st");
         productSplitPane.setDividerPositions(0,0,0);
 
+        // Image setup
+        productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));
+
+        // Text setup
+        nameLabel.setText(product.getName());
+        priceLabel.setText(product.getPrice() + " kr");
+        quantityTextField.setText(amount + "");
+
+        // Forces the field to be numeric only and limits to 2 digits
+        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Check for non numeric characters
+                if (!newValue.matches("\\d*")) {
+                    // Remove all non numeric characters
+                    quantityTextField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                // Check if text is set to longer than 2
+                if (quantityTextField.getText().length() >= 2) {
+                    // Set length to 2
+                    quantityTextField.setText(quantityTextField.getText().substring(0, 2));
+                }
+                // Update amount
+                amount = Integer.parseInt(quantityTextField.getText());
+            }
+        });
     }
 
 
