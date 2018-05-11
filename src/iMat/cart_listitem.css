@@ -1,3 +1,11 @@
+#greyPane {
+    -fx-background-color: -fx-background;
+}
+
 #fadePane {
     -fx-background-color: #ff3d3d;
+}
+
+#addedFadePane {
+    -fx-background-color: #42f4c4;
 }

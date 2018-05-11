@@ -45,15 +45,14 @@ public class CartListItem extends AnchorPane {
     @FXML
     private AnchorPane fadePane;
     @FXML
+    private AnchorPane addedFadePane;
+    @FXML
     private AnchorPane greyPane;
     @FXML
     private Button regretButton;
 
-
-
     private FadeTransition fade;
-
-
+    private FadeTransition addedFade;
 
     CartListItem(ShoppingItem si, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
@@ -99,6 +98,12 @@ public class CartListItem extends AnchorPane {
 
             }
         });
+
+        addedFadeAlert();   // Green flash to confirm the added item
+    }
+
+    public void updateQuantityTextField() {
+        quantityTextField.setText((int)shoppingItem.getAmount() + "");
     }
 
     @FXML
@@ -106,7 +111,7 @@ public class CartListItem extends AnchorPane {
         if(shoppingItem.getAmount()<99) {
             shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         }
-        quantityTextField.setText((int)shoppingItem.getAmount() + "");
+        updateQuantityTextField();
     }
 
     @FXML
@@ -114,7 +119,7 @@ public class CartListItem extends AnchorPane {
         if(shoppingItem.getAmount()>1){
             shoppingItem.setAmount(shoppingItem.getAmount()-1);
         }
-        quantityTextField.setText((int)shoppingItem.getAmount() + "");
+        updateQuantityTextField();
     }
 
     @FXML
@@ -139,26 +144,41 @@ public class CartListItem extends AnchorPane {
 
     @FXML
     private void regret(){  //Rearranges the panes to show a grey background again and stops animation
-        greyPane.toBack();
         regretButton.toBack();
         fadePane.toBack();
         fade.stop();
-
     }
 
     private void fadeAlert(){
         fade = new FadeTransition(Duration.seconds(1), fadePane); //It will play animation for 1 second
         fade.setFromValue(0.0); //the pane is invisible to start
         fade.setToValue(0.9); //fades in to almost completely solid
-        fade.setCycleCount(4); //the amount of times the animation plays
+        fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
         fade.setAutoReverse(true); //in order to make it go from solid to transparent
-        fade.setOnFinished(new EventHandler<ActionEvent>() {    // action after the animation is done
+        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
             @Override
             public void handle(ActionEvent event) {
-                parentController.removeItemFromCart(shoppingItem);  // remove item from cart after the animation
+                parentController.removeItemFromCart(shoppingItem);  // Remove item from cart after the animation
             }
         });
         fade.play(); // start animation
+
+    }
+
+    private void addedFadeAlert(){
+        addedFadePane.toFront();
+        addedFade = new FadeTransition(Duration.seconds(0.25), addedFadePane);
+        addedFade.setFromValue(0.0);
+        addedFade.setToValue(0.8);
+        addedFade.setCycleCount(2);
+        addedFade.setAutoReverse(true);
+        addedFade.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                addedFadePane.toBack(); // Hide pane after animation is done so you can access the main pane
+            }
+        });
+        addedFade.play();
 
     }
 

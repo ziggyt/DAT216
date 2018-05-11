@@ -56,7 +56,9 @@ public class Controller implements Initializable {
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
+    private List<CartListItem> shownCartList = new ArrayList<>(); // List of CartListItems currently shown in the cart sidebar
     private ShoppingCart cart;
+    private List<ShoppingItem> oldCartList = new ArrayList<>(); // Helper list made to remember which items where in the cart before the latest change
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -171,14 +173,27 @@ public class Controller implements Initializable {
     }
 
     /**
-     * Adds the products from the cart item list to the cartListFlowPane in the shopping cart view
+     * Adds/removes products in the cart side panel to match the backend cart
      */
     private void updateCartList(){
-        cartListFlowPane.getChildren().clear();
-
-        for (ShoppingItem si : cart.getItems()) {
-            cartListFlowPane.getChildren().add(new CartListItem(si, this));
+        // Remove items
+        for (ShoppingItem si : oldCartList) { // Iterate the pre-change cart
+            if(!cart.getItems().contains(si)) { // If the backend cart does not contain the item
+                shownCartList.remove(oldCartList.indexOf(si)); // Remove the item
+            }
         }
+        // Add items
+        for (ShoppingItem si : cart.getItems()) { // Iterate the backend cart
+            if (!oldCartList.contains(si)) { // If the item did not exist before
+                shownCartList.add(new CartListItem(si, this)); // Create and add the item
+            }
+        }
+        // Put the items in the pane
+        cartListFlowPane.getChildren().clear();
+        cartListFlowPane.getChildren().addAll(shownCartList);
+        // Update the helper list to prepare for the next change
+        oldCartList.clear();
+        oldCartList.addAll(cart.getItems());
     }
 
     /**
@@ -299,11 +314,11 @@ public class Controller implements Initializable {
     }
 
     void purchaseItem(Product p, int n){
-        if (isInCart(p)) {
+        if (isInCart(p)) { // If the product is already in the cart
             for (ShoppingItem item : cart.getItems()) {
-                if (item.getProduct().equals(p)) {
-                    item.setAmount(item.getAmount()+n);
-                    updateCartList();
+                if (item.getProduct().equals(p)) { // Search for the corresponding ShoppingItem
+                    item.setAmount(item.getAmount()+n); // Add to the existing amount
+                    shownCartList.get(cart.getItems().indexOf(item)).updateQuantityTextField(); // Update the quantityTextField in the CartListItem
                     break;
                 }
             }
