@@ -3,6 +3,8 @@ package iMat;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -132,7 +134,6 @@ public class CartListItem extends AnchorPane {
         fadePane.toFront();
         regretButton.toFront(); //Button cant belong to fadePane because it will get faded in and out
         fadeAlert();
-        //parentController.removeItemFromCart(this.shoppingItem); //right now the item is not removed, we need to implement some sort of timer for removal
     }
 
 
@@ -146,11 +147,17 @@ public class CartListItem extends AnchorPane {
     }
 
     private void fadeAlert(){
-        fade = new FadeTransition(Duration.seconds(4), fadePane); //It will play animation for 4 seconds
+        fade = new FadeTransition(Duration.seconds(1), fadePane); //It will play animation for 1 second
         fade.setFromValue(0.0); //the pane is invisible to start
         fade.setToValue(0.9); //fades in to almost completely solid
-        fade.setCycleCount(4); //the amount of cycles during a set period of time (during 4 seconds it will fade in and fade out 4 times in this case
-        fade.setAutoReverse(true); //in order to make it go from solid to transparent (i think)
+        fade.setCycleCount(4); //the amount of times the animation plays
+        fade.setAutoReverse(true); //in order to make it go from solid to transparent
+        fade.setOnFinished(new EventHandler<ActionEvent>() {    // action after the animation is done
+            @Override
+            public void handle(ActionEvent event) {
+                parentController.removeItemFromCart(shoppingItem);  // remove item from cart after the animation
+            }
+        });
         fade.play(); // start animation
 
     }
