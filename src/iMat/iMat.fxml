@@ -26,12 +26,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
+                  <AnchorPane fx:id="checkoutView3" prefHeight="200.0" prefWidth="200.0" />
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutX="122.0" layoutY="14.0">
@@ -78,6 +79,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <AnchorPane fx:id="checkoutView1" prefHeight="200.0" prefWidth="200.0" />
                       <BorderPane fx:id="mainView">
                           <left>
                               <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
