@@ -10,8 +10,6 @@
 
 -Payment steps layout and functionality
 
--Favorite-star layout and color (more visible when clicked, maybe lighter color when hovered)
-
 -iMat logo as home button
 
 -Back buttons (safe exploration)
