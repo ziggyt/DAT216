@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -26,10 +34,26 @@
          <center>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
-                  <AnchorPane fx:id="checkoutView3" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="checkoutView3" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                           <graphic>
+                              <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button disable="true" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="122.0" layoutY="14.0">
+                        <AnchorPane layoutX="122.0" layoutY="14.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
                            <children>
                               <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
@@ -71,9 +95,58 @@
                               </VBox>
                            </children>
                         </AnchorPane>
+                        <Button layoutX="927.0" layoutY="648.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                           <graphic>
+                              <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="1032.0" layoutY="648.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="checkoutView1" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="checkoutView1" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="268.0" layoutY="92.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="110.0" layoutY="80.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="408.0" layoutY="183.0" prefHeight="550.0" prefWidth="400.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+                           <children>
+                              <Label fx:id="checkoutTotalLabel" layoutX="161.0" layoutY="510.0" text="Totalt: X kr" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane layoutX="41.0" layoutY="31.0" prefHeight="478.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="1022.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button disable="true" layoutX="917.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                           <graphic>
+                              <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                       <BorderPane fx:id="mainView">
                           <left>
                               <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">

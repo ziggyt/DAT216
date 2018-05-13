@@ -44,6 +44,8 @@ public class Controller implements Initializable {
     @FXML
     private Label cartTotalLabel;
     @FXML
+    private Label checkoutTotalLabel;
+    @FXML
     private ScrollPane productScrollPane;
     @FXML
     private AnchorPane checkoutView2;
