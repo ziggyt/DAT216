@@ -48,7 +48,11 @@ public class Controller implements Initializable {
     @FXML
     private ScrollPane productScrollPane;
     @FXML
+    private AnchorPane checkoutView1;
+    @FXML
     private AnchorPane checkoutView2;
+    @FXML
+    private AnchorPane checkoutView3;
     @FXML
     private TextField searchField;
 
@@ -298,8 +302,25 @@ public class Controller implements Initializable {
 
     }
 
+    // Separate "to" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
-    private void toCheckOut(){
+    private void toCheckout(){
+        checkoutView1.toFront();
+    }
+    @FXML
+    private void toCheckoutStep2(){
+        checkoutView2.toFront();
+    }
+    @FXML
+    private void toCheckoutStep3(){
+        checkoutView3.toFront();
+    }
+    @FXML
+    private void backToCheckoutStep1(){
+        checkoutView1.toFront();
+    }
+    @FXML
+    private void backToCheckoutStep2(){
         checkoutView2.toFront();
     }
 
