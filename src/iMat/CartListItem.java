@@ -168,17 +168,12 @@ public class CartListItem extends AnchorPane {
 
     private void addedFadeAlert(){
         addedFadePane.toFront();
-        addedFade = new FadeTransition(Duration.seconds(0.25), addedFadePane);
-        addedFade.setFromValue(0.0);
-        addedFade.setToValue(0.8);
+        greyPane.toFront();
+        addedFade = new FadeTransition(Duration.seconds(0.25), greyPane);
+        addedFade.setFromValue(1.0);
+        addedFade.setToValue(0.2);
         addedFade.setCycleCount(2);
         addedFade.setAutoReverse(true);
-        addedFade.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                addedFadePane.toBack(); // Hide pane after animation is done so you can access the main pane
-            }
-        });
         addedFade.play();
 
     }
