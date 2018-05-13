@@ -60,6 +60,7 @@ public class Controller implements Initializable {
     private List<CartListItem> shownCartList = new ArrayList<>(); // List of CartListItems currently shown in the cart sidebar
     private ShoppingCart cart;
     private List<ShoppingItem> oldCartList = new ArrayList<>(); // Helper list made to remember which items where in the cart before the latest change
+    String category = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -122,30 +123,8 @@ public class Controller implements Initializable {
 
                     ToggleButton selected = (ToggleButton) categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
-
-                    switch (selected.getId()) {
-                        case "allCategoryButton":
-                            shownProducts = bc.getProducts();
-                            break;
-                        case "favCategoryButton":
-                            shownProducts = bc.favorites();
-                            break;
-                        case "breadCategoryButton":
-                            shownProducts = bc.getProducts(ProductCategory.BREAD);
-                            break;
-                        case "dairiesCategoryButton":
-                            shownProducts = bc.getProducts(ProductCategory.DAIRIES);
-                            break;
-                        case "meatCategoryButton":
-                            shownProducts = bc.getProducts(ProductCategory.MEAT);
-                            break;
-                        case "fruitCategoryButton":
-                            shownProducts = bc.getProducts(ProductCategory.FRUIT);
-                            break;
-                        case "vegetablesCategoryButton":
-                            shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
-                            break;
-                    }
+                    category = selected.getId();
+                    updateCurrentCategory();
                     productScrollPane.setVvalue(0); //Moves scrollposition back to top
                     updateProductList();
                     updateAmountFound();
@@ -161,15 +140,14 @@ public class Controller implements Initializable {
             }
         });
 
-
         searchField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                shownProducts = bc.getProducts();
-                shownProducts= searchProducts(newValue);
+                updateCurrentCategory();
+                shownProducts = searchProducts(newValue);
 
                 if (newValue.equals("")){
-                    shownProducts = bc.getProducts();
+                    updateCurrentCategory();
                 }
 
                 updateProductList();
@@ -177,6 +155,37 @@ public class Controller implements Initializable {
 
             }
         });
+    }
+
+
+    private void updateCurrentCategory(){
+        switch (category) {
+            case "allCategoryButton":
+                shownProducts = bc.getProducts();
+                break;
+            case "favCategoryButton":
+                shownProducts = bc.favorites();
+                break;
+            case "breadCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.BREAD);
+                break;
+            case "dairiesCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.DAIRIES);
+                break;
+            case "meatCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.MEAT);
+                break;
+            case "fruitCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.FRUIT);
+                break;
+            case "vegetablesCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
+                break;
+        }
+
+
+
+
     }
 
     private List <Product> searchProducts(String text) {
