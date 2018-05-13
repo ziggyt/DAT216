@@ -90,6 +90,7 @@ public class CartListItem extends AnchorPane {
                     // Set length to 2
                     quantityTextField.setText(quantityTextField.getText().substring(0, 2));
                 }
+                addedFadeAlert();   // Green flash to confirm the added item
                 // Update amount
                 shoppingItem.setAmount(Integer.parseInt(quantityTextField.getText()));
                 // Update price labels
