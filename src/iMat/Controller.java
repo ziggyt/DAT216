@@ -1,7 +1,10 @@
 package iMat;
 
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -10,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.*;
 
 import java.util.stream.Collectors;
@@ -86,6 +90,8 @@ public class Controller implements Initializable {
     private TextField postalCodeField;
     @FXML
     private TextField countyField;
+    @FXML
+    private TextField phoneField;
 
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
@@ -386,7 +392,11 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckoutStep2(){
-        checkoutView3.toFront();
+        if (bc.isCustomerComplete()) {
+            checkoutView3.toFront();
+        } else{
+            checkAllFields();
+        }
     }
 
     @FXML
@@ -492,6 +502,7 @@ public class Controller implements Initializable {
         addressField.setText(bc.getCustomer().getAddress());
         postalCodeField.setText(bc.getCustomer().getPostCode());
         countyField.setText(bc.getCustomer().getPostAddress());
+        phoneField.setText(bc.getCustomer().getPhoneNumber());
     }
 
 
@@ -502,6 +513,7 @@ public class Controller implements Initializable {
         bc.getCustomer().setAddress(addressField.getText());
         bc.getCustomer().setPostCode(postalCodeField.getText());
         bc.getCustomer().setPostAddress(countyField.getText());
+        bc.getCustomer().setPhoneNumber(phoneField.getText());
     }
 
 
@@ -512,7 +524,34 @@ public class Controller implements Initializable {
         addressField.setText("");
         postalCodeField.setText("");
         countyField.setText("");
+        phoneField.setText("");
 
+    }
+
+    //I guess you could make an array/list of fields but this will be ok
+    private void checkAllFields(){
+        checkField(firstNameField);
+        checkField(lastNameField);
+        checkField(addressField);
+        checkField(postalCodeField);
+        checkField(countyField);
+        checkField(phoneField);
+    }
+
+    private void checkField(TextField t){
+        if (t.getText().equals("")){
+            missingTextAlert(t);
+        }
+    }
+
+
+    private void missingTextAlert(TextField t){
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t); //It will play animation for 1 second
+        fade.setFromValue(1); //the pane is invisible to start
+        fade.setToValue(0); //fades in to almost completely solid
+        fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
+        fade.setAutoReverse(true); //in order to make it go from solid to transparent
+        fade.play(); // start animation
 
     }
 
