@@ -34,9 +34,31 @@ public class Controller implements Initializable {
     @FXML
     private ToggleButton meatCategoryButton;
     @FXML
+    private ToggleButton fishCategoryButton;
+    @FXML
+    private ToggleButton pastaCategoryButton;
+    @FXML
+    private ToggleButton potatoCategoryButton;
+    @FXML
+    private ToggleButton rootCategoryButton;
+    @FXML
+    private ToggleButton flourCategoryButton;
+    @FXML
+    private ToggleButton herbCategoryButton;
+    @FXML
     private ToggleButton fruitCategoryButton;
     @FXML
     private ToggleButton vegetablesCategoryButton;
+    @FXML
+    private ToggleButton berryCategoryButton;
+    @FXML
+    private ToggleButton nutsCategoryButton;
+    @FXML
+    private ToggleButton sweetsCategoryButton;
+    @FXML
+    private ToggleButton coldDrinksCategoryButton;
+    @FXML
+    private ToggleButton hotDrinksCategoryButton;
     @FXML
     private Label categoryTitleLabel;
     @FXML
@@ -90,25 +112,25 @@ public class Controller implements Initializable {
         /* All available categories
     POD,
     BREAD,-------
-    BERRY,
+    BERRY,-----
     CITRUS_FRUIT,
-    HOT_DRINKS,
-    COLD_DRINKS,
+    HOT_DRINKS,-----
+    COLD_DRINKS,-----
     EXOTIC_FRUIT,
-    FISH,
+    FISH,-----
     VEGETABLE_FRUIT,------
     CABBAGE,
     MEAT,----------
     DAIRIES,-------
     MELONS,
-    FLOUR_SUGAR_SALT,
+    FLOUR_SUGAR_SALT,-----
     NUTS_AND_SEEDS,
-    PASTA,
-    POTATO_RICE,
+    PASTA,-----
+    POTATO_RICE,-----
     ROOT_VEGETABLE,
     FRUIT,-----
-    SWEET,
-    HERB;
+    SWEET,-----
+    HERB;-----
     */
 
         allCategoryButton.setToggleGroup(categoryToggleGroup);
@@ -116,8 +138,19 @@ public class Controller implements Initializable {
         breadCategoryButton.setToggleGroup(categoryToggleGroup);
         dairiesCategoryButton.setToggleGroup(categoryToggleGroup);
         meatCategoryButton.setToggleGroup(categoryToggleGroup);
+        fishCategoryButton.setToggleGroup(categoryToggleGroup);
+        pastaCategoryButton.setToggleGroup(categoryToggleGroup);
+        potatoCategoryButton.setToggleGroup(categoryToggleGroup);
+        rootCategoryButton.setToggleGroup(categoryToggleGroup);
+        flourCategoryButton.setToggleGroup(categoryToggleGroup);
+        herbCategoryButton.setToggleGroup(categoryToggleGroup);
         fruitCategoryButton.setToggleGroup(categoryToggleGroup);
         vegetablesCategoryButton.setToggleGroup(categoryToggleGroup);
+        berryCategoryButton.setToggleGroup(categoryToggleGroup);
+        nutsCategoryButton.setToggleGroup(categoryToggleGroup);
+        sweetsCategoryButton.setToggleGroup(categoryToggleGroup);
+        coldDrinksCategoryButton.setToggleGroup(categoryToggleGroup);
+        hotDrinksCategoryButton.setToggleGroup(categoryToggleGroup);
         allCategoryButton.setSelected(true);
 
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -181,11 +214,44 @@ public class Controller implements Initializable {
             case "meatCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.MEAT);
                 break;
+            case "fishCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.FISH);
+                break;
+            case "pastaCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.PASTA);
+                break;
+            case "potatoCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.POTATO_RICE);
+                break;
+            case "rootCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.ROOT_VEGETABLE);
+                break;
+            case "flourCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.FLOUR_SUGAR_SALT);
+                break;
+            case "herbCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.HERB);
+                break;
             case "fruitCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.FRUIT);
                 break;
             case "vegetablesCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
+                break;
+            case "berryCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.BERRY);
+                break;
+            case "nutsCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.NUTS_AND_SEEDS);
+                break;
+            case "sweetsCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.SWEET);
+                break;
+            case "coldDrinksCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.COLD_DRINKS);
+                break;
+            case "hotDrinksCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.HOT_DRINKS);
                 break;
         }
 
