@@ -77,6 +77,17 @@ public class Controller implements Initializable {
     private AnchorPane checkoutView3;
     @FXML
     private TextField searchField;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField addressField;
+    @FXML
+    private TextField postalCodeField;
+    @FXML
+    private TextField countyField;
+
 
     //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
     private boolean sortedDirectionName = false;
@@ -473,5 +484,21 @@ public class Controller implements Initializable {
         return false;
     }
 
+
+    /*
+
+    Checkout functionality below in order to preserve some sort of order...
+
+     */
+
+
+    @FXML
+    private void autoFill(){
+        firstNameField.setText(bc.getCustomer().getFirstName());
+        lastNameField.setText(bc.getCustomer().getLastName());
+        addressField.setText(bc.getCustomer().getAddress());
+        postalCodeField.setText(bc.getCustomer().getPostCode());
+        countyField.setText(bc.getCustomer().getPostAddress());
+    }
 }
 
