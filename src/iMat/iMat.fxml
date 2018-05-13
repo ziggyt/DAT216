@@ -61,11 +61,12 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="316.0" layoutY="115.0" prefHeight="350.0" prefWidth="680.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+                        <AnchorPane layoutX="316.0" layoutY="115.0" prefHeight="425.0" prefWidth="680.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
                            <children>
                               <Label layoutX="42.0" layoutY="1.0" styleClass="text-large" text="Skriv in dina uppgifter" underline="true" />
                               <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="25.0">
                                  <children>
+                                    <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large" />
                                     <TextField fx:id="firstNameField" prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
@@ -76,7 +77,7 @@
                                           <Insets />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large">
+                                    <TextField fx:id="phoneField" prefHeight="40.0" prefWidth="420.0" promptText="Telefonnummer" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -93,17 +94,17 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Button layoutX="525.0" layoutY="13.0" mnemonicParsing="false" onAction="#autoFill" text="Fyll i automatiskt">
+                              <Button layoutX="538.0" layoutY="13.0" mnemonicParsing="false" onAction="#autoFill" text="Fyll i automatiskt">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="522.0" layoutY="284.0" mnemonicParsing="false" onAction="#saveInfo" text="Spara information">
+                              <Button layoutX="535.0" layoutY="369.0" mnemonicParsing="false" onAction="#saveInfo" text="Spara information">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="42.0" layoutY="302.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
+                              <Button layoutX="42.0" layoutY="369.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
