@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -15,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("iMat");
         primaryStage.setScene(new Scene(root, 1280, 880));
         primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/imat_icon.gif")));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
 
