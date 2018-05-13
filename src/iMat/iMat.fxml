@@ -104,7 +104,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="1032.0" layoutY="648.0" mnemonicParsing="false" onAction="#toCheckoutStep3" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                        <Button layoutX="1032.0" layoutY="648.0" mnemonicParsing="false" onAction="#finishCheckoutStep2" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -140,7 +140,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="1022.0" layoutY="638.0" mnemonicParsing="false" onAction="#toCheckoutStep2" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                        <Button layoutX="1022.0" layoutY="638.0" mnemonicParsing="false" onAction="#finishCheckoutStep1" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>

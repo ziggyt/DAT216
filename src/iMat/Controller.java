@@ -368,17 +368,17 @@ public class Controller implements Initializable {
 
     }
 
-    // Separate "to" and "back to" methods because it matters if you are completing a step or just going back to a previous one
+    // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
     private void toCheckout(){
         checkoutView1.toFront();
     }
     @FXML
-    private void toCheckoutStep2(){
+    private void finishCheckoutStep1(){
         checkoutView2.toFront();
     }
     @FXML
-    private void toCheckoutStep3(){
+    private void finishCheckoutStep2(){
         checkoutView3.toFront();
     }
     @FXML
