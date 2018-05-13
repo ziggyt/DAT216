@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -66,33 +66,48 @@
                               <Label layoutX="42.0" layoutY="1.0" styleClass="text-large" text="Skriv in dina uppgifter" underline="true" />
                               <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="25.0">
                                  <children>
-                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
+                                    <TextField fx:id="firstNameField" prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Efternamn" styleClass="text-large">
+                                    <TextField fx:id="lastNameField" prefHeight="40.0" prefWidth="420.0" promptText="Efternamn" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large">
+                                    <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </TextField>
                                     <HBox spacing="25.0">
                                        <children>
-                                          <TextField prefHeight="40.0" prefWidth="145.0" promptText="Postnummer" styleClass="text-large">
+                                          <TextField fx:id="postalCodeField" prefHeight="40.0" prefWidth="145.0" promptText="Postnummer" styleClass="text-large">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </TextField>
-                                          <TextField prefHeight="40.0" prefWidth="250.0" promptText="Ort" styleClass="text-large" />
+                                          <TextField fx:id="countyField" prefHeight="40.0" prefWidth="250.0" promptText="Ort" styleClass="text-large" />
                                        </children>
                                     </HBox>
                                  </children>
                               </VBox>
+                              <Button layoutX="525.0" layoutY="13.0" mnemonicParsing="false" onAction="#autoFill" text="Fyll i automatiskt">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="522.0" layoutY="284.0" mnemonicParsing="false" onAction="#saveInfo" text="Spara information">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="42.0" layoutY="302.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <Button layoutX="927.0" layoutY="648.0" mnemonicParsing="false" onAction="#backToCheckoutStep1" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
@@ -400,7 +415,10 @@
                                     <Image url="@resources/shopping_cart.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="checkoutButton" layoutX="125.0" layoutY="2.0" mnemonicParsing="false" onAction="#toCheckout" text="TILL KASSAN" />
+                              <Button fx:id="checkoutButton" layoutX="125.0" layoutY="2.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="36.0" prefWidth="103.0" text="TILL KASSAN">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
                            </children>
                         </AnchorPane>
                           </right>
@@ -458,6 +476,11 @@
                         <Image url="@resources/imat_icon.gif" />
                      </image>
                   </ImageView>
+                  <Button layoutX="1158.0" layoutY="14.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="30.0" prefWidth="108.0" text="Stäng av">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                       </children>
                   </AnchorPane>
          </top>

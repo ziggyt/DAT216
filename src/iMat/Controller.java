@@ -11,6 +11,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
+
 import java.util.stream.Collectors;
 import java.net.URL;
 import java.util.*;
@@ -66,8 +67,6 @@ public class Controller implements Initializable {
     @FXML
     private Label cartTotalLabel;
     @FXML
-    private Label checkoutTotalLabel;
-    @FXML
     private ScrollPane productScrollPane;
     @FXML
     private AnchorPane checkoutView1;
@@ -88,8 +87,6 @@ public class Controller implements Initializable {
     @FXML
     private TextField countyField;
 
-
-    //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
 
@@ -99,7 +96,7 @@ public class Controller implements Initializable {
     private List<CartListItem> shownCartList = new ArrayList<>(); // List of CartListItems currently shown in the cart sidebar
     private ShoppingCart cart;
     private List<ShoppingItem> oldCartList = new ArrayList<>(); // Helper list made to remember which items where in the cart before the latest change
-    String category = "";
+    private String category = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,7 +115,7 @@ public class Controller implements Initializable {
 
         listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
-        listFlowPane.setPadding(new Insets(10, 10, 10,64));
+        listFlowPane.setPadding(new Insets(10, 10, 10, 64));
 
         /* All available categories
     POD,
@@ -196,7 +193,7 @@ public class Controller implements Initializable {
                 updateCurrentCategory();
                 shownProducts = searchProducts(newValue);
 
-                if (newValue.equals("")){
+                if (newValue.equals("")) {
                     updateCurrentCategory();
                 }
 
@@ -208,7 +205,7 @@ public class Controller implements Initializable {
     }
 
 
-    private void updateCurrentCategory(){
+    private void updateCurrentCategory() {
         switch (category) {
             case "allCategoryButton":
                 shownProducts = bc.getProducts();
@@ -267,13 +264,11 @@ public class Controller implements Initializable {
         }
 
 
-
-
     }
 
-    private List <Product> searchProducts(String text) {
+    private List<Product> searchProducts(String text) {
         //We can't modify list directly, because we will get OOB errors
-        List <Product> result = new ArrayList<>();
+        List<Product> result = new ArrayList<>();
         for (Product shownProduct : shownProducts) {
             if (shownProduct.getName().toLowerCase().contains(text.toLowerCase())) {
                 result.add(shownProduct);
@@ -296,10 +291,10 @@ public class Controller implements Initializable {
     /**
      * Adds/removes products in the cart side panel to match the backend cart
      */
-    private void updateCartList(){
+    private void updateCartList() {
         // Remove items
         for (ShoppingItem si : oldCartList) { // Iterate the pre-change cart
-            if(!cart.getItems().contains(si)) { // If the backend cart does not contain the item
+            if (!cart.getItems().contains(si)) { // If the backend cart does not contain the item
                 shownCartList.remove(oldCartList.indexOf(si)); // Remove the item
             }
         }
@@ -339,14 +334,14 @@ public class Controller implements Initializable {
         }
     }
 
-    public void updateEcoImage() {
+    private void updateEcoImage() {
         for (Product product : bc.getProducts()) {
             if (product.isEcological()) {
                 productListItemMap.get(product.getName()).setEcoImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/eco.png"))));
             }
 
-            }
         }
+    }
 
     @FXML
     private void sortByName() {
@@ -360,18 +355,17 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void sortByEco(){
-            shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
-            updateProductList();
-        }
+    private void sortByEco() {
+        shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
+        updateProductList();
+    }
 
 
     @FXML
-    private void sortByPrice(){
-        if(!sortedDirectionPrice) {
+    private void sortByPrice() {
+        if (!sortedDirectionPrice) {
             shownProducts.sort(Comparator.comparing(Product::getPrice));
-        }
-        else {
+        } else {
             Collections.reverse(shownProducts);
         }
         sortedDirectionPrice = !sortedDirectionPrice;
@@ -381,81 +375,80 @@ public class Controller implements Initializable {
 
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
-    private void toCheckout(){
+    private void toCheckout() {
         checkoutView1.toFront();
     }
+
     @FXML
     private void finishCheckoutStep1(){
         checkoutView2.toFront();
     }
+
     @FXML
     private void finishCheckoutStep2(){
         checkoutView3.toFront();
     }
+
     @FXML
-    private void backToCheckoutStep1(){
+    private void backToCheckoutStep1() {
         checkoutView1.toFront();
     }
+
     @FXML
-    private void backToCheckoutStep2(){
+    private void backToCheckoutStep2() {
         checkoutView2.toFront();
     }
 
-    Image getSquareImage(Image image){
+    Image getSquareImage(Image image) {
 
         int x = 0;
         int y = 0;
         int width = 0;
         int height = 0;
 
-        if(image.getWidth() > image.getHeight()){
+        if (image.getWidth() > image.getHeight()) {
             width = (int) image.getHeight();
             height = (int) image.getHeight();
-            x = (int)(image.getWidth() - width)/2;
+            x = (int) (image.getWidth() - width) / 2;
             y = 0;
-        }
-
-        else if(image.getHeight() > image.getWidth()){
+        } else if (image.getHeight() > image.getWidth()) {
             width = (int) image.getWidth();
             height = (int) image.getWidth();
             x = 0;
-            y = (int) (image.getHeight() - height)/2;
-        }
-
-        else{
+            y = (int) (image.getHeight() - height) / 2;
+        } else {
             //Width equals Height, return original image
             return image;
         }
         return new WritableImage(image.getPixelReader(), x, y, width, height);
     }
 
-    //Helpers, here for now. Accessed from ProductListItem
 
-    Image getProductImage(Product p){
+    Image getProductImage(Product p) {
 
-        return  bc.getFXImage(p);
+        return bc.getFXImage(p);
     }
 
-    boolean getFavStatus(Product p){
+    boolean getFavStatus(Product p) {
 
         return bc.isFavorite(p);
     }
 
-    void addToFavorites(Product p){
+    void addToFavorites(Product p) {
         bc.addFavorite(p);
         updateProductList();
     }
 
-    void removeFromFavorites(Product p){
+    void removeFromFavorites(Product p) {
         bc.removeFavorite(p);
         updateProductList();
     }
 
-    void purchaseItem(Product p, int n){
+    void purchaseItem(Product p, int n) {
         if (isInCart(p)) { // If the product is already in the cart
             for (ShoppingItem item : cart.getItems()) {
                 if (item.getProduct().equals(p)) { // Search for the corresponding ShoppingItem
-                    item.setAmount(item.getAmount()+n); // Add to the existing amount
+                    item.setAmount(item.getAmount() + n); // Add to the existing amount
                     shownCartList.get(cart.getItems().indexOf(item)).updateQuantityTextField(); // Update the quantityTextField in the CartListItem
                     break;
                 }
@@ -493,12 +486,35 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private void autoFill(){
+    private void autoFill() {
         firstNameField.setText(bc.getCustomer().getFirstName());
         lastNameField.setText(bc.getCustomer().getLastName());
         addressField.setText(bc.getCustomer().getAddress());
         postalCodeField.setText(bc.getCustomer().getPostCode());
         countyField.setText(bc.getCustomer().getPostAddress());
     }
+
+
+    @FXML
+    private void saveInfo() {
+        bc.getCustomer().setFirstName(firstNameField.getText());
+        bc.getCustomer().setLastName(lastNameField.getText());
+        bc.getCustomer().setAddress(addressField.getText());
+        bc.getCustomer().setPostCode(postalCodeField.getText());
+        bc.getCustomer().setPostAddress(countyField.getText());
+    }
+
+
+    @FXML
+    private void clearFields() {
+        firstNameField.setText("");
+        lastNameField.setText("");
+        addressField.setText("");
+        postalCodeField.setText("");
+        countyField.setText("");
+
+
+    }
+
 }
 
