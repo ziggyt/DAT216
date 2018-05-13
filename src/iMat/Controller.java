@@ -11,8 +11,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
-
-import java.lang.reflect.InvocationTargetException;
+import java.util.stream.Collectors;
 import java.net.URL;
 import java.util.*;
 
@@ -48,6 +47,8 @@ public class Controller implements Initializable {
     private ScrollPane productScrollPane;
     @FXML
     private AnchorPane checkoutView2;
+    @FXML
+    private TextField searchField;
 
     //Should we use enum instead? Like sortedDir BACKWARDS, FORWARDS
     private boolean sortedDirectionName = false;
@@ -159,6 +160,34 @@ public class Controller implements Initializable {
                 updateCartTotal();
             }
         });
+
+
+        searchField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                shownProducts = bc.getProducts();
+                shownProducts= searchProducts(newValue);
+
+                if (newValue.equals("")){
+                    shownProducts = bc.getProducts();
+                }
+
+                updateProductList();
+                updateAmountFound();
+
+            }
+        });
+    }
+
+    private List <Product> searchProducts(String text) {
+        //We can't modify list directly, because we will get OOB errors
+        List <Product> result = new ArrayList<>();
+        for (Product shownProduct : shownProducts) {
+            if (shownProduct.getName().toLowerCase().contains(text.toLowerCase())) {
+                result.add(shownProduct);
+            }
+        }
+        return result;
     }
 
     /**
