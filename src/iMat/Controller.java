@@ -508,12 +508,17 @@ public class Controller implements Initializable {
 
     @FXML
     private void saveInfo() {
-        bc.getCustomer().setFirstName(firstNameField.getText());
-        bc.getCustomer().setLastName(lastNameField.getText());
-        bc.getCustomer().setAddress(addressField.getText());
-        bc.getCustomer().setPostCode(postalCodeField.getText());
-        bc.getCustomer().setPostAddress(countyField.getText());
-        bc.getCustomer().setPhoneNumber(phoneField.getText());
+        if (bc.isCustomerComplete()) {
+            bc.getCustomer().setFirstName(firstNameField.getText());
+            bc.getCustomer().setLastName(lastNameField.getText());
+            bc.getCustomer().setAddress(addressField.getText());
+            bc.getCustomer().setPostCode(postalCodeField.getText());
+            bc.getCustomer().setPostAddress(countyField.getText());
+            bc.getCustomer().setPhoneNumber(phoneField.getText());
+        }
+        else{
+            checkAllFields();
+        }
     }
 
 
@@ -546,7 +551,7 @@ public class Controller implements Initializable {
 
 
     private void missingTextAlert(TextField t){
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t); //It will play animation for 1 second
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t); 
         fade.setFromValue(1); //the pane is invisible to start
         fade.setToValue(0); //fades in to almost completely solid
         fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
