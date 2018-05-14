@@ -53,10 +53,10 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="creditCardField" layoutX="373.0" layoutY="235.0" prefHeight="40.0" prefWidth="420.0" promptText="Kortnummer" styleClass="text-large" />
-                        <TextField fx:id="expiryMonthField" layoutX="373.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsmånad" styleClass="text-large" />
-                        <TextField fx:id="expiryYearField" layoutX="532.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsår" styleClass="text-large" />
-                        <TextField fx:id="cvcField" layoutX="686.0" layoutY="283.0" prefHeight="40.0" prefWidth="108.0" promptText="CVC" styleClass="text-large" />
+                        <TextField fx:id="creditCardField" layoutX="322.0" layoutY="259.0" prefHeight="40.0" prefWidth="420.0" promptText="Kortnummer" styleClass="text-large" />
+                        <TextField fx:id="expiryMonthField" layoutX="322.0" layoutY="331.0" prefHeight="40.0" prefWidth="79.0" promptText="Månad" styleClass="text-large" />
+                        <TextField fx:id="expiryYearField" layoutX="418.0" layoutY="331.0" prefHeight="40.0" prefWidth="67.0" promptText="År" styleClass="text-large" />
+                        <TextField fx:id="cvcField" layoutX="321.0" layoutY="404.0" prefHeight="40.0" prefWidth="108.0" promptText="CVC" styleClass="text-large" />
                         <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
                            <graphic>
                               <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -67,17 +67,17 @@
                            </graphic>
                         </Button>
                         <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
-                        <AnchorPane prefHeight="114.0" prefWidth="420.0">
+                        <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
-                              <Circle fill="#2197ff40" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                              <Circle fill="#2197ffb1" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
-                              <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
-                              <Text layoutX="38.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
+                              <Circle fill="#2197ff40" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="#2197ffb1" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
+                              <Text layoutX="38.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
                                  <font>
                                     <Font name="Arial" size="38.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="178.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                              <Text layoutX="178.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
                                  <font>
                                     <Font name="Arial" size="38.0" />
                                  </font>
@@ -91,9 +91,14 @@
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
                               <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
                               <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
-                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
+                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Betalning" />
                            </children>
                         </AnchorPane>
+                        <Label layoutX="322.0" layoutY="192.0" styleClass="text-large-bold" text="Betalningsinformation" underline="true" />
+                        <Label layoutX="322.0" layoutY="232.0" styleClass="text-large" text="Kortnummer" />
+                        <Label layoutX="323.0" layoutY="307.0" styleClass="text-large" text="Månad" />
+                        <Label layoutX="420.0" layoutY="307.0" styleClass="text-large" text="År" />
+                        <Label layoutX="322.0" layoutY="380.0" styleClass="text-large" text="Säkerhetskod (CVC)" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
@@ -222,14 +227,14 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="402.0" layoutY="120.0" prefHeight="550.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="402.0" AnchorPane.topAnchor="165.0">
+                        <AnchorPane layoutX="320.0" layoutY="120.0" prefHeight="550.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="165.0">
                            <children>
                               <Label fx:id="checkoutTotalLabel" layoutX="161.0" layoutY="510.0" text="Totalt: X kr" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0">
                                  <font>
                                     <Font name="System Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <ScrollPane layoutX="41.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="20.0">
+                              <ScrollPane layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="20.0">
                                  <content>
                                     <FlowPane fx:id="checkoutFlowPane" prefHeight="476.0" prefWidth="264.0" />
                                  </content>
@@ -260,7 +265,7 @@
                            </graphic>
                         </Button>
                         <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
-                        <Label layoutX="422.0" layoutY="138.0" styleClass="text-title" text="Din Varukorg" underline="true" />
+                        <Label layoutX="320.0" layoutY="138.0" styleClass="text-title" text="Din Varukorg" underline="true" />
                         <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
                               <Circle fill="#2197ff40" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
