@@ -2,9 +2,7 @@
 
 
 # Todo:
--Since the program now saves cart contents on shutdown, we need to load them locally on startup to avoid errors
-
--Decide which categories to include and add them in
+-Add some sort of prompt if the user types letters in a number only field/make only numbers be accepted as input for field
 
 -Tooltips (Explanations to aid the user, ECO)
 
