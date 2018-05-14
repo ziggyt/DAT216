@@ -310,10 +310,10 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
-                    // If text is set to longer than 8
-                    if (creditCardField.getText().length() >= 8) {
-                        // Set length to 8
-                        creditCardField.setText(creditCardField.getText().substring(0, 8));
+                    // If text is set to longer than 16
+                    if (creditCardField.getText().length() >= 16) {
+                        // Set length to 16
+                        creditCardField.setText(creditCardField.getText().substring(0, 16));
                     }
                     // Check for non numeric characters
                     if (!newValue.matches("\\d*")) {
