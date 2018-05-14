@@ -267,6 +267,18 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
+                    // If text is set to longer than 5
+                    if (postalCodeField.getText().length() >= 5) {
+                        // Set length to 5
+                        postalCodeField.setText(postalCodeField.getText().substring(0, 5));
+                    }
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        postalCodeField.setText(newValue);
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
                     bc.getCustomer().setPostCode(newValue);
                 }
             }
@@ -283,6 +295,13 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        phoneField.setText(newValue);
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
                     bc.getCustomer().setPhoneNumber(newValue);
                 }
             }
@@ -291,6 +310,18 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
+                    // If text is set to longer than 8
+                    if (creditCardField.getText().length() >= 8) {
+                        // Set length to 8
+                        creditCardField.setText(creditCardField.getText().substring(0, 8));
+                    }
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        creditCardField.setText(newValue);
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
                     bc.getCreditCard().setCardNumber(newValue);
                 }
             }
@@ -299,11 +330,19 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
-                    try {
-                        bc.getCreditCard().setValidMonth(Integer.parseInt(newValue));
-                    }catch (java.lang.NumberFormatException err){
+                    // If text is set to longer than 2
+                    if (expiryMonthField.getText().length() >= 2) {
+                        // Set length to 2
+                        expiryMonthField.setText(expiryMonthField.getText().substring(0, 2));
+                    }
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        expiryMonthField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
+                    bc.getCreditCard().setValidMonth(Integer.parseInt(newValue));
                 }
             }
         });
@@ -311,11 +350,19 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
-                    try {
-                        bc.getCreditCard().setValidYear(Integer.parseInt(newValue));
-                    }catch (java.lang.NumberFormatException err){
+                    // If text is set to longer than 2
+                    if (expiryYearField.getText().length() >= 2) {
+                        // Set length to 2
+                        expiryYearField.setText(expiryYearField.getText().substring(0, 2));
+                    }
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        expiryYearField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
+                    bc.getCreditCard().setValidYear(Integer.parseInt(newValue));
                 }
             }
         });
@@ -323,11 +370,19 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
-                    try {
-                        bc.getCreditCard().setVerificationCode(Integer.parseInt(newValue));
-                    }catch (java.lang.NumberFormatException err){
+                    // If text is set to longer than 3
+                    if (cvcField.getText().length() >= 3) {
+                        // Set length to 3
+                        cvcField.setText(cvcField.getText().substring(0, 3));
+                    }
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        cvcField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
+                    bc.getCreditCard().setVerificationCode(Integer.parseInt(newValue));
                 }
             }
         });
