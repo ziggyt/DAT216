@@ -40,12 +40,12 @@
                            <graphic>
                               <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_icon.png" />
+                                    <Image url="@resources/back_button.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button disable="true" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                        <Button disable="true" mnemonicParsing="false" opacity="0.25" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -54,7 +54,8 @@
                         <TextField fx:id="expiryMonthField" layoutX="373.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsmånad" styleClass="text-large" />
                         <TextField fx:id="expiryYearField" layoutX="532.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsår" styleClass="text-large" />
                         <TextField fx:id="cvcField" layoutX="686.0" layoutY="283.0" prefHeight="40.0" prefWidth="108.0" promptText="CVC" styleClass="text-large" />
-                     </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutX="122.0" layoutY="14.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
@@ -114,7 +115,7 @@
                            <graphic>
                               <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_icon.png" />
+                                    <Image url="@resources/back_button.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -151,9 +152,9 @@
                         </AnchorPane>
                         <Button disable="true" layoutX="917.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
                            <graphic>
-                              <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitWidth="48.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_icon.png" />
+                                    <Image url="@resources/back_button.png" />
                                  </image>
                               </ImageView>
                            </graphic>
