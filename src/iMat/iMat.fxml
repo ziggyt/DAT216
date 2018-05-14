@@ -136,14 +136,17 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="408.0" layoutY="183.0" prefHeight="550.0" prefWidth="400.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+                        <AnchorPane layoutX="402.0" layoutY="102.0" prefHeight="550.0" prefWidth="400.0" AnchorPane.leftAnchor="402.0" AnchorPane.topAnchor="102.0">
                            <children>
                               <Label fx:id="checkoutTotalLabel" layoutX="161.0" layoutY="510.0" text="Totalt: X kr" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0">
                                  <font>
                                     <Font name="System Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <ScrollPane layoutX="41.0" layoutY="31.0" prefHeight="478.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                              <ScrollPane layoutX="41.0" layoutY="31.0" prefHeight="480.0" prefWidth="266.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="114.0" AnchorPane.topAnchor="20.0">
+                                 <content>
+                                    <FlowPane fx:id="checkoutFlowPane" prefHeight="476.0" prefWidth="264.0" />
+                                 </content></ScrollPane>
                            </children>
                         </AnchorPane>
                         <Button disable="true" layoutX="917.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">

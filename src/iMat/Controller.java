@@ -109,6 +109,12 @@ public class Controller implements Initializable {
     @FXML
     private TextField cvcField;
 
+    //Checkout 1
+    @FXML
+    private FlowPane checkoutFlowPane;
+    @FXML
+    private Label checkoutTotalLabel;
+
 
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
@@ -429,6 +435,20 @@ public class Controller implements Initializable {
         oldCartList.addAll(cart.getItems());
     }
 
+
+    private void updateCheckoutCart(){
+        // Put the items in the pane
+        checkoutFlowPane.getChildren().clear();
+        checkoutFlowPane.getChildren().addAll(shownCartList);
+        // Update the helper list to prepare for the next change
+        oldCartList.clear();
+        oldCartList.addAll(cart.getItems());
+
+        updateCheckoutTotal();
+
+
+    }
+
     /**
      * Shows the amount of shown products
      */
@@ -494,6 +514,7 @@ public class Controller implements Initializable {
     @FXML
     private void toCheckout() {
         checkoutView1.toFront();
+        updateCheckoutCart();
     }
 
     @FXML
@@ -584,7 +605,12 @@ public class Controller implements Initializable {
     }
 
     void updateCartTotal() {
-        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()));
+        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal())+ "kr");
+
+    }
+
+    void updateCheckoutTotal() {
+        checkoutTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal())+ "kr");
 
     }
 
