@@ -508,18 +508,16 @@ public class Controller implements Initializable {
 
     @FXML
     private void saveInfo() {
-        if (bc.isCustomerComplete()) {
             bc.getCustomer().setFirstName(firstNameField.getText());
             bc.getCustomer().setLastName(lastNameField.getText());
             bc.getCustomer().setAddress(addressField.getText());
             bc.getCustomer().setPostCode(postalCodeField.getText());
             bc.getCustomer().setPostAddress(countyField.getText());
             bc.getCustomer().setPhoneNumber(phoneField.getText());
-        }
-        else{
+            System.out.println("Saved info");
             checkAllFields();
         }
-    }
+
 
 
     @FXML
