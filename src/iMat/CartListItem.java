@@ -28,28 +28,17 @@ public class CartListItem extends AnchorPane {
     private Controller parentController;
     private ShoppingItem shoppingItem;
 
-    @FXML
-    private ImageView productImageView;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private TextField quantityTextField;
-    @FXML
-    private Button plusButton;
-    @FXML
-    private Button minusButton;
-    @FXML
-    private Label priceLabel;
-    @FXML
-    private ImageView closeIconImageView;
-    @FXML
-    private AnchorPane fadePane;
-    @FXML
-    private AnchorPane addedFadePane;
-    @FXML
-    private AnchorPane greyPane;
-    @FXML
-    private Button regretButton;
+    @FXML private ImageView productImageView;
+    @FXML private Label nameLabel;
+    @FXML private TextField quantityTextField;
+    @FXML private Button plusButton;
+    @FXML private Button minusButton;
+    @FXML private Label priceLabel;
+    @FXML private ImageView closeIconImageView;
+    @FXML private AnchorPane fadePane;
+    @FXML private AnchorPane addedFadePane;
+    @FXML private AnchorPane greyPane;
+    @FXML private Button regretButton;
 
     private FadeTransition fade;
     private FadeTransition addedFade;
