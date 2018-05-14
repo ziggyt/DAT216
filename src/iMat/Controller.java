@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.*;
@@ -114,6 +115,11 @@ public class Controller implements Initializable {
     private FlowPane checkoutFlowPane;
     @FXML
     private Label checkoutTotalLabel;
+
+
+    //Main view
+    @FXML
+    private BorderPane mainView;
 
 
     private boolean sortedDirectionName = false;
@@ -539,6 +545,12 @@ public class Controller implements Initializable {
     @FXML
     private void backToCheckoutStep2() {
         checkoutView2.toFront();
+    }
+
+    @FXML
+    private void goHome() {
+        mainView.toFront();
+        updateCartList();
     }
 
     Image getSquareImage(Image image) {

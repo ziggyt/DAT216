@@ -472,9 +472,9 @@
          <top>
                   <AnchorPane fx:id="topView" prefHeight="100.0" BorderPane.alignment="CENTER">
                       <children>
-                          <Label fx:id="logo" layoutX="21.0" layoutY="21.0" text="iMat" />
+                          <Label fx:id="logo" layoutX="21.0" layoutY="21.0" onMouseClicked="#goHome" text="iMat" />
                           <TextField fx:id="searchField" layoutX="362.0" layoutY="33.0" prefHeight="40.0" prefWidth="476.0" />
-                  <ImageView fitHeight="85.0" fitWidth="88.0" layoutX="173.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="85.0" fitWidth="88.0" layoutX="173.0" layoutY="19.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/imat_icon.gif" />
                      </image>
