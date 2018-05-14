@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -66,6 +67,33 @@
                            </graphic>
                         </Button>
                         <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <AnchorPane prefHeight="114.0" prefWidth="420.0">
+                           <children>
+                              <Circle fill="#2197ff40" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="#2197ffb1" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
+                              <Text layoutX="38.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="178.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="318.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
+                              <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
+                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
+                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
+                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
@@ -78,10 +106,10 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="316.0" layoutY="115.0" prefHeight="425.0" prefWidth="680.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+                        <AnchorPane layoutX="316.0" layoutY="120.0" prefHeight="366.0" prefWidth="680.0" AnchorPane.bottomAnchor="249.0" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="150.0">
                            <children>
-                              <Label layoutX="42.0" layoutY="1.0" styleClass="text-large" text="Skriv in dina uppgifter" underline="true" />
-                              <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="25.0">
+                              <Label layoutX="42.0" layoutY="1.0" styleClass="text-large-bold" text="Skriv in dina uppgifter" underline="true" />
+                              <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="15.0">
                                  <children>
                                     <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large" />
                                     <TextField fx:id="firstNameField" prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
@@ -111,12 +139,12 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Button layoutX="538.0" layoutY="13.0" mnemonicParsing="false" onAction="#autoFill" text="Fyll i automatiskt">
+                              <Button layoutX="541.0" layoutY="13.0" mnemonicParsing="false" onAction="#autoFill" text="Fyll i automatiskt">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="42.0" layoutY="369.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
+                              <Button layoutX="42.0" layoutY="324.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -147,6 +175,41 @@
                            </graphic>
                         </Button>
                         <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
+                           <children>
+                              <Circle fill="#2197ff40" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="#2197ffb1" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="DODGERBLUE" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
+                              <Text layoutX="38.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="178.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="318.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
+                                 <font>
+                                    <Font name="Arial" size="38.0" />
+                                 </font>
+                              </Text>
+                              <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
+                              <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
+                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
+                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Leverans" />
+                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="288.0" layoutY="528.0" prefHeight="200.0" prefWidth="550.0" AnchorPane.topAnchor="510.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="7.0" styleClass="text-large-bold" text="Bestäm Leveranstid" underline="true" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff2b" height="137.0" layoutX="27.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="139.0" />
+                              <Text layoutX="37.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Kalender" />
+                              <Label layoutX="220.0" layoutY="56.0" styleClass="text-large" text="Tid" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView1" prefHeight="200.0" prefWidth="200.0">
@@ -200,27 +263,27 @@
                         <Label layoutX="422.0" layoutY="138.0" styleClass="text-title" text="Din Varukorg" underline="true" />
                         <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
-                              <Circle fill="#2197ff40" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                              <Circle fill="#2197ffb1" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
-                              <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="#2197ff40" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="#2197ffb1" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="20.0" />
+                              <Circle fill="DODGERBLUE" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #2197ff40;" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
                               <Text layoutX="38.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
                                  <font>
                                     <Font name="Arial" size="38.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="178.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                              <Text layoutX="178.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
                                  <font>
                                     <Font name="Arial" size="38.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="318.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
+                              <Text layoutX="318.0" layoutY="62.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
                                  <font>
                                     <Font name="Arial" size="38.0" />
                                  </font>
                               </Text>
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
-                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
+                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Varukorg" />
                               <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
                               <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
                            </children>
