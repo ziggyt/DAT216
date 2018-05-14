@@ -700,13 +700,6 @@ public class Controller implements Initializable {
 
     }
 
-    //Saves all info locally and stops the program
-    @FXML
-    private void shutDown() {
-        bc.shutDown();
-        System.exit(1);
-
-    }
 
 }
 

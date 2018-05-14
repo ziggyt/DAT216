@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -479,11 +479,6 @@
                         <Image url="@resources/imat_icon.gif" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1158.0" layoutY="14.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="30.0" prefWidth="108.0" text="Stäng av">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
                       </children>
                   </AnchorPane>
          </top>
