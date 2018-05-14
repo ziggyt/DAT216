@@ -202,7 +202,7 @@
                                       </VBox>
                                       <VBox layoutX="10.0" layoutY="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
                                           <children>
-                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="180.0" styleClass="text-large" text="Kategorier" />
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="180.0" styleClass="text-large-bold" text="Kategorier" />
                                     <ToggleButton fx:id="breadCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Bröd">
                                        <font>
                                           <Font size="13.0" />
@@ -473,12 +473,17 @@
                   <AnchorPane fx:id="topView" prefHeight="100.0" BorderPane.alignment="CENTER">
                       <children>
                           <Label fx:id="logo" layoutX="21.0" layoutY="21.0" onMouseClicked="#goHome" text="iMat" />
-                          <TextField fx:id="searchField" layoutX="362.0" layoutY="33.0" prefHeight="40.0" prefWidth="476.0" />
+                          <TextField fx:id="searchField" layoutX="362.0" layoutY="33.0" prefHeight="40.0" prefWidth="476.0" promptText="Sök efter varor">
+                     <font>
+                        <Font size="16.0" />
+                     </font></TextField>
                   <ImageView fitHeight="85.0" fitWidth="88.0" layoutX="173.0" layoutY="19.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/imat_icon.gif" />
                      </image>
                   </ImageView>
+                  <Label fx:id="purchaseHistoryLabel" layoutX="964.0" layoutY="43.0" styleClass="text-large-bold" text="Köphistorik" />
+                  <Label fx:id="helpLabel" layoutX="1145.0" layoutY="43.0" styleClass="text-large-bold" text="Hjälp" />
                       </children>
                   </AnchorPane>
          </top>
