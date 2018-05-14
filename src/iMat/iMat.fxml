@@ -483,7 +483,7 @@
                      </image>
                   </ImageView>
                   <Label fx:id="purchaseHistoryLabel" layoutX="964.0" layoutY="43.0" styleClass="text-large-bold" text="Köphistorik" />
-                  <Label fx:id="helpLabel" layoutX="1145.0" layoutY="43.0" styleClass="text-large-bold" text="Hjälp" />
+                  <Label fx:id="helpLabel" layoutX="1146.0" layoutY="43.0" styleClass="text-large-bold" text="Hjälp" />
                       </children>
                   </AnchorPane>
          </top>
