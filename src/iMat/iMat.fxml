@@ -99,11 +99,6 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="535.0" layoutY="369.0" mnemonicParsing="false" onAction="#saveInfo" text="Spara information">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
                               <Button layoutX="42.0" layoutY="369.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa textfält">
                                  <font>
                                     <Font size="14.0" />

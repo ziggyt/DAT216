@@ -208,6 +208,55 @@ public class Controller implements Initializable {
 
             }
         });
+
+        firstNameField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setFirstName(newValue);
+                }
+            }
+        });
+        lastNameField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setLastName(newValue);
+                }
+            }
+        });
+        addressField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setAddress(newValue);
+                }
+            }
+        });
+        postalCodeField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setPostCode(newValue);
+                }
+            }
+        });
+        countyField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setPostAddress(newValue);
+                }
+            }
+        });
+        phoneField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCustomer().setPhoneNumber(newValue);
+                }
+            }
+        });
     }
 
 
@@ -386,15 +435,15 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void finishCheckoutStep1(){
+    private void finishCheckoutStep1() {
         checkoutView2.toFront();
     }
 
     @FXML
-    private void finishCheckoutStep2(){
+    private void finishCheckoutStep2() {
         if (bc.isCustomerComplete()) {
             checkoutView3.toFront();
-        } else{
+        } else {
             checkAllFields();
         }
     }
@@ -507,20 +556,6 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private void saveInfo() {
-            bc.getCustomer().setFirstName(firstNameField.getText());
-            bc.getCustomer().setLastName(lastNameField.getText());
-            bc.getCustomer().setAddress(addressField.getText());
-            bc.getCustomer().setPostCode(postalCodeField.getText());
-            bc.getCustomer().setPostAddress(countyField.getText());
-            bc.getCustomer().setPhoneNumber(phoneField.getText());
-            System.out.println("Saved info");
-            checkAllFields();
-        }
-
-
-
-    @FXML
     private void clearFields() {
         firstNameField.setText("");
         lastNameField.setText("");
@@ -532,7 +567,7 @@ public class Controller implements Initializable {
     }
 
     //I guess you could make an array/list of fields but this will be ok
-    private void checkAllFields(){
+    private void checkAllFields() {
         checkField(firstNameField);
         checkField(lastNameField);
         checkField(addressField);
@@ -541,15 +576,15 @@ public class Controller implements Initializable {
         checkField(phoneField);
     }
 
-    private void checkField(TextField t){
-        if (t.getText().equals("")){
+    private void checkField(TextField t) {
+        if (t.getText().equals("")) {
             missingTextAlert(t);
         }
     }
 
 
-    private void missingTextAlert(TextField t){
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t); 
+    private void missingTextAlert(TextField t) {
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t);
         fade.setFromValue(1); //the pane is invisible to start
         fade.setToValue(0); //fades in to almost completely solid
         fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
