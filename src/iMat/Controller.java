@@ -28,6 +28,8 @@ public class Controller implements Initializable {
     private FlowPane listFlowPane;
     @FXML
     private FlowPane cartListFlowPane;
+
+    //Category buttons
     @FXML
     private ToggleButton allCategoryButton;
     @FXML
@@ -64,6 +66,8 @@ public class Controller implements Initializable {
     private ToggleButton coldDrinksCategoryButton;
     @FXML
     private ToggleButton hotDrinksCategoryButton;
+
+
     @FXML
     private Label categoryTitleLabel;
     @FXML
@@ -80,6 +84,8 @@ public class Controller implements Initializable {
     private AnchorPane checkoutView3;
     @FXML
     private TextField searchField;
+
+    //Checkoutfields for address
     @FXML
     private TextField firstNameField;
     @FXML
@@ -92,6 +98,17 @@ public class Controller implements Initializable {
     private TextField countyField;
     @FXML
     private TextField phoneField;
+
+    //Checkoutfields for credit card
+    @FXML
+    private TextField creditCardField;
+    @FXML
+    private TextField expiryMonthField;
+    @FXML
+    private TextField expiryYearField;
+    @FXML
+    private TextField cvcField;
+
 
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
@@ -255,6 +272,50 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
                     bc.getCustomer().setPhoneNumber(newValue);
+                }
+            }
+        });
+        creditCardField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    bc.getCreditCard().setCardNumber(newValue);
+                }
+            }
+        });
+        expiryMonthField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    try {
+                        bc.getCreditCard().setValidMonth(Integer.parseInt(newValue));
+                    }catch (java.lang.NumberFormatException err){
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
+                }
+            }
+        });
+        expiryYearField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    try {
+                        bc.getCreditCard().setValidYear(Integer.parseInt(newValue));
+                    }catch (java.lang.NumberFormatException err){
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
+                }
+            }
+        });
+        cvcField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    try {
+                        bc.getCreditCard().setVerificationCode(Integer.parseInt(newValue));
+                    }catch (java.lang.NumberFormatException err){
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
                 }
             }
         });
@@ -445,7 +506,7 @@ public class Controller implements Initializable {
         if (bc.isCustomerComplete()) {
             checkoutView3.toFront();
         } else {
-            checkAllFields();
+            checkAllAddressFields();
         }
     }
 
@@ -568,13 +629,20 @@ public class Controller implements Initializable {
     }
 
     //I guess you could make an array/list of fields but this will be ok
-    private void checkAllFields() {
+    private void checkAllAddressFields() {
         checkField(firstNameField);
         checkField(lastNameField);
         checkField(addressField);
         checkField(postalCodeField);
         checkField(countyField);
         checkField(phoneField);
+    }
+
+    private void checkAllCreditCardFields(){
+        checkField(creditCardField);
+        checkField(expiryMonthField);
+        checkField(expiryYearField);
+        checkField(cvcField);
     }
 
     private void checkField(TextField t) {

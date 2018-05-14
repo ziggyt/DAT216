@@ -50,6 +50,10 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="creditCardField" layoutX="373.0" layoutY="235.0" prefHeight="40.0" prefWidth="420.0" promptText="Kortnummer" styleClass="text-large" />
+                        <TextField fx:id="expiryMonthField" layoutX="373.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsmånad" styleClass="text-large" />
+                        <TextField fx:id="expiryYearField" layoutX="532.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsår" styleClass="text-large" />
+                        <TextField fx:id="cvcField" layoutX="686.0" layoutY="283.0" prefHeight="40.0" prefWidth="108.0" promptText="CVC" styleClass="text-large" />
                      </children></AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
