@@ -28,7 +28,7 @@
                   <children>
                   <AnchorPane fx:id="checkoutView3" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="132.0" layoutY="24.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
+                        <AnchorPane layoutX="132.0" layoutY="24.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
@@ -54,11 +54,21 @@
                         <TextField fx:id="expiryMonthField" layoutX="373.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsmånad" styleClass="text-large" />
                         <TextField fx:id="expiryYearField" layoutX="532.0" layoutY="283.0" prefHeight="40.0" prefWidth="145.0" promptText="Utgångsår" styleClass="text-large" />
                         <TextField fx:id="cvcField" layoutX="686.0" layoutY="283.0" prefHeight="40.0" prefWidth="108.0" promptText="CVC" styleClass="text-large" />
+                        <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_button_circle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="122.0" layoutY="14.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
+                        <AnchorPane layoutX="122.0" layoutY="14.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
@@ -125,11 +135,21 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Button>
+                        <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_button_circle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView1" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="268.0" layoutY="92.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="14.0">
+                        <AnchorPane layoutX="200.0" layoutY="92.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
@@ -164,6 +184,16 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Button>
+                        <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_button_circle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
                      </children>
                   </AnchorPane>
                       <BorderPane fx:id="mainView">
