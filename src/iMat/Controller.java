@@ -117,6 +117,7 @@ public class Controller implements Initializable {
         updateAmountFound();
         updateFavImage();
         updateEcoImage();
+        updateCartList();
         updateCartTotal();
 
         listFlowPane.setHgap(42);
