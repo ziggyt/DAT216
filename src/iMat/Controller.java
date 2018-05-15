@@ -124,11 +124,17 @@ public class Controller implements Initializable {
     private BorderPane mainView;
 
     //DetailView
+    private int detailViewAmount = 1;
+    private Product detailViewProduct;
     @FXML private AnchorPane detailViewPane;
     @FXML private ImageView productImageView;
     @FXML private ImageView exitIcon;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    @FXML private TextField quantityTextField;
+    @FXML private Button plusButton;
+    @FXML private Button minusButton;
+    @FXML private Button buyButton;
 
 
     private boolean sortedDirectionName = false;
@@ -523,6 +529,31 @@ public class Controller implements Initializable {
         productImageView.setImage(getSquareImage(getProductImage(product)));
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
+        detailViewProduct = product;
+    }
+
+    @FXML
+    private void incAmount(){
+        if(detailViewAmount<99) {
+            detailViewAmount++;
+        }
+        quantityTextField.setText(detailViewAmount + " st");
+    }
+
+    @FXML
+    private void decAmount(){
+        if(detailViewAmount>1) {
+            detailViewAmount--;
+        }
+        quantityTextField.setText(detailViewAmount + " st");
+    }
+
+    @FXML
+    private void detailViewPurchase(){
+        purchaseItem(detailViewProduct, detailViewAmount);
+        updateCartTotal();
+        detailViewAmount=1;
+        quantityTextField.setText(detailViewAmount + " st");
     }
 
     /**
