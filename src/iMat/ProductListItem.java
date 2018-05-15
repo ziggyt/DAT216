@@ -25,6 +25,7 @@ class ProductListItem extends AnchorPane {
     @FXML private ImageView productImageView;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    @FXML private Button infoButton;
     @FXML private Button plusButton;
     @FXML private Button minusButton;
     @FXML private Button buyButton;
@@ -78,6 +79,11 @@ class ProductListItem extends AnchorPane {
         });
     }
 
+
+    @FXML
+    protected void openDetailView(){
+        parentController.openDetailView(product);
+    }
 
     @FXML
     protected void purchaseItem(){

@@ -4,12 +4,14 @@ import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -120,6 +122,13 @@ public class Controller implements Initializable {
     //Main view
     @FXML
     private BorderPane mainView;
+
+    //DetailView
+    @FXML private AnchorPane detailViewPane;
+    @FXML private ImageView productImageView;
+    @FXML private ImageView exitIcon;
+    @FXML private Label nameLabel;
+    @FXML private Label priceLabel;
 
 
     private boolean sortedDirectionName = false;
@@ -510,6 +519,12 @@ public class Controller implements Initializable {
 
     }
 
+    private void populateDetailView( Product product ){
+        productImageView.setImage(getSquareImage(getProductImage(product)));
+        nameLabel.setText(product.getName());
+        priceLabel.setText(product.getPrice() + " " + product.getUnit());
+    }
+
     /**
      * Shows the amount of shown products
      */
@@ -569,6 +584,11 @@ public class Controller implements Initializable {
         sortedDirectionPrice = !sortedDirectionPrice;
         updateProductList();
 
+    }
+
+    public void openDetailView( Product product ){
+        populateDetailView(product);
+        detailViewPane.toFront();
     }
 
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
@@ -755,6 +775,28 @@ public class Controller implements Initializable {
 
     }
 
+    @FXML
+    public void closeButtonMouseEntered(){
+        exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close_hover.png")));
+    }
+
+    @FXML
+    public void closeButtonMousePressed(){
+        exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close_pressed.png")));
+    }
+
+    @FXML
+    public void closeButtonMouseExited(){
+        exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close.png")));
+    }
+
+    @FXML
+    public void mouseTrap(Event event){
+        event.consume();
+    }
 
 }
 

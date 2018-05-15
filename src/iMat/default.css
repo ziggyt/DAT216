@@ -31,6 +31,18 @@
     -fx-font-weight: bold;
 }
 
+.detail-view {
+    -fx-background-color: rgba(0,0,0,0.75);
+}
+
+.text-area  {
+     -fx-background-color: -fx-background;
+}
+
+.text-area .content {
+     -fx-background-color: -fx-background;
+}
+
 .category-button{
 
 }
