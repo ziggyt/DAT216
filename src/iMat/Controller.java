@@ -617,12 +617,14 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckout() {
-        bc.getCreditCard().setCardNumber(creditCardField.getText());
-        bc.getCreditCard().setValidMonth(Integer.parseInt(expiryMonthField.getText()));
-        bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
-        bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
+        if(checkAllCreditCardFields()) {
+            bc.getCreditCard().setCardNumber(creditCardField.getText());
+            bc.getCreditCard().setValidMonth(Integer.parseInt(expiryMonthField.getText()));
+            bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
+            bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
-        bc.placeOrder(); // saves the order placement and clears the shopping cart
+            bc.placeOrder(); // Saves the order placement and clears the shopping cart
+        }
     }
 
     @FXML
