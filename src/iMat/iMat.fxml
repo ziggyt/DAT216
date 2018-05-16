@@ -155,6 +155,11 @@
                         <Label layoutX="323.0" layoutY="307.0" styleClass="text-large" text="Månad" />
                         <Label layoutX="420.0" layoutY="307.0" styleClass="text-large" text="År" />
                         <Label layoutX="322.0" layoutY="380.0" styleClass="text-large" text="Säkerhetskod (CVC)" />
+                        <Button layoutX="321.0" layoutY="474.0" mnemonicParsing="false" onAction="#finishCheckout" prefHeight="50.0" prefWidth="420.0" text="Betala XX kr">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
