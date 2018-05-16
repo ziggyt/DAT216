@@ -39,7 +39,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="messageField" layoutX="14.0" layoutY="56.0" prefHeight="193.0" prefWidth="535.0" styleClass="text-large">
+                              <TextArea fx:id="messageField" layoutX="14.0" layoutY="56.0" prefHeight="193.0" prefWidth="535.0" styleClass="text-large" wrapText="true">
                                  <font>
                                     <Font size="14.0" />
                                  </font></TextArea>

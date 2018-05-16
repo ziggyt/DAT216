@@ -3,9 +3,7 @@ package iMat;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -19,7 +17,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.*;
 
-import java.util.stream.Collectors;
 import java.net.URL;
 import java.util.*;
 
@@ -154,6 +151,10 @@ public class Controller implements Initializable {
     private Label messageName;
     @FXML
     private ImageView messageExitIcon;
+
+
+    //Messages
+    private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
 
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
@@ -613,7 +614,7 @@ public class Controller implements Initializable {
             inCheckout = true;
             updateCheckoutCart();
         } else {
-            populateMessageView("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
+            populateMessageView(emptyCartMessage);
             showMessage();
 
         }
@@ -741,12 +742,12 @@ public class Controller implements Initializable {
     }
 
     void updateCartTotal() {
-        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()) + "kr");
+        cartTotalLabel.setText("Totalkostnad : " + (cart.getTotal()) + "kr");
 
     }
 
     void updateCheckoutTotal() {
-        checkoutTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()) + "kr");
+        checkoutTotalLabel.setText("Totalkostnad : " + (cart.getTotal()) + "kr");
 
     }
 
@@ -828,9 +829,9 @@ public class Controller implements Initializable {
 
     }
 
-    private void populateMessageView(String name, String text) {
-        messageName.setText(name);
-        messageField.setText(text);
+    private void populateMessageView(Message m) {
+        messageName.setText(m.getMessageTitle());
+        messageField.setText(m.getMessageContent());
     }
 
     private void showMessage() {
