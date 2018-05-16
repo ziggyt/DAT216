@@ -19,6 +19,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1280, 880));
         primaryStage.setMinWidth(1280);
         primaryStage.setMinHeight(880);
+        primaryStage.setResizable(false);
 
         primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/imat_icon.gif")));
         primaryStage.initStyle(StageStyle.DECORATED);
