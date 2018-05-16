@@ -254,30 +254,6 @@ public class Controller implements Initializable {
             }
         });
 
-        firstNameField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.equals("")) {
-                    bc.getCustomer().setFirstName(newValue);
-                }
-            }
-        });
-        lastNameField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.equals("")) {
-                    bc.getCustomer().setLastName(newValue);
-                }
-            }
-        });
-        addressField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.equals("")) {
-                    bc.getCustomer().setAddress(newValue);
-                }
-            }
-        });
         postalCodeField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -294,15 +270,6 @@ public class Controller implements Initializable {
                         postalCodeField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCustomer().setPostCode(newValue);
-                }
-            }
-        });
-        countyField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.equals("")) {
-                    bc.getCustomer().setPostAddress(newValue);
                 }
             }
         });
@@ -317,7 +284,6 @@ public class Controller implements Initializable {
                         phoneField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCustomer().setPhoneNumber(newValue);
                 }
             }
         });
@@ -337,7 +303,6 @@ public class Controller implements Initializable {
                         creditCardField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCreditCard().setCardNumber(newValue);
                 }
             }
         });
@@ -357,7 +322,6 @@ public class Controller implements Initializable {
                         expiryMonthField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCreditCard().setValidMonth(Integer.parseInt(newValue));
                 }
             }
         });
@@ -377,7 +341,6 @@ public class Controller implements Initializable {
                         expiryYearField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCreditCard().setValidYear(Integer.parseInt(newValue));
                 }
             }
         });
@@ -397,7 +360,6 @@ public class Controller implements Initializable {
                         cvcField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                    bc.getCreditCard().setVerificationCode(Integer.parseInt(newValue));
                 }
             }
         });
@@ -633,15 +595,33 @@ public class Controller implements Initializable {
     @FXML
     private void finishCheckoutStep1() {
         checkoutView2.toFront();
+        autoFill(); // fill the text fields in step 2 automatically
     }
 
     @FXML
     private void finishCheckoutStep2() {
+        bc.getCustomer().setFirstName(firstNameField.getText());
+        bc.getCustomer().setLastName(lastNameField.getText());
+        bc.getCustomer().setAddress(addressField.getText());
+        bc.getCustomer().setPostCode(postalCodeField.getText());
+        bc.getCustomer().setPostAddress(countyField.getText());
+        bc.getCustomer().setPhoneNumber(phoneField.getText());
+
         if (bc.isCustomerComplete()) {
             checkoutView3.toFront();
         } else {
             checkAllAddressFields();
         }
+    }
+
+    @FXML
+    private void finishCheckout() {
+        bc.getCreditCard().setCardNumber(creditCardField.getText());
+        bc.getCreditCard().setValidMonth(Integer.parseInt(expiryMonthField.getText()));
+        bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
+        bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
+
+        bc.placeOrder(true); // saves the order placement and clears the shopping cart
     }
 
     @FXML
@@ -751,7 +731,6 @@ public class Controller implements Initializable {
      */
 
 
-    @FXML
     private void autoFill() {
         firstNameField.setText(bc.getCustomer().getFirstName());
         lastNameField.setText(bc.getCustomer().getLastName());
@@ -760,7 +739,6 @@ public class Controller implements Initializable {
         countyField.setText(bc.getCustomer().getPostAddress());
         phoneField.setText(bc.getCustomer().getPhoneNumber());
     }
-
 
     @FXML
     private void clearFields() {
