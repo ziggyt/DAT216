@@ -1,6 +1,8 @@
 package iMat;
 
 import javafx.animation.FadeTransition;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -155,11 +157,30 @@ public class Controller implements Initializable {
     private ImageView messageExitIcon;
 
 
+
+    //Sorting arrows
+    @FXML
+    private ImageView nameUp;
+    @FXML
+    private ImageView nameDown;
+    @FXML
+    private ImageView ecoUp;
+    @FXML
+    private ImageView ecoDown;
+    @FXML
+    private ImageView priceUp;
+    @FXML
+    private ImageView priceDown;
+
+
     //Messages
     private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
     private Message missingFieldText = new Message("Information saknas i textfält", "Alla fälten måste vara ifyllda för att kunna gå vidare");
+
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
+    private boolean sortedDirectionEco = false;
+
 
     private boolean inCheckout = false; // To decide which cart flow pane to fill in updateCartList method
 
@@ -386,6 +407,7 @@ public class Controller implements Initializable {
             }
         });
     }
+        // Sorting dir listeners
 
 
     private void updateCurrentCategory() {
@@ -549,6 +571,22 @@ public class Controller implements Initializable {
 
     }
 
+
+    void resetArrows(){
+        setArrowFaded(nameDown);
+        setArrowFaded(nameUp);
+        setArrowFaded(priceDown);
+        setArrowFaded(priceUp);
+        setArrowFaded(ecoDown);
+        setArrowFaded(ecoUp);
+    }
+
+    void resetDirs(){
+        sortedDirectionEco = false;
+        sortedDirectionPrice = false;
+        sortedDirectionName = false;
+
+    }
     /**
      * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
      */
@@ -572,6 +610,7 @@ public class Controller implements Initializable {
         }
     }
 
+
     @FXML
     private void sortByName() {
         if (!sortedDirectionName) {
@@ -579,16 +618,24 @@ public class Controller implements Initializable {
         } else {
             Collections.reverse(shownProducts);
         }
+        changeArrowDir(nameUp, nameDown, sortedDirectionName);
         sortedDirectionName = !sortedDirectionName;
         updateProductList();
     }
 
+
     @FXML
     private void sortByEco() {
-        shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
+        if (!sortedDirectionEco) {
+            shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
+        } else {
+            Collections.reverse(shownProducts);
+        }
+        changeArrowDir(ecoUp, ecoDown, sortedDirectionEco);
+            sortedDirectionEco = !sortedDirectionEco;
         updateProductList();
-    }
 
+    }
 
     @FXML
     private void sortByPrice() {
@@ -597,10 +644,33 @@ public class Controller implements Initializable {
         } else {
             Collections.reverse(shownProducts);
         }
+        changeArrowDir(priceUp, priceDown, sortedDirectionPrice);
         sortedDirectionPrice = !sortedDirectionPrice;
         updateProductList();
 
     }
+
+    private void changeArrowDir(ImageView im1, ImageView im2, boolean bool){
+        resetArrows(); //All sorting methods are absolute, no weightning of the previous list which means we might as well reset arrows to avoid confusion
+
+        if (bool){
+            setArrowFilled(im1);
+            setArrowFaded(im2);
+        }
+        else{
+            setArrowFaded(im1);
+            setArrowFilled(im2);
+        }
+    }
+
+    private void setArrowFilled(ImageView im){
+        im.setImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/arrow_filled.png"))));
+    }
+
+    private void setArrowFaded(ImageView im){
+        im.setImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/arrow_faded.png"))));
+    }
+
 
     @FXML
     public void openDetailView(Product product) {

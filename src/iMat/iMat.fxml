@@ -653,16 +653,46 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="sortByPriceButton" layoutX="157.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
+                              <Button fx:id="sortByPriceButton" layoutX="196.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="sortByEcoButton" layoutX="287.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
+                              <Button fx:id="sortByEcoButton" layoutX="348.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Button>
+                              <ImageView fx:id="nameUp" fitHeight="17.0" fitWidth="24.0" layoutX="151.0" layoutY="26.0" rotate="-90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="nameDown" fitHeight="17.0" fitWidth="24.0" layoutX="151.0" layoutY="50.0" rotate="90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="priceUp" fitHeight="17.0" fitWidth="24.0" layoutX="315.0" layoutY="26.0" rotate="-90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="priceDown" fitHeight="17.0" fitWidth="24.0" layoutX="315.0" layoutY="50.0" rotate="90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="ecoUp" fitHeight="17.0" fitWidth="24.0" layoutX="503.0" layoutY="26.0" rotate="-90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="ecoDown" fitHeight="17.0" fitWidth="24.0" layoutX="503.0" layoutY="50.0" rotate="90.0">
+                                 <image>
+                                    <Image url="@resources/arrow_faded.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                           </center>
