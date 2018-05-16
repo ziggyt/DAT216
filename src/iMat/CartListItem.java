@@ -85,6 +85,7 @@ public class CartListItem extends AnchorPane {
                 // Update price labels
                 priceLabel.setText(Math.round(shoppingItem.getTotal()) + " kr");
                 parentController.updateCartTotal();
+                parentController.updateCheckoutTotal();
 
             }
         });

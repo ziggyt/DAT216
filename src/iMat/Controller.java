@@ -158,6 +158,8 @@ public class Controller implements Initializable {
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
 
+    private boolean inCheckout = false; // To decide which cart flow pane to fill in updateCartList method
+
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
@@ -252,7 +254,6 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
-                updateCartTotal();
             }
         });
 
@@ -485,8 +486,13 @@ public class Controller implements Initializable {
             }
         }
         // Put the items in the pane
-        cartListFlowPane.getChildren().clear();
-        cartListFlowPane.getChildren().addAll(shownCartList);
+        if (inCheckout) {
+            updateCheckoutCart();
+        } else {
+            cartListFlowPane.getChildren().clear();
+            cartListFlowPane.getChildren().addAll(shownCartList);
+            updateCartTotal();
+        }
         // Update the helper list to prepare for the next change
         oldCartList.clear();
         oldCartList.addAll(cart.getItems());
@@ -497,13 +503,8 @@ public class Controller implements Initializable {
         // Put the items in the pane
         checkoutFlowPane.getChildren().clear();
         checkoutFlowPane.getChildren().addAll(shownCartList);
-        // Update the helper list to prepare for the next change
-        oldCartList.clear();
-        oldCartList.addAll(cart.getItems());
 
         updateCheckoutTotal();
-
-
     }
 
     private void populateDetailView(Product product) {
@@ -609,6 +610,7 @@ public class Controller implements Initializable {
     private void toCheckout() {
         if (shownCartList.size() != 0) { //check if
             checkoutView1.toFront();
+            inCheckout = true;
             updateCheckoutCart();
         } else {
             populateMessageView("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
@@ -654,6 +656,7 @@ public class Controller implements Initializable {
             expiryYearField.setText("");
             cvcField.setText("");
             mainView.toFront();
+            inCheckout = false;
         }
     }
 
@@ -670,6 +673,7 @@ public class Controller implements Initializable {
     @FXML
     private void goHome() {
         mainView.toFront();
+        inCheckout = false;
         updateCartList();
     }
 
@@ -786,22 +790,22 @@ public class Controller implements Initializable {
 
     //I guess you could make an array/list of fields but this will be ok
     private boolean checkAllAddressFields() {
-        return (
-                checkField(firstNameField) &
-                        checkField(lastNameField) &
-                        checkField(addressField) &
-                        checkField(postalCodeField) &
-                        checkField(countyField) &
-                        checkField(phoneField)
+        return(
+        checkField(firstNameField) &
+        checkField(lastNameField) &
+        checkField(addressField) &
+        checkField(postalCodeField) &
+        checkField(countyField) &
+        checkField(phoneField)
         );
     }
 
-    private boolean checkAllCreditCardFields() {
-        return (
-                checkField(creditCardField) &
-                        checkField(expiryMonthField) &
-                        checkField(expiryYearField) &
-                        checkField(cvcField)
+    private boolean checkAllCreditCardFields(){
+        return(
+        checkField(creditCardField) &
+        checkField(expiryMonthField) &
+        checkField(expiryYearField) &
+        checkField(cvcField)
         );
     }
 
