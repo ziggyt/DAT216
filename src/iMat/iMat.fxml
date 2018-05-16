@@ -172,7 +172,6 @@
                               <Label layoutX="42.0" layoutY="1.0" styleClass="text-large-bold" text="Skriv in dina uppgifter" underline="true" />
                               <VBox fillWidth="false" layoutX="42.0" layoutY="49.0" spacing="15.0">
                                  <children>
-                                    <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large" />
                                     <TextField fx:id="firstNameField" prefHeight="40.0" prefWidth="420.0" promptText="Förnamn" styleClass="text-large">
                                        <VBox.margin>
                                           <Insets />
@@ -188,6 +187,7 @@
                                           <Insets />
                                        </VBox.margin>
                                     </TextField>
+                                    <TextField fx:id="addressField" prefHeight="40.0" prefWidth="420.0" promptText="Adress" styleClass="text-large" />
                                     <HBox spacing="25.0">
                                        <children>
                                           <TextField fx:id="postalCodeField" prefHeight="40.0" prefWidth="145.0" promptText="Postnummer" styleClass="text-large">
