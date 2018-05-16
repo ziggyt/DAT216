@@ -454,7 +454,8 @@ public class Controller implements Initializable {
      */
     private void updateCartList() {
         // Remove items
-        for (ShoppingItem si : oldCartList) { // Iterate the pre-change cart
+        for (int i = oldCartList.size()-1; i >= 0; i--) { // Iterate the pre-change cart, has to be in reverse order (when removing multiple items at once) because when removing an item from shownCartList the indexes of all the items after it changes
+            ShoppingItem si = oldCartList.get(i);
             if (!cart.getItems().contains(si)) { // If the backend cart does not contain the item
                 shownCartList.remove(oldCartList.indexOf(si)); // Remove the item
             }
@@ -621,7 +622,7 @@ public class Controller implements Initializable {
         bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
         bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
-        bc.placeOrder(true); // saves the order placement and clears the shopping cart
+        bc.placeOrder(); // saves the order placement and clears the shopping cart
     }
 
     @FXML
