@@ -1,6 +1,6 @@
 package iMat;
 
-public class Message {
+class Message {
     Message(String messageTitle, String messageContent) {
         this.messageTitle = messageTitle;
         this.messageContent = messageContent;
@@ -9,11 +9,11 @@ public class Message {
     private String messageTitle;
     private String messageContent;
 
-    public String getMessageTitle() {
+    String getMessageTitle() {
         return messageTitle;
     }
 
-    public String getMessageContent() {
+    String getMessageContent() {
         return messageContent;
     }
 }

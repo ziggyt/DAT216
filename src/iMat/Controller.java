@@ -3,7 +3,9 @@ package iMat;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -155,7 +157,7 @@ public class Controller implements Initializable {
 
     //Messages
     private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
-
+    private Message missingFieldText = new Message("Information saknas i textfält", "Alla fälten måste vara ifyllda för att kunna gå vidare");
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
 
@@ -826,6 +828,13 @@ public class Controller implements Initializable {
         fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
         fade.setAutoReverse(true); //in order to make it go from solid to transparent
         fade.play(); // start animation
+        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
+            @Override
+            public void handle(ActionEvent event) {
+               populateMessageView(missingFieldText);  // Remove item from cart after the animation
+                showMessage();
+            }
+        });
 
     }
 
@@ -836,6 +845,11 @@ public class Controller implements Initializable {
 
     private void showMessage() {
         messagePane.toFront();
+    }
+
+    @FXML
+    private void moveMessagePaneBack(){
+        messagePane.toBack();
     }
 
 
