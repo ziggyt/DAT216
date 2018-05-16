@@ -753,26 +753,32 @@ public class Controller implements Initializable {
     }
 
     //I guess you could make an array/list of fields but this will be ok
-    private void checkAllAddressFields() {
-        checkField(firstNameField);
-        checkField(lastNameField);
-        checkField(addressField);
-        checkField(postalCodeField);
-        checkField(countyField);
-        checkField(phoneField);
+    private boolean checkAllAddressFields() {
+        return(
+        checkField(firstNameField) &
+        checkField(lastNameField) &
+        checkField(addressField) &
+        checkField(postalCodeField) &
+        checkField(countyField) &
+        checkField(phoneField)
+        );
     }
 
-    private void checkAllCreditCardFields(){
-        checkField(creditCardField);
-        checkField(expiryMonthField);
-        checkField(expiryYearField);
-        checkField(cvcField);
+    private boolean checkAllCreditCardFields(){
+        return(
+        checkField(creditCardField) &
+        checkField(expiryMonthField) &
+        checkField(expiryYearField) &
+        checkField(cvcField)
+        );
     }
 
-    private void checkField(TextField t) {
+    private boolean checkField(TextField t) {
         if (t.getText().equals("")) {
             missingTextAlert(t);
+            return false;
         }
+        return true;
     }
 
 
