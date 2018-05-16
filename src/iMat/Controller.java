@@ -617,6 +617,7 @@ public class Controller implements Initializable {
 
     }
 
+    @FXML
     public void openDetailView( Product product ){
         populateDetailView(product);
         detailViewPane.toFront();
