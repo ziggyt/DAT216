@@ -722,13 +722,19 @@ public class Controller implements Initializable {
             bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
             bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
+            int numberofItems = cart.getItems().size();
+            int totalprice = (int) cart.getTotal();
+            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAntal varor: " + numberofItems +"\nTotalpris: " + totalprice);
+            populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
             clearFields();
+            updateCartTotal();
             creditCardField.setText("");
             expiryMonthField.setText("");
             expiryYearField.setText("");
             cvcField.setText("");
             mainView.toFront();
+            showMessage();
             inCheckout = false;
         }
     }
