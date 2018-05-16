@@ -648,6 +648,11 @@ public class Controller implements Initializable {
             bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
+            clearFields();
+            creditCardField.setText("");
+            expiryMonthField.setText("");
+            expiryYearField.setText("");
+            cvcField.setText("");
             mainView.toFront();
         }
     }
