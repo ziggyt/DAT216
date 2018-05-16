@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
@@ -31,12 +24,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
+                  <AnchorPane fx:id="messagePane" layoutX="10.0" layoutY="10.0" onMouseClicked="#goHome" styleClass="detail-view">
+                     <children>
+                        <AnchorPane blendMode="SRC_ATOP" layoutX="358.0" layoutY="249.0" onMouseClicked="#mouseTrap" prefHeight="268.0" prefWidth="564.0" styleClass="text-area" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="249.0">
+                           <children>
+                              <Label fx:id="messageName" alignment="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="35.0" prefWidth="499.0" styleClass="text-large-bold" text="Label" AnchorPane.bottomAnchor="219.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="14.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="messageField" layoutX="14.0" layoutY="56.0" prefHeight="193.0" prefWidth="535.0" styleClass="text-large">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></TextArea>
+                              <ImageView fx:id="messageExitIcon" fitHeight="28.0" fitWidth="27.0" layoutX="530.0" layoutY="7.0" onMouseClicked="#goHome" onMouseEntered="#closeButtonMouseEnteredMessage" onMouseExited="#closeButtonMouseExitedMessage" onMousePressed="#closeButtonMousePressedMessage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icon_close.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="detailViewPane" onMouseClicked="#goHome" styleClass="detail-view">
                      <children>
                         <AnchorPane blendMode="SRC_ATOP" layoutX="210.0" layoutY="76.0" onMouseClicked="#mouseTrap" prefHeight="447.0" prefWidth="771.0" styleClass="text-area" AnchorPane.bottomAnchor="242.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="76.0">

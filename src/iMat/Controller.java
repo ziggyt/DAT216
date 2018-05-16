@@ -126,16 +126,34 @@ public class Controller implements Initializable {
     //DetailView
     private int detailViewAmount = 1;
     private Product detailViewProduct;
-    @FXML private AnchorPane detailViewPane;
-    @FXML private ImageView productImageView;
-    @FXML private ImageView exitIcon;
-    @FXML private Label nameLabel;
-    @FXML private Label priceLabel;
-    @FXML private TextField quantityTextField;
-    @FXML private Button plusButton;
-    @FXML private Button minusButton;
-    @FXML private Button buyButton;
+    @FXML
+    private AnchorPane detailViewPane;
+    @FXML
+    private ImageView productImageView;
+    @FXML
+    private ImageView exitIcon;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private TextField quantityTextField;
+    @FXML
+    private Button plusButton;
+    @FXML
+    private Button minusButton;
+    @FXML
+    private Button buyButton;
 
+    //Messageprompt
+    @FXML
+    private AnchorPane messagePane;
+    @FXML
+    private TextArea messageField;
+    @FXML
+    private Label messageName;
+    @FXML
+    private ImageView messageExitIcon;
 
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
@@ -454,7 +472,7 @@ public class Controller implements Initializable {
      */
     private void updateCartList() {
         // Remove items
-        for (int i = oldCartList.size()-1; i >= 0; i--) { // Iterate the pre-change cart, has to be in reverse order (when removing multiple items at once) because when removing an item from shownCartList the indexes of all the items after it changes
+        for (int i = oldCartList.size() - 1; i >= 0; i--) { // Iterate the pre-change cart, has to be in reverse order (when removing multiple items at once) because when removing an item from shownCartList the indexes of all the items after it changes
             ShoppingItem si = oldCartList.get(i);
             if (!cart.getItems().contains(si)) { // If the backend cart does not contain the item
                 shownCartList.remove(oldCartList.indexOf(si)); // Remove the item
@@ -475,7 +493,7 @@ public class Controller implements Initializable {
     }
 
 
-    private void updateCheckoutCart(){
+    private void updateCheckoutCart() {
         // Put the items in the pane
         checkoutFlowPane.getChildren().clear();
         checkoutFlowPane.getChildren().addAll(shownCartList);
@@ -488,7 +506,7 @@ public class Controller implements Initializable {
 
     }
 
-    private void populateDetailView( Product product ){
+    private void populateDetailView(Product product) {
         productImageView.setImage(getSquareImage(getProductImage(product)));
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
@@ -496,26 +514,26 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void incAmount(){
-        if(detailViewAmount<99) {
+    private void incAmount() {
+        if (detailViewAmount < 99) {
             detailViewAmount++;
         }
         quantityTextField.setText(detailViewAmount + " st");
     }
 
     @FXML
-    private void decAmount(){
-        if(detailViewAmount>1) {
+    private void decAmount() {
+        if (detailViewAmount > 1) {
             detailViewAmount--;
         }
         quantityTextField.setText(detailViewAmount + " st");
     }
 
     @FXML
-    private void detailViewPurchase(){
+    private void detailViewPurchase() {
         purchaseItem(detailViewProduct, detailViewAmount);
         updateCartTotal();
-        detailViewAmount=1;
+        detailViewAmount = 1;
         quantityTextField.setText(detailViewAmount + " st");
     }
 
@@ -581,7 +599,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void openDetailView( Product product ){
+    public void openDetailView(Product product) {
         populateDetailView(product);
         detailViewPane.toFront();
     }
@@ -589,8 +607,14 @@ public class Controller implements Initializable {
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
     private void toCheckout() {
-        checkoutView1.toFront();
-        updateCheckoutCart();
+        if (shownCartList.size() != 0) { //check if
+            checkoutView1.toFront();
+            updateCheckoutCart();
+        } else {
+            populateMessageView("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
+            showMessage();
+
+        }
     }
 
     @FXML
@@ -601,7 +625,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckoutStep2() {
-        if(checkAllAddressFields()) {
+        if (checkAllAddressFields()) {
             bc.getCustomer().setFirstName(firstNameField.getText());
             bc.getCustomer().setLastName(lastNameField.getText());
             bc.getCustomer().setAddress(addressField.getText());
@@ -617,7 +641,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckout() {
-        if(checkAllCreditCardFields()) {
+        if (checkAllCreditCardFields()) {
             bc.getCreditCard().setCardNumber(creditCardField.getText());
             bc.getCreditCard().setValidMonth(Integer.parseInt(expiryMonthField.getText()));
             bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
@@ -708,12 +732,12 @@ public class Controller implements Initializable {
     }
 
     void updateCartTotal() {
-        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal())+ "kr");
+        cartTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()) + "kr");
 
     }
 
     void updateCheckoutTotal() {
-        checkoutTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal())+ "kr");
+        checkoutTotalLabel.setText("Totalkostnad : " + Math.round(cart.getTotal()) + "kr");
 
     }
 
@@ -757,22 +781,22 @@ public class Controller implements Initializable {
 
     //I guess you could make an array/list of fields but this will be ok
     private boolean checkAllAddressFields() {
-        return(
-        checkField(firstNameField) &
-        checkField(lastNameField) &
-        checkField(addressField) &
-        checkField(postalCodeField) &
-        checkField(countyField) &
-        checkField(phoneField)
+        return (
+                checkField(firstNameField) &
+                        checkField(lastNameField) &
+                        checkField(addressField) &
+                        checkField(postalCodeField) &
+                        checkField(countyField) &
+                        checkField(phoneField)
         );
     }
 
-    private boolean checkAllCreditCardFields(){
-        return(
-        checkField(creditCardField) &
-        checkField(expiryMonthField) &
-        checkField(expiryYearField) &
-        checkField(cvcField)
+    private boolean checkAllCreditCardFields() {
+        return (
+                checkField(creditCardField) &
+                        checkField(expiryMonthField) &
+                        checkField(expiryYearField) &
+                        checkField(cvcField)
         );
     }
 
@@ -795,26 +819,54 @@ public class Controller implements Initializable {
 
     }
 
+    private void populateMessageView(String name, String text) {
+        messageName.setText(name);
+        messageField.setText(text);
+    }
+
+    private void showMessage() {
+        messagePane.toFront();
+    }
+
+
     @FXML
-    public void closeButtonMouseEntered(){
+    public void closeButtonMouseEnteredMessage() {
+        messageExitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close_hover.png")));
+    }
+
+    @FXML
+    public void closeButtonMousePressedMessage() {
+        messageExitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close_pressed.png")));
+    }
+
+    @FXML
+    public void closeButtonMouseExitedMessage() {
+        messageExitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/icon_close.png")));
+    }
+
+    @FXML
+    public void closeButtonMouseEntered() {
         exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/icon_close_hover.png")));
     }
 
     @FXML
-    public void closeButtonMousePressed(){
+    public void closeButtonMousePressed() {
         exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/icon_close_pressed.png")));
     }
 
     @FXML
-    public void closeButtonMouseExited(){
+    public void closeButtonMouseExited() {
         exitIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/icon_close.png")));
     }
 
     @FXML
-    public void mouseTrap(Event event){
+    public void mouseTrap(Event event) {
         event.consume();
     }
 
