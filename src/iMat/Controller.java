@@ -601,17 +601,17 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckoutStep2() {
-        bc.getCustomer().setFirstName(firstNameField.getText());
-        bc.getCustomer().setLastName(lastNameField.getText());
-        bc.getCustomer().setAddress(addressField.getText());
-        bc.getCustomer().setPostCode(postalCodeField.getText());
-        bc.getCustomer().setPostAddress(countyField.getText());
-        bc.getCustomer().setPhoneNumber(phoneField.getText());
+        if(checkAllAddressFields()) {
+            bc.getCustomer().setFirstName(firstNameField.getText());
+            bc.getCustomer().setLastName(lastNameField.getText());
+            bc.getCustomer().setAddress(addressField.getText());
+            bc.getCustomer().setPostCode(postalCodeField.getText());
+            bc.getCustomer().setPostAddress(countyField.getText());
+            bc.getCustomer().setPhoneNumber(phoneField.getText());
 
-        if (bc.isCustomerComplete()) {
-            checkoutView3.toFront();
-        } else {
-            checkAllAddressFields();
+            if (bc.isCustomerComplete()) {
+                checkoutView3.toFront();
+            }
         }
     }
 
@@ -624,6 +624,7 @@ public class Controller implements Initializable {
             bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
+            mainView.toFront();
         }
     }
 
