@@ -66,15 +66,22 @@
 #logo{
     -fx-font-size: 65px;
     -fx-font-family: "Perfectly Together";
-    -fx-stroke: black;
-    -fx-stroke-width: 5;
+    -fx-text-stroke: black;
+    -fx-text-stroke-width: 5px;
     -fx-font-weight: bold;
     -fx-text-fill: #f4424b;
     -fx-rotate: -5;
-    -fx-animation: colorRotate 3s linear infinite;
+
 
 }
 
+#logo:hover{
+    -fx-text-fill: #ff7f7f;
+}
+
+#logo:pressed{
+    -fx-text-fill: #700000;
+}
 
 
 
