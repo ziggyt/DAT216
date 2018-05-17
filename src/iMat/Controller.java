@@ -200,6 +200,9 @@ public class Controller implements Initializable {
             ProductListItem productListItem = new ProductListItem(product, this);
             productListItemMap.put(product.getName(), productListItem);
         }
+
+        //bc.reset();
+
         shownProducts = bc.getProducts();
         cart = bc.getShoppingCart();
         updateProductList();
@@ -759,6 +762,8 @@ public class Controller implements Initializable {
     private void goHome() {
         mainView.toFront();
         inCheckout = false;
+        allCategoryButton.setSelected(true);
+        updateCurrentCategory();
         updateCartList();
       //  shownProducts = bc. getProducts(AL)
     }
