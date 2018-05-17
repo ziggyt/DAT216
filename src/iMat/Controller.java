@@ -133,6 +133,8 @@ public class Controller implements Initializable {
     //PurchaseHistory View
     @FXML
     private AnchorPane purchaseHistoryPane;
+    @FXML
+    private FlowPane purchaseHistoryFlowPane;
 
     //Help View
     @FXML
@@ -559,6 +561,7 @@ public class Controller implements Initializable {
     @FXML
     private void toPurchaseHistory() {
         blurInSearchBar();
+        populatePurchaseHistory();
         purchaseHistoryPane.toFront();
     }
 
@@ -566,6 +569,15 @@ public class Controller implements Initializable {
     private void toHelp() {
         blurInSearchBar();
         helpPane.toFront();
+    }
+
+    private void populatePurchaseHistory(){
+        purchaseHistoryFlowPane.getChildren().clear();
+
+        List <Order> orders =  bc.getOrders();
+        for(int i = 0; i< orders.size(); i++){
+            purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this));
+        }
     }
 
     private void populateDetailView(Product product) {

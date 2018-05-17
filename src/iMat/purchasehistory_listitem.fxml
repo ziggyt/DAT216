@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="82.0" prefWidth="395.0" stylesheets="@default.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="dateLabel" layoutX="26.0" layoutY="26.0" styleClass="text-larger-bold" text="2018-05-20" />
+      <Label fx:id="numberofItemsLabel" layoutX="207.0" layoutY="30.0" styleClass="text-large-bold" text="2 varor" />
+      <Label fx:id="priceLabel" layoutX="321.0" layoutY="30.0" styleClass="text-large-bold" text="20 kr" />
+   </children>
+</fx:root>
