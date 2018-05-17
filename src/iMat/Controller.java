@@ -717,6 +717,7 @@ public class Controller implements Initializable {
     private void toCheckout() {
         if (shownCartList.size() != 0) { //check if
             blurSearchBar.toFront();
+            blurInSearchBar();
             checkoutView1.toFront();
             inCheckout = true;
             updateCheckoutCart();
@@ -726,6 +727,30 @@ public class Controller implements Initializable {
             showMessage();
 
         }
+    }
+
+    private void blurInSearchBar(){
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
+        fade.setFromValue(0); //From almost solid to completely solid,
+        fade.setToValue(1.0);
+        fade.setCycleCount(1);
+        fade.play(); // start animation
+
+    }
+
+    private void blurOutSearchBar(){
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
+        fade.setFromValue(1); //From almost solid to completely solid,
+        fade.setToValue(0);
+        fade.setCycleCount(1);
+        fade.play(); // start animation
+        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
+            @Override
+            public void handle(ActionEvent event) {
+               blurSearchBar.toBack();  // Remove item from cart after the animation
+            }
+        });
+
     }
 
     @FXML
@@ -791,7 +816,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void goHome() {
-        blurSearchBar.toBack();
+        blurOutSearchBar();
         mainView.toFront();
         inCheckout = false;
         allCategoryButton.setSelected(true);
