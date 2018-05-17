@@ -67,7 +67,7 @@
                                  </image>
                               </ImageView>
                               <Label fx:id="nameLabel" layoutX="282.0" layoutY="32.0" styleClass="text-title" text="Produktnamn" />
-                              <Label fx:id="priceLabel" layoutX="282.0" layoutY="101.0" styleClass="text-large" text="Pris per enhet" />
+                              <Label fx:id="priceLabel" layoutX="282.0" layoutY="101.0" styleClass="text-large-bold" text="Pris per enhet" />
                               <Button fx:id="minusButton" layoutX="337.0" layoutY="337.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="35.0" prefWidth="35.0">
                                  <graphic>
                                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true">
@@ -96,6 +96,12 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
+                              <Label layoutX="282.0" layoutY="142.0" prefHeight="177.0" prefWidth="271.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas et orci eu cursus. Morbi id lacinia purus, sit amet posuere erat. Donec sit amet pretium odio, eget luctus eros. Donec tincidunt ultrices felis quis viverra. Donec nec nibh ante. Quisque eu porta urna, at iaculis sapien. Quisque nulla orci, luctus ut sem non, volutpat sodales massa." wrapText="true" />
+                              <ImageView fx:id="ecoImageView" fitHeight="71.0" fitWidth="83.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/eco.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>

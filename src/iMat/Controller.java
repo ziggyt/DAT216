@@ -148,6 +148,8 @@ public class Controller implements Initializable {
     @FXML
     private TextField quantityTextField;
     @FXML
+    private ImageView ecoImageView;
+    @FXML
     private Button plusButton;
     @FXML
     private Button minusButton;
@@ -560,6 +562,11 @@ public class Controller implements Initializable {
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
         detailViewProduct = product;
+        if(product.isEcological()){
+            ecoImageView.setVisible(true);
+        }else{
+            ecoImageView.setVisible(false);
+        }
     }
 
     @FXML
