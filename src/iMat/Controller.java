@@ -195,6 +195,8 @@ public class Controller implements Initializable {
     private boolean sortedDirectionPrice = false;
     private boolean sortedDirectionEco = false;
 
+    private boolean searchFieldBlurred = false;
+
 
     private boolean inCheckout = false; // To decide which cart flow pane to fill in updateCartList method
 
@@ -731,16 +733,19 @@ public class Controller implements Initializable {
     }
 
     private void blurInSearchBar() {
-        blurSearchBar.toFront();
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
-        fade.setFromValue(0); //From almost solid to completely solid,
-        fade.setToValue(1.0);
-        fade.setCycleCount(1);
-        fade.play(); // start animation
-
+        if(!searchFieldBlurred) {
+            blurSearchBar.toFront();
+            FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
+            fade.setFromValue(0); //From almost solid to completely solid,
+            fade.setToValue(1.0);
+            fade.setCycleCount(1);
+            fade.play(); // start animation
+            searchFieldBlurred = true;
+        }
     }
 
     private void blurOutSearchBar() {
+        searchFieldBlurred = false;
         FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
         fade.setFromValue(1); //From almost solid to completely solid,
         fade.setToValue(0);
