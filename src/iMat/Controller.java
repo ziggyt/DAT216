@@ -125,6 +125,8 @@ public class Controller implements Initializable {
     private ImageView toCheckoutImageView;
     @FXML
     private ImageView blurSearchBar;
+    @FXML
+    private ImageView trashCanImageView;
 
     //PurchaseHistory View
     @FXML
@@ -810,7 +812,8 @@ public class Controller implements Initializable {
 
     @FXML
     private void resetSorting() {
-        shownProducts = bc.getProducts();
+        List<Product> placeHolderProducts = bc.getProducts();
+        shownProducts = placeHolderProducts;
         resetArrows();
         resetDirs();
         updateProductList();
@@ -902,6 +905,15 @@ public class Controller implements Initializable {
     void updateCheckoutTotal() {
         checkoutTotalLabel.setText("Totalkostnad : " + (cart.getTotal()) + "kr");
 
+    }
+
+    @FXML
+    void emptyCart(){
+        cart.clear();
+        oldCartList.clear();
+        shownCartList.clear();
+        updateCartTotal();
+        updateCartList();
     }
 
 
@@ -1005,24 +1017,34 @@ public class Controller implements Initializable {
     private void moveMessagePaneBack() {
         messagePane.toBack();
     }
+    @FXML
+    public void trashcanMouseEntered() {
+        trashCanImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/trashcan_hover.png")));
+    }
+    @FXML
+    public void trashcanMouseExited() {
+        trashCanImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/trashcan.png")));
+    }
 
 
     @FXML
     public void toCheckoutMouseEntered() {
         toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "iMat/resources/to_register_hover.jpg")));
+                "iMat/resources/to_register_hover.png")));
     }
 
     @FXML
     public void toCheckoutMousePressed() {
         toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "iMat/resources/to_register_pressed.jpg")));
+                "iMat/resources/to_register_pressed.png")));
     }
 
     @FXML
     public void toCheckoutMouseExited() {
         toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "iMat/resources/to_register.jpg")));
+                "iMat/resources/to_register.png")));
     }
 
     @FXML

@@ -19,6 +19,12 @@
     -fx-font-weight: bold;
 }
 
+.text-larger-bold {
+    -fx-font-size: 24px;
+    -fx-font-family: "Avenir Book";
+    -fx-font-weight: bold;
+}
+
 .text-title {
     -fx-font-size: 28px;
     -fx-font-family: "Avenir Book";
