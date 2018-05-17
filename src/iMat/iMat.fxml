@@ -673,32 +673,32 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="nameUp" fitHeight="17.0" fitWidth="24.0" layoutX="151.0" layoutY="26.0" rotate="-90.0">
+                              <ImageView fx:id="nameUp" fitHeight="12.0" fitWidth="16.0" layoutX="140.0" layoutY="36.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="nameDown" fitHeight="17.0" fitWidth="24.0" layoutX="151.0" layoutY="50.0" rotate="90.0">
+                              <ImageView fx:id="nameDown" fitHeight="12.0" fitWidth="16.0" layoutX="141.0" layoutY="51.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceUp" fitHeight="17.0" fitWidth="24.0" layoutX="315.0" layoutY="26.0" rotate="-90.0">
+                              <ImageView fx:id="priceUp" fitHeight="12.0" fitWidth="16.0" layoutX="310.0" layoutY="36.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceDown" fitHeight="17.0" fitWidth="24.0" layoutX="315.0" layoutY="50.0" rotate="90.0">
+                              <ImageView fx:id="priceDown" fitHeight="12.0" fitWidth="16.0" layoutX="311.0" layoutY="51.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoUp" fitHeight="17.0" fitWidth="24.0" layoutX="503.0" layoutY="26.0" rotate="-90.0">
+                              <ImageView fx:id="ecoUp" fitHeight="12.0" fitWidth="16.0" layoutX="496.0" layoutY="36.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoDown" fitHeight="17.0" fitWidth="24.0" layoutX="503.0" layoutY="50.0" rotate="90.0">
+                              <ImageView fx:id="ecoDown" fitHeight="12.0" fitWidth="16.0" layoutX="497.0" layoutY="51.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
