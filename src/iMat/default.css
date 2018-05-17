@@ -66,13 +66,13 @@
 #logo{
     -fx-font-size: 65px;
     -fx-font-family: "Perfectly Together";
-    -fx-text-stroke: black;
-    -fx-text-stroke-width: 5px;
     -fx-font-weight: bold;
     -fx-text-fill: #f4424b;
     -fx-rotate: -5;
-
-
+}
+#logo.stroke{
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
 }
 
 #logo:hover{

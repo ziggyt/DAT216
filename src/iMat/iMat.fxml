@@ -24,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -720,16 +720,25 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="sortByPriceButton" layoutX="196.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="sortByEcoButton" layoutX="348.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <ImageView fx:id="nameUp" fitHeight="12.0" fitWidth="16.0" layoutX="140.0" layoutY="36.0" rotate="-90.0">
                                  <image>
@@ -771,7 +780,10 @@
          <top>
                   <AnchorPane fx:id="topView" prefHeight="100.0" BorderPane.alignment="CENTER">
                       <children>
-                          <Label fx:id="logo" layoutX="21.0" layoutY="21.0" onMouseClicked="#goHome" text="iMat" />
+                          <Label fx:id="logo" layoutX="21.0" layoutY="21.0" onMouseClicked="#goHome" text="iMat">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
                           <TextField fx:id="searchField" layoutX="362.0" layoutY="33.0" prefHeight="40.0" prefWidth="476.0" promptText="Sök efter varor">
                      <font>
                         <Font size="16.0" />
@@ -780,6 +792,9 @@
                      <image>
                         <Image url="@resources/imat_icon.gif" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <Label fx:id="purchaseHistoryLabel" layoutX="964.0" layoutY="43.0" onMouseClicked="#toPurchaseHistory" styleClass="text-large-bold" text="Köphistorik" />
                   <Label fx:id="helpLabel" layoutX="1146.0" layoutY="43.0" onMouseClicked="#toHelp" styleClass="text-large-bold" text="Hjälp" />
