@@ -378,18 +378,59 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
+                        <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_button_circle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" text="Lägg till i befintlig varukorg" />
+                        <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" text="Ersätt befintlig varukorg" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane>
+                        <AnchorPane AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label layoutX="43.0" styleClass="text-topic" text="Hjälp" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
                               <Line endX="110.0" layoutY="80.0" AnchorPane.rightAnchor="4.0" />
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
+                        <Label layoutX="360.0" layoutY="82.0" styleClass="text-title" text="Hur handlar man?" />
+                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="231.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="449.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="336.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Text layoutX="248.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
+                           <font>
+                              <Font name="Arial" size="38.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="248.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
+                           <font>
+                              <Font name="Arial" size="38.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="248.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                           <font>
+                              <Font name="Arial" size="38.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/back_button_circle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
                      </children>
                   </AnchorPane>
                       <BorderPane fx:id="mainView">
