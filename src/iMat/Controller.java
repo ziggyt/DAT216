@@ -124,6 +124,14 @@ public class Controller implements Initializable {
     @FXML
     private BorderPane mainView;
 
+    //PurchaseHistory View
+    @FXML
+    private AnchorPane purchaseHistoryPane;
+
+    //Help View
+    @FXML
+    private AnchorPane helpPane;
+
     //DetailView
     private int detailViewAmount = 1;
     private Product detailViewProduct;
@@ -535,6 +543,16 @@ public class Controller implements Initializable {
         checkoutFlowPane.getChildren().addAll(shownCartList);
 
         updateCheckoutTotal();
+    }
+
+    @FXML
+    private void toPurchaseHistory(){
+        purchaseHistoryPane.toFront();
+    }
+
+    @FXML
+    private void toHelp(){
+        helpPane.toFront();
     }
 
     private void populateDetailView(Product product) {

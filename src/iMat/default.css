@@ -83,6 +83,21 @@
     -fx-text-fill: #700000;
 }
 
+#purchaseHistoryLabel:hover{
+    -fx-text-fill: #ff7f7f;
+}
+
+#purchaseHistoryLabel:pressed{
+    -fx-text-fill: #700000;
+}
+
+#helpLabel:hover{
+    -fx-text-fill: #ff7f7f;
+}
+
+#helpLabel:pressed{
+    -fx-text-fill: #700000;
+}
 
 
 

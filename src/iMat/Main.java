@@ -24,7 +24,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/imat_icon.gif")));
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.show();
-        IMatDataHandler.getInstance().reset();
+        //IMatDataHandler.getInstance().reset();
     }
 
 
