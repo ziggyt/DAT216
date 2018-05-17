@@ -798,6 +798,7 @@ public class Controller implements Initializable {
             expiryMonthField.setText("");
             expiryYearField.setText("");
             cvcField.setText("");
+            blurOutSearchBar();
             mainView.toFront();
             showMessage();
             inCheckout = false;
