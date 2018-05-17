@@ -231,7 +231,7 @@ public class Controller implements Initializable {
 
         listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
-        listFlowPane.setPadding(new Insets(10, 10, 10, 64));
+        listFlowPane.setPadding(new Insets(10, 10, 10, 55));
 
         /* All available categories
     POD,
