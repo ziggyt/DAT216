@@ -730,7 +730,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="sortByPriceButton" layoutX="196.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
+                              <Button fx:id="sortByPriceButton" layoutX="165.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -738,7 +738,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="sortByEcoButton" layoutX="348.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
+                              <Button fx:id="sortByEcoButton" layoutX="303.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -756,26 +756,34 @@
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceUp" fitHeight="12.0" fitWidth="16.0" layoutX="310.0" layoutY="36.0" rotate="-90.0">
+                              <ImageView fx:id="priceUp" fitHeight="12.0" fitWidth="16.0" layoutX="280.0" layoutY="36.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceDown" fitHeight="12.0" fitWidth="16.0" layoutX="311.0" layoutY="51.0" rotate="90.0">
+                              <ImageView fx:id="priceDown" fitHeight="12.0" fitWidth="16.0" layoutX="281.0" layoutY="51.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoUp" fitHeight="12.0" fitWidth="16.0" layoutX="496.0" layoutY="36.0" rotate="-90.0">
+                              <ImageView fx:id="ecoUp" fitHeight="12.0" fitWidth="16.0" layoutX="451.0" layoutY="36.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoDown" fitHeight="12.0" fitWidth="16.0" layoutX="497.0" layoutY="51.0" rotate="90.0">
+                              <ImageView fx:id="ecoDown" fitHeight="12.0" fitWidth="16.0" layoutX="452.0" layoutY="51.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
+                              <Button layoutX="658.0" layoutY="35.0" mnemonicParsing="false" onAction="#resetSorting" text="Återställ sortering">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </AnchorPane>
                           </center>

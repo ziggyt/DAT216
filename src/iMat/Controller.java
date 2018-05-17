@@ -811,6 +811,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void resetSorting(){
+        shownProducts = bc.getProducts();
+    }
+
+    @FXML
     private void backToCheckoutStep2() {
         checkoutView2.toFront();
     }
