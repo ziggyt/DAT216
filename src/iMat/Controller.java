@@ -814,6 +814,8 @@ public class Controller implements Initializable {
     @FXML
     private void resetSorting(){
         shownProducts = bc.getProducts();
+        resetArrows();
+        resetDirs();
     }
 
     @FXML
