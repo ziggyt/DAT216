@@ -677,7 +677,7 @@
                           <right>
                               <AnchorPane prefWidth="250.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ScrollPane layoutX="-5.0" layoutY="69.0" prefHeight="634.0" prefWidth="255.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutY="69.0" prefHeight="634.0" prefWidth="250.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                                  <content>
                                     <FlowPane fx:id="cartListFlowPane" prefHeight="300.0" prefWidth="230.0" />
                                  </content>

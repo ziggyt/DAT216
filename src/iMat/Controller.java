@@ -720,7 +720,7 @@ public class Controller implements Initializable {
             checkoutView1.toFront();
             inCheckout = true;
             updateCheckoutCart();
-            
+
         } else {
             populateMessageView(emptyCartMessage);
             showMessage();

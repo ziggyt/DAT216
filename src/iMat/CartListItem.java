@@ -37,7 +37,6 @@ public class CartListItem extends AnchorPane {
     @FXML private AnchorPane fadePane;
     @FXML private AnchorPane addedFadePane;
     @FXML private AnchorPane greyPane;
-    @FXML private Button regretButton;
 
     private FadeTransition fade;
     private FadeTransition addedFade;
@@ -127,24 +126,21 @@ public class CartListItem extends AnchorPane {
     @FXML
     private void removeItem(){
         fadePane.toFront();
-        regretButton.toFront(); //Button cant belong to fadePane because it will get faded in and out
         fadeAlert();
     }
 
 
     @FXML
     private void regret(){  //Rearranges the panes to show a grey background again and stops animation
-        regretButton.toBack();
         fadePane.toBack();
         fade.stop();
     }
 
     private void fadeAlert(){
-        fade = new FadeTransition(Duration.seconds(1), fadePane); //It will play animation for 1 second
-        fade.setFromValue(0.0); //the pane is invisible to start
-        fade.setToValue(0.9); //fades in to almost completely solid
-        fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
-        fade.setAutoReverse(true); //in order to make it go from solid to transparent
+        fade = new FadeTransition(Duration.seconds(4), fadePane);
+        fade.setFromValue(0.95); //From almost solid to completely solid,
+        fade.setToValue(1.0);
+        fade.setCycleCount(1);
         fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
             @Override
             public void handle(ActionEvent event) {
