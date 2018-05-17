@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -32,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -60,7 +52,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#goHome" styleClass="detail-view">
+                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#goHome" prefHeight="765.0" prefWidth="1303.0" styleClass="detail-view" StackPane.alignment="CENTER">
                      <children>
                         <AnchorPane blendMode="SRC_ATOP" layoutX="210.0" layoutY="76.0" onMouseClicked="#mouseTrap" prefHeight="447.0" prefWidth="771.0" styleClass="text-area" AnchorPane.bottomAnchor="242.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="76.0">
                            <children>
@@ -376,6 +368,30 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <AnchorPane fx:id="purchaseHistoryPane" prefHeight="200.0" prefWidth="200.0" styleClass="text-area">
+                     <children>
+                        <AnchorPane AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <Label layoutX="43.0" styleClass="text-topic" text="Köphistorik" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="110.0" layoutY="80.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <Label layoutX="43.0" styleClass="text-topic" text="Kassa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Line endX="120.0" layoutY="75.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="110.0" layoutY="80.0" AnchorPane.rightAnchor="4.0" />
+                              <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                       <BorderPane fx:id="mainView">
                           <left>
                               <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -632,7 +648,8 @@
                               <Button fx:id="checkoutButton" layoutX="125.0" layoutY="2.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="36.0" prefWidth="103.0" text="TILL KASSAN">
                                  <font>
                                     <Font size="14.0" />
-                                 </font></Button>
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                           </right>
@@ -653,7 +670,7 @@
                                     </Label>
                                  </children>
                               </FlowPane>
-                              <ScrollPane fx:id="productScrollPane" hbarPolicy="NEVER" layoutY="63.0" prefViewportHeight="200.0" prefViewportWidth="775.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                              <ScrollPane fx:id="productScrollPane" cache="true" hbarPolicy="NEVER" layoutY="63.0" prefViewportHeight="200.0" prefViewportWidth="775.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                                  <content>
                                     <FlowPane fx:id="listFlowPane" prefHeight="300.0" prefWidth="815.0" />
                                  </content>

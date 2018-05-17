@@ -32,7 +32,7 @@
 }
 
 .detail-view {
-    -fx-background-color: rgba(0,0,0,0.75);
+    -fx-background-color: rgba(0,0,0,0.5);
 }
 
 .text-area  {
@@ -59,7 +59,7 @@
     -fx-background-color: -fx-background;
 }
 
-#checkoutView1, #checkoutView2, #checkoutView3  {
+#checkoutView1, #checkoutView2, #checkoutView3, #purchaseHistoryPane, #helpPane  {
     -fx-background-color: -fx-background;
 }
 

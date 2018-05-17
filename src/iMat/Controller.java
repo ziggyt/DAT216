@@ -177,6 +177,7 @@ public class Controller implements Initializable {
     private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
     private Message missingFieldText = new Message("Information saknas i textfält", "Alla fälten måste vara ifyllda för att kunna gå vidare");
 
+    //private Message invalidMonthMessage = new Message("Ogiltig månad", "")
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
     private boolean sortedDirectionEco = false;
@@ -479,6 +480,7 @@ public class Controller implements Initializable {
                 result.add(shownProduct);
             }
         }
+        resetArrows();
         return result;
     }
 
@@ -722,9 +724,13 @@ public class Controller implements Initializable {
             bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
             bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
-            int numberofItems = cart.getItems().size();
+            int numberofItems=0;
+            for (int i = 0; i < cart.getItems().size(); i++) {
+                numberofItems += cart.getItems().get(i).getAmount();
+            }
+            //int numberofItems = cart.getItems().size();
             int totalprice = (int) cart.getTotal();
-            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAntal varor: " + numberofItems +"\nTotalpris: " + totalprice);
+            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAdress: " + bc.getCustomer().getAddress() +"\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nLeveranstid: " + "18 maj" + "\nAntal varor: " + numberofItems +"\nTotalpris: " + totalprice);
             populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
             clearFields();
@@ -754,6 +760,7 @@ public class Controller implements Initializable {
         mainView.toFront();
         inCheckout = false;
         updateCartList();
+      //  shownProducts = bc. getProducts(AL)
     }
 
     Image getSquareImage(Image image) {
@@ -854,6 +861,9 @@ public class Controller implements Initializable {
         postalCodeField.setText(bc.getCustomer().getPostCode());
         countyField.setText(bc.getCustomer().getPostAddress());
         phoneField.setText(bc.getCustomer().getPhoneNumber());
+        creditCardField.setText(bc.getCreditCard().getCardNumber());
+        expiryMonthField.setText(String.valueOf(bc.getCreditCard().getValidMonth()));
+        expiryYearField.setText(String.valueOf(bc.getCreditCard().getValidYear()));
     }
 
     @FXML

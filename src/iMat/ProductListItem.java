@@ -56,7 +56,7 @@ class ProductListItem extends AnchorPane {
 
         // Text setup
         nameLabel.setText(product.getName());
-        priceLabel.setText(product.getPrice() + " kr");
+        priceLabel.setText(product.getPrice() + " " + product.getUnit());
         quantityTextField.setText(amount + "");
 
         // Forces the field to be numeric only and limits to 2 digits
