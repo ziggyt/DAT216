@@ -127,6 +127,8 @@ public class Controller implements Initializable {
     private ImageView blurSearchBar;
     @FXML
     private ImageView trashCanImageView;
+    @FXML
+    private ScrollPane cartScrollPane;
 
     //PurchaseHistory View
     @FXML
@@ -297,6 +299,7 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
+                cartScrollPane.setVvalue(cartScrollPane.getVmax());
             }
         });
 
