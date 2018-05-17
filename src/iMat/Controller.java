@@ -125,6 +125,8 @@ public class Controller implements Initializable {
     private BorderPane mainView;
     @FXML
     private ImageView toCheckoutImageView;
+    @FXML
+    private ImageView blurSearchBar;
 
     //PurchaseHistory View
     @FXML
@@ -714,9 +716,11 @@ public class Controller implements Initializable {
     @FXML
     private void toCheckout() {
         if (shownCartList.size() != 0) { //check if
+            blurSearchBar.toFront();
             checkoutView1.toFront();
             inCheckout = true;
             updateCheckoutCart();
+            
         } else {
             populateMessageView(emptyCartMessage);
             showMessage();
@@ -787,6 +791,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void goHome() {
+        blurSearchBar.toBack();
         mainView.toFront();
         inCheckout = false;
         allCategoryButton.setSelected(true);
