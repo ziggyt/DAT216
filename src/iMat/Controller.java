@@ -280,7 +280,7 @@ public class Controller implements Initializable {
                 if (newValue == null) {
                     oldValue.setSelected(true); // Stops the currently selected toggle from being unselected when pressed
                 } else {
-
+                    searchField.clear();
                     ToggleButton selected = (ToggleButton) categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
                     category = selected.getId();
