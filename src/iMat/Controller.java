@@ -123,6 +123,8 @@ public class Controller implements Initializable {
     //Main view
     @FXML
     private BorderPane mainView;
+    @FXML
+    private ImageView toCheckoutImageView;
 
     //PurchaseHistory View
     @FXML
@@ -968,6 +970,23 @@ public class Controller implements Initializable {
         messagePane.toBack();
     }
 
+
+    @FXML
+    public void toCheckoutMouseEntered() {
+        toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/to_register_hover.jpg")));
+    }
+
+    @FXML
+    public void toCheckoutMousePressed() {
+        toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/to_register_pressed.jpg")));
+    }
+    @FXML
+    public void toCheckoutMouseExited() {
+        toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/to_register.jpg")));
+    }
 
     @FXML
     public void closeButtonMouseEnteredMessage() {

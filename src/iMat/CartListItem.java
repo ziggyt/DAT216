@@ -19,7 +19,6 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 

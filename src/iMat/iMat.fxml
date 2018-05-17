@@ -677,7 +677,7 @@
                           <right>
                               <AnchorPane prefWidth="250.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ScrollPane layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                              <ScrollPane layoutX="-5.0" layoutY="69.0" prefHeight="634.0" prefWidth="255.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                                  <content>
                                     <FlowPane fx:id="cartListFlowPane" prefHeight="300.0" prefWidth="230.0" />
                                  </content>
@@ -692,11 +692,11 @@
                                     <Image url="@resources/shopping_cart.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="checkoutButton" layoutX="125.0" layoutY="2.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="36.0" prefWidth="103.0" text="TILL KASSAN">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
+                              <ImageView fx:id="toCheckoutImageView" fitHeight="103.0" fitWidth="253.0" layoutX="-4.0" layoutY="704.0" onMouseClicked="#toCheckout" onMouseEntered="#toCheckoutMouseEntered" onMouseExited="#toCheckoutMouseExited" onMousePressed="#toCheckoutMousePressed" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/to_register.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                           </right>
@@ -717,7 +717,7 @@
                                     </Label>
                                  </children>
                               </FlowPane>
-                              <ScrollPane fx:id="productScrollPane" cache="true" hbarPolicy="NEVER" layoutY="63.0" prefViewportHeight="200.0" prefViewportWidth="775.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                              <ScrollPane fx:id="productScrollPane" cache="true" hbarPolicy="NEVER" layoutY="63.0" prefHeight="695.0" prefViewportHeight="200.0" prefViewportWidth="775.0" prefWidth="824.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="70.0">
                                  <content>
                                     <FlowPane fx:id="listFlowPane" prefHeight="300.0" prefWidth="815.0" />
                                  </content>
