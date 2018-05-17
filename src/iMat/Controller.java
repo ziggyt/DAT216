@@ -1,8 +1,6 @@
 package iMat;
 
 import javafx.animation.FadeTransition;
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -169,7 +167,6 @@ public class Controller implements Initializable {
     private Label messageName;
     @FXML
     private ImageView messageExitIcon;
-
 
 
     //Sorting arrows
@@ -426,7 +423,7 @@ public class Controller implements Initializable {
             }
         });
     }
-        // Sorting dir listeners
+    // Sorting dir listeners
 
 
     private void updateCurrentCategory() {
@@ -553,12 +550,12 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void toPurchaseHistory(){
+    private void toPurchaseHistory() {
         purchaseHistoryPane.toFront();
     }
 
     @FXML
-    private void toHelp(){
+    private void toHelp() {
         helpPane.toFront();
     }
 
@@ -567,9 +564,9 @@ public class Controller implements Initializable {
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
         detailViewProduct = product;
-        if(product.isEcological()){
+        if (product.isEcological()) {
             ecoImageView.setVisible(true);
-        }else{
+        } else {
             ecoImageView.setVisible(false);
         }
     }
@@ -607,7 +604,7 @@ public class Controller implements Initializable {
     }
 
 
-    void resetArrows(){
+    void resetArrows() {
         setArrowFaded(nameDown);
         setArrowFaded(nameUp);
         setArrowFaded(priceDown);
@@ -616,12 +613,13 @@ public class Controller implements Initializable {
         setArrowFaded(ecoUp);
     }
 
-    void resetDirs(){
+    void resetDirs() {
         sortedDirectionEco = false;
         sortedDirectionPrice = false;
         sortedDirectionName = false;
 
     }
+
     /**
      * Iterates through the ProductListItems using the name property of a product in order to set correct image (filled star vs empty star)
      */
@@ -667,7 +665,7 @@ public class Controller implements Initializable {
             Collections.reverse(shownProducts);
         }
         changeArrowDir(ecoUp, ecoDown, sortedDirectionEco);
-            sortedDirectionEco = !sortedDirectionEco;
+        sortedDirectionEco = !sortedDirectionEco;
         updateProductList();
 
     }
@@ -685,24 +683,23 @@ public class Controller implements Initializable {
 
     }
 
-    private void changeArrowDir(ImageView im1, ImageView im2, boolean bool){
+    private void changeArrowDir(ImageView im1, ImageView im2, boolean bool) {
         resetArrows(); //All sorting methods are absolute, no weightning of the previous list which means we might as well reset arrows to avoid confusion
 
-        if (bool){
+        if (bool) {
             setArrowFilled(im1);
             setArrowFaded(im2);
-        }
-        else{
+        } else {
             setArrowFaded(im1);
             setArrowFilled(im2);
         }
     }
 
-    private void setArrowFilled(ImageView im){
+    private void setArrowFilled(ImageView im) {
         im.setImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/arrow_filled.png"))));
     }
 
-    private void setArrowFaded(ImageView im){
+    private void setArrowFaded(ImageView im) {
         im.setImage((new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/arrow_faded.png"))));
     }
 
@@ -730,7 +727,7 @@ public class Controller implements Initializable {
         }
     }
 
-    private void blurInSearchBar(){
+    private void blurInSearchBar() {
         FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
         fade.setFromValue(0); //From almost solid to completely solid,
         fade.setToValue(1.0);
@@ -739,7 +736,7 @@ public class Controller implements Initializable {
 
     }
 
-    private void blurOutSearchBar(){
+    private void blurOutSearchBar() {
         FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
         fade.setFromValue(1); //From almost solid to completely solid,
         fade.setToValue(0);
@@ -748,7 +745,7 @@ public class Controller implements Initializable {
         fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
             @Override
             public void handle(ActionEvent event) {
-               blurSearchBar.toBack();  // Remove item from cart after the animation
+                blurSearchBar.toBack();  // Remove item from cart after the animation
             }
         });
 
@@ -784,13 +781,13 @@ public class Controller implements Initializable {
             bc.getCreditCard().setValidYear(Integer.parseInt(expiryYearField.getText()));
             bc.getCreditCard().setVerificationCode(Integer.parseInt(cvcField.getText()));
 
-            int numberofItems=0;
+            int numberofItems = 0;
             for (int i = 0; i < cart.getItems().size(); i++) {
                 numberofItems += cart.getItems().get(i).getAmount();
             }
             //int numberofItems = cart.getItems().size();
             int totalprice = (int) cart.getTotal();
-            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAdress: " + bc.getCustomer().getAddress() +"\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nLeveranstid: " + "18 maj" + "\nAntal varor: " + numberofItems +"\nTotalpris: " + totalprice);
+            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAdress: " + bc.getCustomer().getAddress() + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nLeveranstid: " + "18 maj" + "\nAntal varor: " + numberofItems + "\nTotalpris: " + totalprice);
             populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
             clearFields();
@@ -812,10 +809,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void resetSorting(){
+    private void resetSorting() {
         shownProducts = bc.getProducts();
         resetArrows();
         resetDirs();
+        updateProductList();
     }
 
     @FXML
@@ -831,7 +829,6 @@ public class Controller implements Initializable {
         allCategoryButton.setSelected(true);
         updateCurrentCategory();
         updateCartList();
-      //  shownProducts = bc. getProducts(AL)
     }
 
     Image getSquareImage(Image image) {
@@ -950,22 +947,22 @@ public class Controller implements Initializable {
 
     //I guess you could make an array/list of fields but this will be ok
     private boolean checkAllAddressFields() {
-        return(
-        checkField(firstNameField) &
-        checkField(lastNameField) &
-        checkField(addressField) &
-        checkField(postalCodeField) &
-        checkField(countyField) &
-        checkField(phoneField)
+        return (
+                checkField(firstNameField) &
+                        checkField(lastNameField) &
+                        checkField(addressField) &
+                        checkField(postalCodeField) &
+                        checkField(countyField) &
+                        checkField(phoneField)
         );
     }
 
-    private boolean checkAllCreditCardFields(){
-        return(
-        checkField(creditCardField) &
-        checkField(expiryMonthField) &
-        checkField(expiryYearField) &
-        checkField(cvcField)
+    private boolean checkAllCreditCardFields() {
+        return (
+                checkField(creditCardField) &
+                        checkField(expiryMonthField) &
+                        checkField(expiryYearField) &
+                        checkField(cvcField)
         );
     }
 
@@ -988,7 +985,7 @@ public class Controller implements Initializable {
         fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
             @Override
             public void handle(ActionEvent event) {
-               populateMessageView(missingFieldText);  // Remove item from cart after the animation
+                populateMessageView(missingFieldText);  // Remove item from cart after the animation
                 showMessage();
             }
         });
@@ -1005,7 +1002,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void moveMessagePaneBack(){
+    private void moveMessagePaneBack() {
         messagePane.toBack();
     }
 
@@ -1021,6 +1018,7 @@ public class Controller implements Initializable {
         toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/to_register_pressed.jpg")));
     }
+
     @FXML
     public void toCheckoutMouseExited() {
         toCheckoutImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(

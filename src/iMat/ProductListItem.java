@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -22,17 +21,28 @@ class ProductListItem extends AnchorPane {
     private Product product;
     private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
 
-    @FXML private ImageView productImageView;
-    @FXML private Label nameLabel;
-    @FXML private Label priceLabel;
-    @FXML private Button infoButton;
-    @FXML private Button plusButton;
-    @FXML private Button minusButton;
-    @FXML private Button buyButton;
-    @FXML private TextField quantityTextField;
-    @FXML private ImageView favoriteItemImageView;
-    @FXML private SplitPane productSplitPane;
-    @FXML private ImageView ecoImageView;
+    @FXML
+    private ImageView productImageView;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private Button infoButton;
+    @FXML
+    private Button plusButton;
+    @FXML
+    private Button minusButton;
+    @FXML
+    private Button buyButton;
+    @FXML
+    private TextField quantityTextField;
+    @FXML
+    private ImageView favoriteItemImageView;
+    @FXML
+    private SplitPane productSplitPane;
+    @FXML
+    private ImageView ecoImageView;
 
 
     ProductListItem(Product product, Controller controller) {
@@ -49,7 +59,7 @@ class ProductListItem extends AnchorPane {
         this.product = product;
         this.parentController = controller;
 
-        productSplitPane.setDividerPositions(0,0,0);
+        productSplitPane.setDividerPositions(0, 0, 0);
 
         // Image setup
         productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));
@@ -81,15 +91,15 @@ class ProductListItem extends AnchorPane {
 
 
     @FXML
-    protected void openDetailView(){
+    protected void openDetailView() {
         parentController.openDetailView(product);
     }
 
     @FXML
-    protected void purchaseItem(){
+    protected void purchaseItem() {
         parentController.purchaseItem(this.product, this.amount);
         parentController.updateCartTotal();
-        amount=1;
+        amount = 1;
         quantityTextField.setText(amount + " st");
     }
 
@@ -98,10 +108,9 @@ class ProductListItem extends AnchorPane {
      */
     @FXML
     protected void favIconOnClick(Event event) {
-        if (!parentController.getFavStatus(this.product)){
+        if (!parentController.getFavStatus(this.product)) {
             parentController.addToFavorites(this.product);
-        }
-        else{
+        } else {
             parentController.removeFromFavorites(this.product);
         }
         parentController.updateFavImage();
@@ -109,16 +118,16 @@ class ProductListItem extends AnchorPane {
     }
 
     @FXML
-    private void incAmount(){
-        if(amount<99) {
+    private void incAmount() {
+        if (amount < 99) {
             amount++;
         }
         quantityTextField.setText(amount + " st");
     }
 
     @FXML
-    private void decAmount(){
-        if(amount>1) {
+    private void decAmount() {
+        if (amount > 1) {
             amount--;
         }
         quantityTextField.setText(amount + " st");
@@ -129,13 +138,13 @@ class ProductListItem extends AnchorPane {
      * Hints when mouse enters the star
      */
     @FXML
-    public void favIconMouseEntered(){
+    public void favIconMouseEntered() {
         this.favoriteItemImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/favorite_item_hint.png")));
     }
 
     @FXML
-    public void favIconMouseExited(){
+    public void favIconMouseExited() {
         parentController.updateFavImage();
     }
 

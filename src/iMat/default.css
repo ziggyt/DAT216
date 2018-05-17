@@ -1,49 +1,49 @@
-.text-normal{
-     -fx-font-size: 14px;
-     -fx-font-family: "Avenir Book";
+.text-normal {
+    -fx-font-size: 14px;
+    -fx-font-family: "Avenir Book";
 }
 
-.text-small{
-      -fx-font-size: 12px;
-      -fx-font-family: "Avenir Book";
+.text-small {
+    -fx-font-size: 12px;
+    -fx-font-family: "Avenir Book";
 }
 
-.text-large{
-      -fx-font-size: 18px;
-      -fx-font-family: "Avenir Book";
+.text-large {
+    -fx-font-size: 18px;
+    -fx-font-family: "Avenir Book";
 }
 
-.text-large-bold{
+.text-large-bold {
     -fx-font-size: 18px;
     -fx-font-family: "Avenir Book";
     -fx-font-weight: bold;
 }
 
-.text-title{
+.text-title {
     -fx-font-size: 28px;
     -fx-font-family: "Avenir Book";
     -fx-font-weight: bold;
 }
 
-.text-topic{
+.text-topic {
     -fx-font-size: 60px;
     -fx-font-family: "Avenir Book";
     -fx-font-weight: bold;
 }
 
 .detail-view {
-    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-background-color: rgba(0, 0, 0, 0.5);
 }
 
-.text-area  {
-     -fx-background-color: -fx-background;
+.text-area {
+    -fx-background-color: -fx-background;
 }
 
 .text-area .content {
-     -fx-background-color: -fx-background;
+    -fx-background-color: -fx-background;
 }
 
-.category-button{
+.category-button {
 
 }
 
@@ -51,56 +51,54 @@
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
 }
 
-#topView  {
+#topView {
     -fx-background-color: -fx-background;
 }
 
-#mainView  {
+#mainView {
     -fx-background-color: -fx-background;
 }
 
-#checkoutView1, #checkoutView2, #checkoutView3, #purchaseHistoryPane, #helpPane  {
+#checkoutView1, #checkoutView2, #checkoutView3, #purchaseHistoryPane, #helpPane {
     -fx-background-color: -fx-background;
 }
 
-#logo{
+#logo {
     -fx-font-size: 65px;
     -fx-font-family: "Perfectly Together";
     -fx-font-weight: bold;
     -fx-text-fill: #f4424b;
     -fx-rotate: -5;
 }
-#logo.stroke{
+
+#logo.stroke {
     -fx-stroke: black;
     -fx-stroke-width: 2;
 }
 
-#logo:hover{
+#logo:hover {
     -fx-text-fill: #ff7f7f;
 }
 
-#logo:pressed{
+#logo:pressed {
     -fx-text-fill: #700000;
 }
 
-#purchaseHistoryLabel:hover{
+#purchaseHistoryLabel:hover {
     -fx-text-fill: #ff7f7f;
 }
 
-#purchaseHistoryLabel:pressed{
+#purchaseHistoryLabel:pressed {
     -fx-text-fill: #700000;
 }
 
-#helpLabel:hover{
+#helpLabel:hover {
     -fx-text-fill: #ff7f7f;
 }
 
-#helpLabel:pressed{
+#helpLabel:pressed {
     -fx-text-fill: #700000;
 }
-
-
-
 
 /* ---------------------------template------------------------------
     -fx-background-color: -fx-background;       // default JavaFX color

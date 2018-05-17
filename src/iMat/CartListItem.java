@@ -14,29 +14,36 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-
-import javax.swing.*;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+
 
 public class CartListItem extends AnchorPane {
 
     private Controller parentController;
     private ShoppingItem shoppingItem;
 
-    @FXML private ImageView productImageView;
-    @FXML private Label nameLabel;
-    @FXML private TextField quantityTextField;
-    @FXML private Button plusButton;
-    @FXML private Button minusButton;
-    @FXML private Label priceLabel;
-    @FXML private ImageView closeIconImageView;
-    @FXML private AnchorPane fadePane;
-    @FXML private AnchorPane addedFadePane;
-    @FXML private AnchorPane greyPane;
+    @FXML
+    private ImageView productImageView;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private TextField quantityTextField;
+    @FXML
+    private Button plusButton;
+    @FXML
+    private Button minusButton;
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private ImageView closeIconImageView;
+    @FXML
+    private AnchorPane fadePane;
+    @FXML
+    private AnchorPane addedFadePane;
+    @FXML
+    private AnchorPane greyPane;
 
     private FadeTransition fade;
     private FadeTransition addedFade;
@@ -61,7 +68,7 @@ public class CartListItem extends AnchorPane {
         //Text setup
         nameLabel.setText(si.getProduct().getName());
         priceLabel.setText((si.getTotal()) + " kr");
-        quantityTextField.setText((int)si.getAmount() + "");
+        quantityTextField.setText((int) si.getAmount() + "");
 
         // Forces the field to be numeric only and limits to 2 digits
         quantityTextField.textProperty().addListener(new ChangeListener<String>() {
@@ -92,21 +99,21 @@ public class CartListItem extends AnchorPane {
     }
 
     public void updateQuantityTextField() {
-        quantityTextField.setText((int)shoppingItem.getAmount() + "");
+        quantityTextField.setText((int) shoppingItem.getAmount() + "");
     }
 
     @FXML
-    protected void incAmount(){
-        if(shoppingItem.getAmount()<99) {
+    protected void incAmount() {
+        if (shoppingItem.getAmount() < 99) {
             shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         }
         updateQuantityTextField();
     }
 
     @FXML
-    protected void decAmount(){
-        if(shoppingItem.getAmount()>1){
-            shoppingItem.setAmount(shoppingItem.getAmount()-1);
+    protected void decAmount() {
+        if (shoppingItem.getAmount() > 1) {
+            shoppingItem.setAmount(shoppingItem.getAmount() - 1);
         }
         updateQuantityTextField();
     }
@@ -124,19 +131,19 @@ public class CartListItem extends AnchorPane {
     }
 
     @FXML
-    private void removeItem(){
+    private void removeItem() {
         fadePane.toFront();
         fadeAlert();
     }
 
 
     @FXML
-    private void regret(){  //Rearranges the panes to show a grey background again and stops animation
+    private void regret() {  //Rearranges the panes to show a grey background again and stops animation
         fadePane.toBack();
         fade.stop();
     }
 
-    private void fadeAlert(){
+    private void fadeAlert() {
         fade = new FadeTransition(Duration.seconds(4), fadePane);
         fade.setFromValue(0.95); //From almost solid to completely solid,
         fade.setToValue(1.0);
@@ -151,7 +158,7 @@ public class CartListItem extends AnchorPane {
 
     }
 
-    private void addedFadeAlert(){
+    private void addedFadeAlert() {
         addedFadePane.toFront();
         greyPane.toFront();
         addedFade = new FadeTransition(Duration.seconds(0.25), greyPane);
