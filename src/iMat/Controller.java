@@ -553,11 +553,13 @@ public class Controller implements Initializable {
 
     @FXML
     private void toPurchaseHistory() {
+        blurInSearchBar();
         purchaseHistoryPane.toFront();
     }
 
     @FXML
     private void toHelp() {
+        blurInSearchBar();
         helpPane.toFront();
     }
 
@@ -716,7 +718,6 @@ public class Controller implements Initializable {
     @FXML
     private void toCheckout() {
         if (shownCartList.size() != 0) { //check if
-            blurSearchBar.toFront();
             blurInSearchBar();
             checkoutView1.toFront();
             inCheckout = true;
@@ -730,6 +731,7 @@ public class Controller implements Initializable {
     }
 
     private void blurInSearchBar() {
+        blurSearchBar.toFront();
         FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
         fade.setFromValue(0); //From almost solid to completely solid,
         fade.setToValue(1.0);
