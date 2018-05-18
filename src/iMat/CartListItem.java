@@ -1,6 +1,7 @@
 package iMat;
 
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -17,6 +18,8 @@ import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
@@ -156,21 +159,57 @@ public class CartListItem extends AnchorPane {
     private void regret() {  //Rearranges the panes to show a grey background again and stops animation
         fadePane.toBack();
         fade.stop();
+
+        if (removalQueue.contains(shoppingItem)) {
+            removalQueue.remove(shoppingItem); // Remove this item from the removalQueue
+        } else { // If the animation didn't finish before regretting
+            fadeAlertsOngoing--;
+            if (fadeAlertsOngoing <= 0) { // If this was the last ongoing animation
+                clearRemovalQueue(); // Make sure the items in removalQueue gets removed
+            }
+        }
     }
 
+    private static int fadeAlertsOngoing = 0; // Number of items currently in the fadeAlert animation
+    private static List<ShoppingItem> removalQueue = new ArrayList<>(); // List of items waiting to get removed
+
+    /**
+     * Animation when item gets removed, with regret option
+     * If there are multiple items in the process of getting removed, sync the animations so that they all finish at the same time
+     */
     private void fadeAlert() {
+        fadeAlertsOngoing++;
         fade = new FadeTransition(Duration.seconds(4), fadePane);
-        fade.setFromValue(0.95); //From almost solid to completely solid,
+        fade.setFromValue(0.8); //From almost solid to completely solid,
         fade.setToValue(1.0);
         fade.setCycleCount(1);
+
         fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
             @Override
             public void handle(ActionEvent event) {
-                parentController.removeItemFromCart(shoppingItem);  // Remove item from cart after the animation
+                fadeAlertsOngoing--;
+                if (fadeAlertsOngoing > 0) { // If there are other items currently in the fadeAlert animation
+                    removalQueue.add(shoppingItem); // Add this item to the queue for removal
+                } else {
+                    removalQueue.add(shoppingItem); // Include this item
+                    clearRemovalQueue(); // Remove everything in the queue
+                }
             }
         });
-        fade.play(); // start animation
 
+        fade.play(); // start animation
+    }
+
+    private void clearRemovalQueue() {
+        for (ShoppingItem si : removalQueue) {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    parentController.removeItemFromCart(si);  // Remove item from cart
+                    removalQueue.remove(si); // Clean up removalQueue
+                }
+            });
+        }
     }
 
     private void addedFadeAlert() {
