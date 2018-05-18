@@ -72,7 +72,7 @@ public class CartListItem extends AnchorPane {
 
         //Text setup
         nameLabel.setText(si.getProduct().getName());
-        priceLabel.setText((si.getTotal()) + " kr");
+        priceLabel.setText((double)(int)(shoppingItem.getTotal() * 100)/100 + " kr"); // Limits to 2 decimals (otherwise it sometimes shows lots of zeros for no reason)
         quantityTextField.setText((int) si.getAmount() + "");
 
         // Forces the field to be numeric only and limits to 2 digits
@@ -98,7 +98,7 @@ public class CartListItem extends AnchorPane {
                 // Update amount
                 shoppingItem.setAmount(parseInt(quantityTextField.getText()));
                 // Update price labels
-                priceLabel.setText((shoppingItem.getTotal()) + " kr");
+                priceLabel.setText((double)(int)(shoppingItem.getTotal() * 100)/100 + " kr"); // Limits to 2 decimals (otherwise it sometimes shows lots of zeros for no reason)
                 parentController.updateCartTotal();
                 parentController.updateCheckoutTotal();
 
