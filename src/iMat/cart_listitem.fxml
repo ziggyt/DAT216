@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,6 +26,9 @@
                </font>
             </Label>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
       <AnchorPane fx:id="addedFadePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane fx:id="greyPane" style="-fx-background-color: f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -29,16 +39,22 @@
                </font>
             </TextField>
             <Label fx:id="priceLabel" layoutX="160.0" layoutY="33.0" prefHeight="27.0" styleClass="text-large" text="50kr" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="160.0" />
-            <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#openDetailView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/imat_icon.gif" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Label fx:id="nameLabel" prefWidth="130.0" styleClass="text-large" text="Kaffe" wrapText="true" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="1.0" />
             <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#removeItem" onMouseEntered="#closeIconMouseEntered" onMouseExited="#closeIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/icon_close.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Button fx:id="minusButton" layoutX="122.0" layoutY="49.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="17.0" prefWidth="17.0" AnchorPane.leftAnchor="125.0">
                <graphic>
@@ -48,6 +64,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="plusButton" layoutX="122.0" layoutY="28.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="17.0" prefWidth="17.0" AnchorPane.leftAnchor="125.0">
                <graphic>
@@ -57,6 +76,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></AnchorPane>
    </children>

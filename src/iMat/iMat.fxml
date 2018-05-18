@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -24,7 +32,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -47,6 +55,9 @@
                                  <image>
                                     <Image url="@resources/icon_close.png" />
                                  </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                            </children>
                         </AnchorPane>
@@ -65,6 +76,9 @@
                                  <image>
                                     <Image url="@resources/icon_close.png" />
                                  </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                               <Label fx:id="nameLabel" layoutX="282.0" layoutY="32.0" styleClass="text-title" text="Produktnamn" />
                               <Label fx:id="priceLabel" layoutX="282.0" layoutY="101.0" styleClass="text-large-bold" text="Pris per enhet" />
@@ -76,6 +90,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="plusButton" layoutX="463.0" layoutY="337.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="35.0" prefWidth="35.0">
                                  <graphic>
@@ -85,6 +102,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <TextField fx:id="quantityTextField" alignment="CENTER" editable="false" layoutX="386.0" layoutY="338.0" prefHeight="33.0" prefWidth="66.0" text="1 st">
                                  <font>
@@ -95,6 +115,9 @@
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Label layoutX="282.0" layoutY="142.0" prefHeight="177.0" prefWidth="271.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas et orci eu cursus. Morbi id lacinia purus, sit amet posuere erat. Donec sit amet pretium odio, eget luctus eros. Donec tincidunt ultrices felis quis viverra. Donec nec nibh ante. Quisque eu porta urna, at iaculis sapien. Quisque nulla orci, luctus ut sem non, volutpat sodales massa." wrapText="true" />
                               <ImageView fx:id="ecoImageView" fitHeight="71.0" fitWidth="83.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -124,11 +147,17 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button disable="true" mnemonicParsing="false" opacity="0.25" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <TextField fx:id="creditCardField" layoutX="322.0" layoutY="259.0" prefHeight="40.0" prefWidth="420.0" promptText="Kortnummer" styleClass="text-large" />
                         <TextField fx:id="expiryMonthField" layoutX="322.0" layoutY="331.0" prefHeight="40.0" prefWidth="79.0" promptText="Månad" styleClass="text-large" />
@@ -142,8 +171,14 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
                         <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
                               <Circle fill="#2197ff40" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
@@ -180,6 +215,9 @@
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </AnchorPane>
@@ -226,6 +264,9 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Label layoutX="43.0" layoutY="42.0" styleClass="text-large" text="Förnamn" />
                               <Label layoutX="254.0" layoutY="43.0" styleClass="text-large" text="Efternamn" />
@@ -243,11 +284,17 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="1032.0" layoutY="648.0" mnemonicParsing="false" onAction="#finishCheckoutStep2" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
                            <graphic>
@@ -257,8 +304,14 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
                         <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
                               <Circle fill="#2197ff40" opacity="0.75" radius="30.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
@@ -328,11 +381,17 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="1022.0" layoutY="638.0" mnemonicParsing="false" onAction="#finishCheckoutStep1" prefHeight="64.0" prefWidth="200.0" text="Nästa steg" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="1084.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="46.0" prefWidth="46.0" style="-fx-background-radius: 100;">
                            <graphic>
@@ -342,8 +401,14 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
                         <Label layoutX="320.0" layoutY="138.0" styleClass="text-title" text="Din Varukorg" underline="true" />
                         <AnchorPane layoutX="304.0" layoutY="24.0" prefHeight="114.0" prefWidth="420.0">
                            <children>
@@ -392,10 +457,22 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
-                        <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" text="Lägg till i befintlig varukorg" />
-                        <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" text="Ersätt befintlig varukorg" />
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
+                        <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" text="Lägg till i befintlig varukorg">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" text="Ersätt befintlig varukorg">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <AnchorPane layoutX="320.0" layoutY="120.0" prefHeight="550.0" prefWidth="400.0">
                            <children>
                               <ScrollPane layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -444,8 +521,14 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true" />
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Label>
                      </children>
                   </AnchorPane>
                       <BorderPane fx:id="mainView">
@@ -705,11 +788,17 @@
                                  <image>
                                     <Image url="@resources/to_register.png" />
                                  </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                               <ImageView fx:id="trashCanImageView" fitHeight="43.0" fitWidth="39.0" layoutX="210.0" layoutY="16.0" onMouseClicked="#emptyCart" onMouseEntered="#trashcanMouseEntered" onMouseExited="#trashcanMouseExited" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@resources/trashcan.png" />
                                  </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                               <Label layoutX="52.0" layoutY="20.0" styleClass="text-larger-bold" text="Varukorg" />
                            </children>
@@ -830,8 +919,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <Label fx:id="purchaseHistoryLabel" layoutX="964.0" layoutY="43.0" onMouseClicked="#toPurchaseHistory" styleClass="text-large-bold" text="Köphistorik" />
-                  <Label fx:id="helpLabel" layoutX="1146.0" layoutY="43.0" onMouseClicked="#toHelp" styleClass="text-large-bold" text="Hjälp" />
+                  <Label fx:id="purchaseHistoryLabel" layoutX="964.0" layoutY="43.0" onMouseClicked="#toPurchaseHistory" styleClass="text-large-bold" text="Köphistorik">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+                  <Label fx:id="helpLabel" layoutX="1146.0" layoutY="43.0" onMouseClicked="#toHelp" styleClass="text-large-bold" text="Hjälp">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
                   <ImageView fitHeight="45.0" fitWidth="41.0" layoutX="321.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/search.png" />
