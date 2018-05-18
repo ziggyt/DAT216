@@ -119,6 +119,11 @@ public class CartListItem extends AnchorPane {
     }
 
     @FXML
+    protected void openDetailView() {
+        parentController.openDetailView(shoppingItem.getProduct());
+    }
+
+    @FXML
     public void closeIconMouseEntered() {
         this.closeIconImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "iMat/resources/icon_close_hover.png")));
