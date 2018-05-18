@@ -18,6 +18,8 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 
 public class CartListItem extends AnchorPane {
 
@@ -43,10 +45,13 @@ public class CartListItem extends AnchorPane {
     @FXML
     private AnchorPane addedFadePane;
     @FXML
+    private AnchorPane removedFadePane;
+    @FXML
     private AnchorPane greyPane;
 
     private FadeTransition fade;
     private FadeTransition addedFade;
+    private FadeTransition removedFade;
 
     CartListItem(ShoppingItem si, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
@@ -84,9 +89,14 @@ public class CartListItem extends AnchorPane {
                     // Set length to 2
                     quantityTextField.setText(quantityTextField.getText().substring(0, 2));
                 }
-                addedFadeAlert();   // Green flash to confirm the added item
+                if (parseInt(quantityTextField.getText())>parseInt(oldValue)) {
+                    // Green flash to confirm the added item
+                    addedFadeAlert();
+                } else {
+                    removedFadeAlert();
+                }
                 // Update amount
-                shoppingItem.setAmount(Integer.parseInt(quantityTextField.getText()));
+                shoppingItem.setAmount(parseInt(quantityTextField.getText()));
                 // Update price labels
                 priceLabel.setText((shoppingItem.getTotal()) + " kr");
                 parentController.updateCartTotal();
@@ -168,11 +178,23 @@ public class CartListItem extends AnchorPane {
         greyPane.toFront();
         addedFade = new FadeTransition(Duration.seconds(0.25), greyPane);
         addedFade.setFromValue(1.0);
-        addedFade.setToValue(0.2);
+        addedFade.setToValue(0.3);
         addedFade.setCycleCount(2);
         addedFade.setAutoReverse(true);
         addedFade.play();
 
+    }
+
+    // For when reducing the amount
+    private void removedFadeAlert() {
+        removedFadePane.toFront();
+        greyPane.toFront();
+        removedFade = new FadeTransition(Duration.seconds(0.25), greyPane);
+        removedFade.setFromValue(1.0);
+        removedFade.setToValue(0.3);
+        removedFade.setCycleCount(2);
+        removedFade.setAutoReverse(true);
+        removedFade.play();
     }
 
     /**

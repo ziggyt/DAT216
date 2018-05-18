@@ -9,3 +9,7 @@
 #addedFadePane {
     -fx-background-color: #42f4c4;
 }
+
+#removedFadePane {
+    -fx-background-color: #ff3d3d;
+}

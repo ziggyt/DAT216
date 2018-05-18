@@ -31,6 +31,7 @@
          </cursor>
       </AnchorPane>
       <AnchorPane fx:id="addedFadePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="removedFadePane" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane fx:id="greyPane" style="-fx-background-color: f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="80.0" layoutY="31.0" prefHeight="31.0" prefWidth="40.0" styleClass="text-normal" text="7" AnchorPane.leftAnchor="80.0">
