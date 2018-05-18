@@ -48,7 +48,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="nameLabel" prefWidth="130.0" styleClass="text-large" text="Kaffe" wrapText="true" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="1.0" />
+            <Label fx:id="nameLabel" maxWidth="140.0" prefWidth="140.0" styleClass="text-large" text="Kaffe" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="1.0" />
             <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#removeItem" onMouseEntered="#closeIconMouseEntered" onMouseExited="#closeIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/icon_close.png" />
