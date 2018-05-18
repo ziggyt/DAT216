@@ -84,7 +84,9 @@ class ProductListItem extends AnchorPane {
                     quantityTextField.setText(quantityTextField.getText().substring(0, 2));
                 }
                 // Update amount
-                amount = Integer.parseInt(quantityTextField.getText());
+                if (!quantityTextField.getText().equals("")) {
+                    amount = Integer.parseInt(quantityTextField.getText());
+                }
             }
         });
     }
