@@ -301,7 +301,7 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
-                //cartScrollPane.setVvalue(cartScrollPane.getVmax()); produces error
+                cartScrollPane.setVvalue(cartScrollPane.getVmax());
             }
         });
 
