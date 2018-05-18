@@ -1,6 +1,7 @@
 package iMat;
 
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -301,7 +302,7 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
-                cartScrollPane.setVvalue(cartScrollPane.getVmax());
+                Platform.runLater( () -> cartScrollPane.setVvalue(cartScrollPane.getVmax()));
             }
         });
 
