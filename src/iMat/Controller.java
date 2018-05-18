@@ -302,7 +302,6 @@ public class Controller implements Initializable {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateCartList();
-                Platform.runLater( () -> cartScrollPane.setVvalue(cartScrollPane.getVmax()));
             }
         });
 
@@ -535,6 +534,7 @@ public class Controller implements Initializable {
         for (ShoppingItem si : cart.getItems()) { // Iterate the backend cart
             if (!oldCartList.contains(si)) { // If the item did not exist before
                 shownCartList.add(new CartListItem(si, this)); // Create and add the item
+                Platform.runLater( () -> cartScrollPane.setVvalue(cartScrollPane.getVmax())); // Scroll down in the cart so you can see the new item
             }
         }
         // Put the items in the pane
