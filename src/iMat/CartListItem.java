@@ -230,7 +230,7 @@ public class CartListItem extends AnchorPane {
         greyPane.toFront();
         removedFade = new FadeTransition(Duration.seconds(0.25), greyPane);
         removedFade.setFromValue(1.0);
-        removedFade.setToValue(0.3);
+        removedFade.setToValue(0.5);
         removedFade.setCycleCount(2);
         removedFade.setAutoReverse(true);
         removedFade.play();
