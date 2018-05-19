@@ -118,8 +118,6 @@ public class CartListItem extends AnchorPane {
                     addedFadeAlert();
                 } else if (parseInt(quantityTextField.getText()) < parseInt(oldValue)) {
                     removedFadeAlert();
-                    System.out.println(parseInt(quantityTextField.getText()));
-                    System.out.println(parseInt(oldValue));
                 }
 
                 // Update amount
