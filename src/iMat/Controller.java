@@ -752,7 +752,7 @@ public class Controller implements Initializable {
         if(!searchFieldBlurred) {
             blurSearchBar.toFront();
             FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
-            fade.setFromValue(0); //From almost solid to completely solid,
+            fade.setFromValue(0);
             fade.setToValue(1.0);
             fade.setCycleCount(1);
             fade.play(); // start animation
@@ -761,19 +761,20 @@ public class Controller implements Initializable {
     }
 
     private void blurOutSearchBar() {
-        searchFieldBlurred = false;
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
-        fade.setFromValue(1); //From almost solid to completely solid,
-        fade.setToValue(0);
-        fade.setCycleCount(1);
-        fade.play(); // start animation
-        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
-            @Override
-            public void handle(ActionEvent event) {
-                blurSearchBar.toBack();  // Remove item from cart after the animation
-            }
-        });
-
+        if(searchFieldBlurred) {
+            FadeTransition fade = new FadeTransition(Duration.seconds(0.7), blurSearchBar);
+            fade.setFromValue(1);
+            fade.setToValue(0);
+            fade.setCycleCount(1);
+            fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
+                @Override
+                public void handle(ActionEvent event) {
+                    blurSearchBar.toBack();
+                }
+            });
+            fade.play(); // start animation
+            searchFieldBlurred = false;
+        }
     }
 
     @FXML
