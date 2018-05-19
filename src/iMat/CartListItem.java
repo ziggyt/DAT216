@@ -78,6 +78,24 @@ public class CartListItem extends AnchorPane {
         priceLabel.setText((double)(int)(shoppingItem.getTotal() * 100)/100 + " kr"); // Limits to 2 decimals (otherwise it sometimes shows lots of zeros for no reason)
         quantityTextField.setText((int) si.getAmount() + "");
 
+        // Disable the plus and minus buttons when they do nothing
+        if (si.getAmount() == 1) {
+            plusButton.setDisable(false);
+            if (minusButton.isFocused()) {
+                plusButton.requestFocus(); // When a the minusButton is disabled the focus is moved to the next element which could look weird
+            }
+            minusButton.setDisable(true);
+        } else if (si.getAmount() == 99) {
+            minusButton.setDisable(false);
+            if (plusButton.isFocused()) {
+                minusButton.requestFocus();
+            }
+            plusButton.setDisable(true);
+        } else {
+            minusButton.setDisable(false);
+            plusButton.setDisable(false);
+        }
+
         // Forces the field to be numeric only and limits to 2 digits
         quantityTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -98,6 +116,7 @@ public class CartListItem extends AnchorPane {
                 } else {
                     removedFadeAlert();
                 }
+
                 // Update amount
                 shoppingItem.setAmount(parseInt(quantityTextField.getText()));
                 // Update price labels
@@ -105,6 +124,23 @@ public class CartListItem extends AnchorPane {
                 parentController.updateCartTotal();
                 parentController.updateCheckoutTotal();
 
+                // Disable the plus and minus buttons when they do nothing
+                if (shoppingItem.getAmount() == 1) {
+                    plusButton.setDisable(false);
+                    if (minusButton.isFocused()) {
+                        plusButton.requestFocus();
+                    }
+                    minusButton.setDisable(true);
+                } else if (shoppingItem.getAmount() == 99) {
+                    minusButton.setDisable(false);
+                    if (plusButton.isFocused()) {
+                        minusButton.requestFocus();
+                    }
+                    plusButton.setDisable(true);
+                } else {
+                    minusButton.setDisable(false);
+                    plusButton.setDisable(false);
+                }
             }
         });
 
@@ -121,6 +157,24 @@ public class CartListItem extends AnchorPane {
             shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         }
         updateQuantityTextField();
+
+        // Disable the plus and minus buttons when they do nothing
+        if (shoppingItem.getAmount() == 1) {
+            plusButton.setDisable(false);
+            if (minusButton.isFocused()) {
+                plusButton.requestFocus();
+            }
+            minusButton.setDisable(true);
+        } else if (shoppingItem.getAmount() == 99) {
+            minusButton.setDisable(false);
+            if (plusButton.isFocused()) {
+                minusButton.requestFocus();
+            }
+            plusButton.setDisable(true);
+        } else {
+            minusButton.setDisable(false);
+            plusButton.setDisable(false);
+        }
     }
 
     @FXML
@@ -129,6 +183,24 @@ public class CartListItem extends AnchorPane {
             shoppingItem.setAmount(shoppingItem.getAmount() - 1);
         }
         updateQuantityTextField();
+
+        // Disable the plus and minus buttons when they do nothing
+        if (shoppingItem.getAmount() == 1) {
+            plusButton.setDisable(false);
+            if (minusButton.isFocused()) {
+                plusButton.requestFocus();
+            }
+            minusButton.setDisable(true);
+        } else if (shoppingItem.getAmount() == 99) {
+            minusButton.setDisable(false);
+            if (plusButton.isFocused()) {
+                minusButton.requestFocus();
+            }
+            plusButton.setDisable(true);
+        } else {
+            minusButton.setDisable(false);
+            plusButton.setDisable(false);
+        }
     }
 
     @FXML

@@ -69,6 +69,9 @@ class ProductListItem extends AnchorPane {
         priceLabel.setText(product.getPrice() + " " + product.getUnit());
         quantityTextField.setText(amount + "");
 
+        // Disable the minus button when it does nothing
+        minusButton.setDisable(true);
+
         // Forces the field to be numeric only and limits to 2 digits
         quantityTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -86,6 +89,24 @@ class ProductListItem extends AnchorPane {
                 // Update amount
                 if (!quantityTextField.getText().equals("")) {
                     amount = Integer.parseInt(quantityTextField.getText());
+                }
+
+                // Disable the plus and minus buttons when they do nothing
+                if (amount == 1) {
+                    plusButton.setDisable(false);
+                    if (minusButton.isFocused()) {
+                        plusButton.requestFocus();
+                    }
+                    minusButton.setDisable(true);
+                } else if (amount == 99) {
+                    minusButton.setDisable(false);
+                    if (plusButton.isFocused()) {
+                        minusButton.requestFocus();
+                    }
+                    plusButton.setDisable(true);
+                } else {
+                    minusButton.setDisable(false);
+                    plusButton.setDisable(false);
                 }
             }
         });
@@ -125,6 +146,24 @@ class ProductListItem extends AnchorPane {
             amount++;
         }
         quantityTextField.setText(amount + " st");
+
+        // Disable the plus and minus buttons when they do nothing
+        if (amount == 1) {
+            plusButton.setDisable(false);
+            if (minusButton.isFocused()) {
+                plusButton.requestFocus();
+            }
+            minusButton.setDisable(true);
+        } else if (amount == 99) {
+            minusButton.setDisable(false);
+            if (plusButton.isFocused()) {
+                minusButton.requestFocus();
+            }
+            plusButton.setDisable(true);
+        } else {
+            minusButton.setDisable(false);
+            plusButton.setDisable(false);
+        }
     }
 
     @FXML
@@ -133,6 +172,24 @@ class ProductListItem extends AnchorPane {
             amount--;
         }
         quantityTextField.setText(amount + " st");
+
+        // Disable the plus and minus buttons when they do nothing
+        if (amount == 1) {
+            plusButton.setDisable(false);
+            if (minusButton.isFocused()) {
+                plusButton.requestFocus();
+            }
+            minusButton.setDisable(true);
+        } else if (amount == 99) {
+            minusButton.setDisable(false);
+            if (plusButton.isFocused()) {
+                minusButton.requestFocus();
+            }
+            plusButton.setDisable(true);
+        } else {
+            minusButton.setDisable(false);
+            plusButton.setDisable(false);
+        }
     }
 
 
