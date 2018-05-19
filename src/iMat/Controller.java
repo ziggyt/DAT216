@@ -118,6 +118,9 @@ public class Controller implements Initializable {
     @FXML
     private Label checkoutTotalLabel;
 
+    //Checkout 3
+    @FXML
+    private Button placeOrderButton;
 
     //Main view
     @FXML
@@ -795,6 +798,7 @@ public class Controller implements Initializable {
 
             if (bc.isCustomerComplete()) {
                 checkoutView3.toFront();
+                placeOrderButton.setText("Betala " + cart.getTotal() + " kr");
             }
         }
     }
@@ -835,15 +839,6 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void resetSorting() {
-        List<Product> placeHolderProducts = bc.getProducts();
-        shownProducts = placeHolderProducts;
-        resetArrows();
-        resetDirs();
-        updateProductList();
-    }
-
-    @FXML
     private void backToCheckoutStep2() {
         checkoutView2.toFront();
     }
@@ -856,6 +851,15 @@ public class Controller implements Initializable {
         allCategoryButton.setSelected(true);
         updateCurrentCategory();
         updateCartList();
+    }
+
+    @FXML
+    private void resetSorting() {
+        List<Product> placeHolderProducts = bc.getProducts();
+        shownProducts = placeHolderProducts;
+        resetArrows();
+        resetDirs();
+        updateProductList();
     }
 
     Image getSquareImage(Image image) {
