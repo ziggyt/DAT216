@@ -256,6 +256,22 @@ public class CartListItem extends AnchorPane {
      */
     private void fadeAlert() {
         fadeAlertsOngoing++;
+        fade = new FadeTransition(Duration.seconds(0.15), fadePane);
+        fade.setFromValue(0.0); //From almost solid to completely solid,
+        fade.setToValue(0.8);
+        fade.setCycleCount(1);
+
+        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
+            @Override
+            public void handle(ActionEvent event) {
+                fadeAlertContinuation(); // Continue the animation
+            }
+        });
+
+        fade.play(); // start animation
+    }
+    // Continuation of fadeAlert as if they were one
+    private void fadeAlertContinuation() {
         fade = new FadeTransition(Duration.seconds(4), fadePane);
         fade.setFromValue(0.8); //From almost solid to completely solid,
         fade.setToValue(1.0);
