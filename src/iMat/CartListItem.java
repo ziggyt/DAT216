@@ -52,9 +52,12 @@ public class CartListItem extends AnchorPane {
     @FXML
     private AnchorPane greyPane;
 
-    private FadeTransition fade;
+    private FadeTransition fade = new FadeTransition(); // Needs to be instantiated to be able to call fade.stop() when we don't know if it has started yet
     private FadeTransition addedFade;
     private FadeTransition removedFade;
+
+    private static int fadeAlertsOngoing = 0; // Number of items currently in the fadeAlert animation
+    private static List<ShoppingItem> removalQueue = new ArrayList<>(); // List of items waiting to get removed
 
     CartListItem(ShoppingItem si, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
@@ -114,10 +117,25 @@ public class CartListItem extends AnchorPane {
                     oldValue = "99"; // oldValue needs to be correctly adjusted to 99 if it was larger
                 }
                 if (parseInt(quantityTextField.getText()) > parseInt(oldValue)) {
-                    // Green flash to confirm the added item
-                    addedFadeAlert();
+
+                    // Handle if the item was in the process of getting removed and the purchase button gets pressed in the ProductListItem
+                    if (removalQueue.contains(shoppingItem)) {
+                        removalQueue.remove(shoppingItem);
+                    }
+                    fade.setOnFinished(new EventHandler<ActionEvent>() { // Replace the on finished method (only relevant if a fade was currently playing)
+                        @Override
+                        public void handle(ActionEvent event) {
+                            fadeAlertsOngoing--;
+                            if (fadeAlertsOngoing <= 0) { // If there are no other items currently in the fadeAlert animation
+                                clearRemovalQueue(); // Remove everything in the queue
+                            }
+                        }
+                    });
+
+                    addedFadeAlert(); // Green flash to confirm the added item
+
                 } else if (parseInt(quantityTextField.getText()) < parseInt(oldValue)) {
-                    removedFadeAlert();
+                    removedFadeAlert(); // Red flash to confirm the removed item
                 }
 
                 // Update amount
@@ -234,7 +252,6 @@ public class CartListItem extends AnchorPane {
     private void regret() {  //Rearranges the panes to show a grey background again and stops animation
         fadePane.toBack();
         fade.stop();
-
         if (removalQueue.contains(shoppingItem)) {
             removalQueue.remove(shoppingItem); // Remove this item from the removalQueue
         } else { // If the animation didn't finish before regretting
@@ -244,9 +261,6 @@ public class CartListItem extends AnchorPane {
             }
         }
     }
-
-    private static int fadeAlertsOngoing = 0; // Number of items currently in the fadeAlert animation
-    private static List<ShoppingItem> removalQueue = new ArrayList<>(); // List of items waiting to get removed
 
     /**
      * Animation when item gets removed, with regret option
