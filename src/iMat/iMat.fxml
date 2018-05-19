@@ -807,7 +807,7 @@
                           <center>
                               <AnchorPane BorderPane.alignment="CENTER">
                            <children>
-                              <FlowPane layoutX="14.0" layoutY="-5.0">
+                              <FlowPane layoutX="14.0" layoutY="-5.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label fx:id="categoryTitleLabel" styleClass="text-title" text="Alla varor">
                                        <FlowPane.margin>
