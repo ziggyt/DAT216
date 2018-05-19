@@ -106,15 +106,20 @@ public class CartListItem extends AnchorPane {
                     quantityTextField.setText(newValue.replaceAll("[^\\d]", ""));
                 }
                 // Check if text is set to longer than 2
-                if (quantityTextField.getText().length() >= 2) {
-                    // Set length to 2
-                    quantityTextField.setText(quantityTextField.getText().substring(0, 2));
+                if (quantityTextField.getText().length() > 2) {
+                    // Set amount to 99
+                    quantityTextField.setText("99");
                 }
-                if (parseInt(quantityTextField.getText())>parseInt(oldValue)) {
+                if(parseInt(oldValue)>99) {
+                    oldValue = "99"; // oldValue needs to be correctly adjusted to 99 if it was larger
+                }
+                if (parseInt(quantityTextField.getText()) > parseInt(oldValue)) {
                     // Green flash to confirm the added item
                     addedFadeAlert();
-                } else {
+                } else if (parseInt(quantityTextField.getText()) < parseInt(oldValue)) {
                     removedFadeAlert();
+                    System.out.println(parseInt(quantityTextField.getText()));
+                    System.out.println(parseInt(oldValue));
                 }
 
                 // Update amount
