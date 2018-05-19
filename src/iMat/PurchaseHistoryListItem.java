@@ -42,7 +42,7 @@ public class PurchaseHistoryListItem extends AnchorPane {
         for (int i = 0; i < order.getItems().size(); i++) {
             numberofItems += order.getItems().get(i).getAmount();
         }
-        numberofItemsLabel.setText(numberofItems + " st");
+        numberofItemsLabel.setText(numberofItems + " varor");
 
         int totalPrice = 0;
         for (int i = 0; i < order.getItems().size(); i++) {
