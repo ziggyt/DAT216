@@ -366,7 +366,7 @@
                                     <Font name="System Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <ScrollPane layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="20.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="261.0" vbarPolicy="ALWAYS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="20.0">
                                  <content>
                                     <FlowPane fx:id="checkoutFlowPane" prefHeight="476.0" prefWidth="264.0" />
                                  </content>
