@@ -277,6 +277,7 @@ public class Controller implements Initializable {
         updateEcoImage();
         updateCartList();
         updateCartTotal();
+        sortByName();
 
         listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
@@ -1068,15 +1069,6 @@ public class Controller implements Initializable {
         allCategoryButton.setSelected(true);
         updateCurrentCategory();
         updateCartList();
-    }
-
-    @FXML
-    private void resetSorting() {
-        List<Product> placeHolderProducts = bc.getProducts();
-        shownProducts = placeHolderProducts;
-        resetArrows();
-        resetDirs();
-        updateProductList();
     }
 
     Image getSquareImage(Image image) {
