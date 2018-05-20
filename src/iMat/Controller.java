@@ -1006,7 +1006,7 @@ public class Controller implements Initializable {
                             + "\n\nAntal varor: " + numberofItems + " st"
                             + "\nTotalpris: " + totalprice + " kr"
                             + "\nAdress: " + bc.getCustomer().getAddress()
-                            + "\nLeveranstid: " + checkoutDatePicker.getValue() + ", kl " + deliveryTime
+                            + "\nLeveranstid: " + checkoutDatePicker.getValue() + ",   kl " + deliveryTime
                             + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber());
             populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
@@ -1117,12 +1117,12 @@ public class Controller implements Initializable {
     }
 
     void updateCartTotal() {
-        cartTotalLabel.setText("Totalkostnad : " + (cart.getTotal()) + "kr");
+        cartTotalLabel.setText("Totalkostnad: " + (double)(int)(cart.getTotal()*100) / 100 + " kr");
 
     }
 
     void updateCheckoutTotal() {
-        checkoutTotalLabel.setText("Totalkostnad : " + (cart.getTotal()) + "kr");
+        checkoutTotalLabel.setText("Totalkostnad: " + (double)(int)(cart.getTotal()*100) / 100 + " kr");
 
     }
 
