@@ -168,7 +168,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Label>
@@ -325,7 +325,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Label>
@@ -480,7 +480,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Label>
@@ -542,7 +542,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -618,7 +618,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
+                        <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
