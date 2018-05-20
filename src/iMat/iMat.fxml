@@ -231,6 +231,16 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <StackPane fx:id="cvcTooltipPane" layoutX="438.0" layoutY="415.0">
+                           <children>
+                              <Circle radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Text fill="#d3d3d3" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">

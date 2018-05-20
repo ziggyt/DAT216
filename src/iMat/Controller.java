@@ -10,16 +10,24 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.*;
 
+import javax.tools.Tool;
 import java.net.URL;
 import java.util.*;
 
@@ -121,6 +129,8 @@ public class Controller implements Initializable {
     //Checkout 3
     @FXML
     private Button placeOrderButton;
+    @FXML
+    private StackPane cvcTooltipPane;
 
     //Main view
     @FXML
@@ -238,6 +248,10 @@ public class Controller implements Initializable {
         listFlowPane.setHgap(42);
         listFlowPane.setVgap(21);
         listFlowPane.setPadding(new Insets(10, 10, 10, 55));
+
+        bindTooltip(trashCanImageView, new Tooltip("Ta bort all varor från varukorgen")); // Trash cart tooltip
+        bindTooltip(ecoImageView, new Tooltip("Den här produkten är ekologisk")); // For the detailView only
+        bindTooltip(cvcTooltipPane, new Tooltip("Den tresiffriga koden på baksidan av kortet")); // CVC tooltip
 
         /* All available categories
     POD,
@@ -1119,6 +1133,25 @@ public class Controller implements Initializable {
     @FXML
     public void mouseTrap(Event event) {
         event.consume();
+    }
+
+    /**
+     * Custom tooltip that shows up instantly instead of a big delay with Tooltip.install(Node node, Tooltip t);
+     */
+    public static void bindTooltip(final Node node, final Tooltip tooltip){
+        node.setOnMouseMoved(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                // Y + 15 moves the tooltip 15 pixels below the mouse cursor
+                tooltip.show(node, event.getScreenX() + 10, event.getScreenY() + 10);
+            }
+        });
+        node.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                tooltip.hide();
+            }
+        });
     }
 
 }
