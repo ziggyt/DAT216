@@ -816,8 +816,8 @@ public class Controller implements Initializable {
                 numberofItems += cart.getItems().get(i).getAmount();
             }
             //int numberofItems = cart.getItems().size();
-            int totalprice = (int) cart.getTotal();
-            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAdress: " + bc.getCustomer().getAddress() + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nLeveranstid: " + "18 maj" + "\nAntal varor: " + numberofItems + "\nTotalpris: " + totalprice);
+            double totalprice = cart.getTotal();
+            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAntal varor: " + numberofItems + " st" + "\nTotalpris: " + totalprice + " kr" + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nAdress: " + bc.getCustomer().getAddress() + "\nLeveranstid: " + "1 juni");
             populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
             clearFields();
