@@ -29,6 +29,7 @@ import se.chalmers.cse.dat216.project.*;
 
 import javax.tools.Tool;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Controller implements Initializable {
@@ -129,6 +130,20 @@ public class Controller implements Initializable {
     //Checkout 2
     @FXML
     private Label checkoutErrorLabel;
+    @FXML
+    private Label deliveryTimeErrorLabel;
+    @FXML
+    private DatePicker checkoutDatePicker;
+    @FXML
+    private AnchorPane deliveryTimePane;
+    @FXML
+    private RadioButton deliveryTimeRadioButton1;
+    @FXML
+    private RadioButton deliveryTimeRadioButton2;
+    @FXML
+    private RadioButton deliveryTimeRadioButton3;
+    @FXML
+    private StackPane deliveryTimeTooltipPane;
 
     //Checkout 3
     @FXML
@@ -218,6 +233,7 @@ public class Controller implements Initializable {
     //Messages
     private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
     private Message missingFieldText = new Message("Information saknas i textfält", "Alla fälten måste vara ifyllda för att kunna gå vidare");
+    private Message missingDeliveryTimeText = new Message("Information saknas i leveranstidväljaren", "Du måste välja en leveranstid för att kunna gå vidare");
 
     //private Message invalidMonthMessage = new Message("Ogiltig månad", "")
     private boolean sortedDirectionName = false;
@@ -233,12 +249,13 @@ public class Controller implements Initializable {
     private List<Product> shownProducts; // List of products to be shown in the main view
 
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
-    final private ToggleGroup purchaseHistoryToggleGroup = new ToggleGroup();//Togglegroup for the purchaseHistoryList
-
+    final private ToggleGroup purchaseHistoryToggleGroup = new ToggleGroup(); //Togglegroup for the purchaseHistoryList
+    final private ToggleGroup deliveryTimeToggleGroup = new ToggleGroup(); // ToggleGroup for the radio buttons for delivery time in checkout step 2
     private List<CartListItem> shownCartList = new ArrayList<>(); // List of CartListItems currently shown in the cart sidebar
     private ShoppingCart cart;
     private List<ShoppingItem> oldCartList = new ArrayList<>(); // Helper list made to remember which items where in the cart before the latest change
     private String category = "";
+    private String deliveryTime = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -266,9 +283,39 @@ public class Controller implements Initializable {
         bindTooltip(trashCanImageView, new Tooltip("Ta bort all varor från varukorgen")); // Trash cart tooltip
         bindTooltip(ecoImageView, new Tooltip("Den här produkten är ekologisk")); // For the detailView only
         bindTooltip(cvcTooltipPane, new Tooltip("Den tresiffriga koden på baksidan av kortet")); // CVC tooltip
+        bindTooltip(deliveryTimeTooltipPane, new Tooltip("Välj det datum och den tid du vill att dina varor ska vara hemma hos dig")); // delivery time selection tooltip
 
-        checkoutErrorLabel.setText("");
-        checkoutErrorLabel2.setText("");
+        resetCheckoutErrorLabels();
+
+        checkoutDatePicker.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.isBefore(LocalDate.now().plusDays(1)));
+            }
+        });
+
+        checkoutDatePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                if (newValue != null && deliveryTimePane.isDisabled()) {
+                    deliveryTimePane.setDisable(false); // When date is picked, enable delivery time selection
+                    deliveryTimeRadioButton2.setSelected(true); // Default selected
+                    deliveryTimeErrorLabel.setText(""); // Remove error message if it was showing
+                }
+            }
+        });
+
+        deliveryTimeRadioButton1.setToggleGroup(deliveryTimeToggleGroup);
+        deliveryTimeRadioButton2.setToggleGroup(deliveryTimeToggleGroup);
+        deliveryTimeRadioButton3.setToggleGroup(deliveryTimeToggleGroup);
+
+        deliveryTimeToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                deliveryTime = ((RadioButton) deliveryTimeToggleGroup.getSelectedToggle()).getText();
+            }
+        });
 
         /* All available categories
     POD,
@@ -361,6 +408,54 @@ public class Controller implements Initializable {
             }
         });
 
+        firstNameField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
+                }
+            }
+        });
+        lastNameField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
+                }
+            }
+        });
+        phoneField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    // Check for non numeric characters
+                    if (!newValue.matches("\\d*")) {
+                        // Remove all non numeric characters
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                        phoneField.setText(newValue);
+                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
+
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
+                }
+            }
+        });
+        addressField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
+                }
+            }
+        });
         postalCodeField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -377,23 +472,24 @@ public class Controller implements Initializable {
                         postalCodeField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
-                }
-            }
-        });
-        phoneField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.equals("")) {
-                    // Check for non numeric characters
-                    if (!newValue.matches("\\d*")) {
-                        // Remove all non numeric characters
-                        newValue = newValue.replaceAll("[^\\d]", "");
-                        phoneField.setText(newValue);
-                        System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
                     }
                 }
             }
         });
+        countyField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.equals("")) {
+                    if (addressFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
+                }
+            }
+        });
+
         creditCardField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -409,6 +505,10 @@ public class Controller implements Initializable {
                         newValue = newValue.replaceAll("[^\\d]", "");
                         creditCardField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
+
+                    if (creditCardFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
                     }
                 }
             }
@@ -429,6 +529,10 @@ public class Controller implements Initializable {
                         expiryMonthField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
+
+                    if (creditCardFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
                 }
             }
         });
@@ -448,6 +552,10 @@ public class Controller implements Initializable {
                         expiryYearField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
                     }
+
+                    if (creditCardFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
+                    }
                 }
             }
         });
@@ -466,6 +574,10 @@ public class Controller implements Initializable {
                         newValue = newValue.replaceAll("[^\\d]", "");
                         cvcField.setText(newValue);
                         System.out.println("Only numbers are allowed"); //Just for now, we can make a prompt popup on screen
+                    }
+
+                    if (creditCardFieldsAreFilled()) {
+                        resetCheckoutErrorLabels();
                     }
                 }
             }
@@ -618,7 +730,7 @@ public class Controller implements Initializable {
         for(int i = 0; i< orders.size(); i++){
             purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
         }
-        
+
     }
 
     public void populatePurchaseHistoryProductList(Order order){
@@ -810,9 +922,17 @@ public class Controller implements Initializable {
         }
     }
 
-    private void resetErrorLabels() {
+    private void resetCheckoutErrorLabels() {
         checkoutErrorLabel.setText("");
         checkoutErrorLabel2.setText("");
+        deliveryTimeErrorLabel.setText("");
+    }
+    private void showCheckoutErrorLabels() {
+        checkoutErrorLabel.setText(missingFieldText.getMessageContent());
+        checkoutErrorLabel2.setText(missingFieldText.getMessageContent());
+    }
+    private void showDeliveryTimeErrorLabel() {
+        deliveryTimeErrorLabel.setText(missingDeliveryTimeText.getMessageContent());
     }
 
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
@@ -837,7 +957,7 @@ public class Controller implements Initializable {
         if (shownCartList.size() != 0) { // Check if cart is not empty
             checkoutView2.toFront();
             autoFill(); // fill the text fields in step 2 automatically
-            resetErrorLabels();
+            resetCheckoutErrorLabels();
         } else {
             populateMessageView(emptyCartMessage);
             showMessage();
@@ -846,14 +966,14 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckoutStep2() {
-        if (checkAllAddressFields()) {
+        if (checkAllAddressFields() && deliveryTimeIsSelected()) {
             bc.getCustomer().setFirstName(firstNameField.getText());
             bc.getCustomer().setLastName(lastNameField.getText());
             bc.getCustomer().setAddress(addressField.getText());
             bc.getCustomer().setPostCode(postalCodeField.getText());
             bc.getCustomer().setPostAddress(countyField.getText());
             bc.getCustomer().setPhoneNumber(phoneField.getText());
-            resetErrorLabels();
+            resetCheckoutErrorLabels();
 
             if (bc.isCustomerComplete()) {
                 checkoutView3.toFront();
@@ -876,7 +996,13 @@ public class Controller implements Initializable {
             }
             //int numberofItems = cart.getItems().size();
             double totalprice = cart.getTotal();
-            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!", "Sammanfattning av order: \n\nAntal varor: " + numberofItems + " st" + "\nTotalpris: " + totalprice + " kr" + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber() + "\nAdress: " + bc.getCustomer().getAddress() + "\nLeveranstid: " + "1 juni");
+            Message orderMessage = new Message("Din order är slutförd! Tack för din beställning!",
+                    "Sammanfattning av order:"
+                            + "\n\nAntal varor: " + numberofItems + " st"
+                            + "\nTotalpris: " + totalprice + " kr"
+                            + "\nAdress: " + bc.getCustomer().getAddress()
+                            + "\nLeveranstid: " + checkoutDatePicker.getValue() + ", kl " + deliveryTime
+                            + "\nTelefonnummer: " + bc.getCustomer().getPhoneNumber());
             populateMessageView(orderMessage);
             bc.placeOrder(); // Saves the order placement and clears the shopping cart
             clearFields();
@@ -900,7 +1026,7 @@ public class Controller implements Initializable {
     @FXML
     private void backToCheckoutStep2() {
         checkoutView2.toFront();
-        resetErrorLabels();
+        resetCheckoutErrorLabels();
     }
 
     @FXML
@@ -1069,11 +1195,38 @@ public class Controller implements Initializable {
     private boolean checkField(TextField t) {
         if (t.getText().equals("")) {
             missingTextAlert(t);
-            checkoutErrorLabel.setText(missingFieldText.getMessageContent());
-            checkoutErrorLabel2.setText(missingFieldText.getMessageContent());
+            showCheckoutErrorLabels();
             return false;
         }
         return true;
+    }
+
+    private boolean deliveryTimeIsSelected() {
+        if (checkoutDatePicker.getValue() == null || deliveryTime.equals("")) {
+            showDeliveryTimeErrorLabel();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean addressFieldsAreFilled() {
+        return (
+                !firstNameField.equals("") &
+                        !lastNameField.equals("") &
+                        !addressField.equals("") &
+                        !postalCodeField.equals("") &
+                        !countyField.equals("") &
+                        !phoneField.equals("")
+        );
+    }
+
+    private boolean creditCardFieldsAreFilled() {
+        return (
+                !creditCardField.equals("") &
+                        !expiryMonthField.equals("") &
+                        !expiryYearField.equals("") &
+                        !cvcField.equals("")
+        );
     }
 
 
