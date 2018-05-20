@@ -211,6 +211,9 @@ public class Controller implements Initializable {
     @FXML
     private ImageView priceDown;
 
+    //Images
+    private final static Image favorite_item_selected = new Image("iMat/resources/favorite_item_selected.png");
+    private final static Image favorite_item_notselected = new Image("iMat/resources/favorite_item_notselected.png");
 
     //Messages
     private Message emptyCartMessage = new Message("Tom kundvagn", "Din kundvagn är tom, testa att lägga till lite varor");
@@ -694,9 +697,9 @@ public class Controller implements Initializable {
     void updateFavImage() {
         for (Product product : bc.getProducts()) {
             if (bc.isFavorite(product)) {
-                productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_selected.png")));
+                productListItemMap.get(product.getName()).setFavoriteItemImage(favorite_item_selected);
             } else {
-                productListItemMap.get(product.getName()).setFavoriteItemImage(new Image(getClass().getClassLoader().getResourceAsStream("iMat/resources/favorite_item_notselected.png")));
+                productListItemMap.get(product.getName()).setFavoriteItemImage(favorite_item_notselected);
 
             }
         }

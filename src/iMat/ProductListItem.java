@@ -14,12 +14,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
+import java.io.File;
 import java.io.IOException;
 
 class ProductListItem extends AnchorPane {
     private Controller parentController;
     private Product product;
     private int amount = 1; //Initialize to 1 because you never want to add 0 items to cart of a specific product
+    private boolean favClicked; // For deciding when to show what fav image
+
+    private final static Image favorite_item_hint = new Image("iMat/resources/favorite_item_hint.png");
 
     @FXML
     private ImageView productImageView;
@@ -122,20 +126,6 @@ class ProductListItem extends AnchorPane {
         quantityTextField.setText(amount + " st");
     }
 
-    /**
-     * Checks if star on product is clicked and sets according status
-     */
-    @FXML
-    protected void favIconOnClick(Event event) {
-        if (!parentController.getFavStatus(this.product)) {
-            parentController.addToFavorites(this.product);
-        } else {
-            parentController.removeFromFavorites(this.product);
-        }
-        parentController.updateFavImage();
-
-    }
-
     @FXML
     private void incAmount() {
         if (amount < 99) {
@@ -190,12 +180,28 @@ class ProductListItem extends AnchorPane {
 
 
     /**
+     * Checks if star on product is clicked and sets according status
+     */
+    @FXML
+    protected void favIconOnClick(Event event) {
+        favClicked = true;
+        if (!parentController.getFavStatus(this.product)) {
+            parentController.addToFavorites(this.product);
+        } else {
+            parentController.removeFromFavorites(this.product);
+        }
+        parentController.updateFavImage();
+    }
+
+    /**
      * Hints when mouse enters the star
      */
     @FXML
     public void favIconMouseEntered() {
-        this.favoriteItemImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "iMat/resources/favorite_item_hint.png")));
+        if (!favClicked) {
+            this.favoriteItemImageView.setImage(favorite_item_hint);
+        }
+        favClicked = false;
     }
 
     @FXML
