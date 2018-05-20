@@ -107,6 +107,18 @@
     -fx-text-fill: #700000;
 }
 
+#detailViewPane #buyButton {
+    -fx-background-color: #f4424b;
+}
+
+#detailViewPane #buyButton:hover {
+    -fx-background-color: #e5676d;
+}
+
+#detailViewPane #buyButton:pressed {
+    -fx-background-color: #7f3035;
+}
+
 /* ---------------------------template------------------------------
     -fx-background-color: -fx-background;       // default JavaFX color
     -fx-background-color: rgba(0,0,0,0.75);     // transparent
