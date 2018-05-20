@@ -248,10 +248,10 @@
                               <Label layoutX="42.0" layoutY="1.0" styleClass="text-large-bold" text="Skriv in dina uppgifter" underline="true" />
                               <VBox fillWidth="false" layoutX="42.0" layoutY="66.0" spacing="28.0">
                                  <children>
-                                    <HBox prefHeight="39.0" prefWidth="572.0" spacing="25.0">
+                                    <HBox prefHeight="39.0" spacing="25.0">
                                        <children>
-                                          <TextField fx:id="firstNameField" prefHeight="39.0" prefWidth="195.0" promptText="Förnamn" styleClass="text-large" />
-                                          <TextField fx:id="lastNameField" prefHeight="39.0" prefWidth="368.0" promptText="Efternamn" styleClass="text-large" />
+                                          <TextField fx:id="firstNameField" prefHeight="39.0" prefWidth="180.0" promptText="Förnamn" styleClass="text-large" />
+                                          <TextField fx:id="lastNameField" prefHeight="39.0" prefWidth="215.0" promptText="Efternamn" styleClass="text-large" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="phoneField" prefHeight="40.0" prefWidth="420.0" promptText="Telefonnummer" styleClass="text-large">
@@ -272,14 +272,6 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Button layoutX="42.0" layoutY="324.0" mnemonicParsing="false" onAction="#clearFields" text="Rensa allt">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
                               <Label layoutX="43.0" layoutY="42.0" styleClass="text-large" text="Förnamn" />
                               <Label layoutX="254.0" layoutY="43.0" styleClass="text-large" text="Efternamn" />
                               <Label layoutX="44.0" layoutY="109.0" styleClass="text-large" text="Telefonnummer" />
