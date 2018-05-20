@@ -893,6 +893,11 @@ public class Controller implements Initializable {
         detailViewPane.toFront();
     }
 
+    @FXML
+    private void closeDetailView(){
+        detailViewPane.toBack();
+    }
+
     private void blurInSearchBar() {
         if(!searchFieldBlurred) {
             blurSearchBar.toFront();
