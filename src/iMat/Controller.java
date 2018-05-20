@@ -173,6 +173,8 @@ public class Controller implements Initializable {
     @FXML
     private FlowPane purchaseHistoryProductFlowPane;
 
+    private Order selectedOrder;
+
     //Help View
     @FXML
     private AnchorPane helpPane;
@@ -728,6 +730,12 @@ public class Controller implements Initializable {
 
         List <Order> orders =  bc.getOrders();
         for(int i = 0; i< orders.size(); i++){
+            if(i==0){
+                PurchaseHistoryListItem firstItem = new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup);
+                purchaseHistoryFlowPane.getChildren().add(firstItem);
+                firstItem.setSelected();
+
+            }
             purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
         }
 
@@ -735,10 +743,28 @@ public class Controller implements Initializable {
 
     public void populatePurchaseHistoryProductList(Order order){
 
+        selectedOrder = order;
+
         purchaseHistoryProductFlowPane.getChildren().clear();
 
         for(ShoppingItem item : order.getItems()){
             purchaseHistoryProductFlowPane.getChildren().add(new PurchaseHistoryProductListItem(this, item));
+        }
+    }
+
+    @FXML
+    private void replaceShoppingCart(){
+        emptyCart();
+
+        for(ShoppingItem item : selectedOrder.getItems()){
+            purchaseItem(item.getProduct(), (int)item.getAmount());
+        }
+    }
+
+    @FXML
+    private void purchaseOrder(){
+        for(ShoppingItem item: selectedOrder.getItems()){
+            purchaseItem(item.getProduct(), (int)item.getAmount());
         }
     }
 

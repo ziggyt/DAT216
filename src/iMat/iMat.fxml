@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -33,7 +25,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Controller">
     <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -555,12 +547,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" text="Lägg till i befintlig varukorg">
+                        <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" onAction="#purchaseOrder" text="Lägg till i befintlig varukorg">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" text="Ersätt befintlig varukorg">
+                        <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" onAction="#replaceShoppingCart" text="Ersätt befintlig varukorg">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

@@ -1,10 +1,10 @@
 package iMat;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Order;
 
@@ -60,6 +60,7 @@ public class PurchaseHistoryListItem extends AnchorPane {
         }
         priceLabel.setText(totalPrice + " kr");
 
+
     }
 
     public Order getOrder(){
@@ -67,11 +68,10 @@ public class PurchaseHistoryListItem extends AnchorPane {
     }
 
     @FXML
-    private void setSelected(){
+    public void setSelected(){
         purchaseHistoryRadioButton.setSelected(true);
         parentController.populatePurchaseHistoryProductList(order);
     }
-
 
 
 }
