@@ -223,7 +223,7 @@
                         <Label layoutX="323.0" layoutY="307.0" styleClass="text-large" text="Månad" />
                         <Label layoutX="420.0" layoutY="307.0" styleClass="text-large" text="År" />
                         <Label layoutX="322.0" layoutY="380.0" styleClass="text-large" text="Säkerhetskod (CVC)" />
-                        <Button fx:id="placeOrderButton" layoutX="321.0" layoutY="474.0" mnemonicParsing="false" onAction="#finishCheckout" prefHeight="50.0" prefWidth="420.0" text="Betala XX kr">
+                        <Button fx:id="placeOrderButton" layoutX="321.0" layoutY="484.0" mnemonicParsing="false" onAction="#finishCheckout" prefHeight="50.0" prefWidth="420.0" text="Betala XX kr" AnchorPane.leftAnchor="321.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -241,6 +241,11 @@
                               </Text>
                            </children>
                         </StackPane>
+                        <Label fx:id="checkoutErrorLabel2" layoutX="323.0" layoutY="454.0" text="Label" textFill="RED" AnchorPane.leftAnchor="323.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="checkoutView2" prefHeight="200.0" prefWidth="200.0">
@@ -256,7 +261,7 @@
                         <AnchorPane layoutX="316.0" layoutY="120.0" prefHeight="366.0" prefWidth="680.0" AnchorPane.bottomAnchor="249.0" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="150.0">
                            <children>
                               <Label layoutX="42.0" layoutY="1.0" styleClass="text-large-bold" text="Skriv in dina uppgifter" underline="true" />
-                              <VBox fillWidth="false" layoutX="42.0" layoutY="66.0" spacing="28.0">
+                              <VBox fillWidth="false" layoutX="42.0" layoutY="66.0" spacing="28.0" AnchorPane.leftAnchor="42.0">
                                  <children>
                                     <HBox prefHeight="39.0" spacing="25.0">
                                        <children>
@@ -288,6 +293,11 @@
                               <Label layoutX="46.0" layoutY="177.0" styleClass="text-large" text="Adress" />
                               <Label layoutX="43.0" layoutY="244.0" styleClass="text-large" text="Postnummer" />
                               <Label layoutX="214.0" layoutY="246.0" styleClass="text-large" text="Ort" />
+                              <Label fx:id="checkoutErrorLabel" layoutX="42.0" layoutY="327.0" text="Label" textFill="RED" AnchorPane.leftAnchor="42.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                         <Button layoutX="927.0" layoutY="648.0" mnemonicParsing="false" onAction="#backToCheckoutStep1" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">

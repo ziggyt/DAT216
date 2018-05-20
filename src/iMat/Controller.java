@@ -126,11 +126,17 @@ public class Controller implements Initializable {
     @FXML
     private Label checkoutTotalLabel;
 
+    //Checkout 2
+    @FXML
+    private Label checkoutErrorLabel;
+
     //Checkout 3
     @FXML
     private Button placeOrderButton;
     @FXML
     private StackPane cvcTooltipPane;
+    @FXML
+    private Label checkoutErrorLabel2;
 
     //Main view
     @FXML
@@ -252,6 +258,9 @@ public class Controller implements Initializable {
         bindTooltip(trashCanImageView, new Tooltip("Ta bort all varor från varukorgen")); // Trash cart tooltip
         bindTooltip(ecoImageView, new Tooltip("Den här produkten är ekologisk")); // For the detailView only
         bindTooltip(cvcTooltipPane, new Tooltip("Den tresiffriga koden på baksidan av kortet")); // CVC tooltip
+
+        checkoutErrorLabel.setText("");
+        checkoutErrorLabel2.setText("");
 
         /* All available categories
     POD,
@@ -754,22 +763,6 @@ public class Controller implements Initializable {
         detailViewPane.toFront();
     }
 
-    // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
-    @FXML
-    private void toCheckout() {
-        if (shownCartList.size() != 0) { //check if
-            blurInSearchBar();
-            checkoutView1.toFront();
-            inCheckout = true;
-            updateCheckoutCart();
-
-        } else {
-            populateMessageView(emptyCartMessage);
-            showMessage();
-
-        }
-    }
-
     private void blurInSearchBar() {
         if(!searchFieldBlurred) {
             blurSearchBar.toFront();
@@ -799,10 +792,38 @@ public class Controller implements Initializable {
         }
     }
 
+    private void resetErrorLabels() {
+        checkoutErrorLabel.setText("");
+        checkoutErrorLabel2.setText("");
+    }
+
+    // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
+    @FXML
+    private void toCheckout() {
+        if (shownCartList.size() != 0) { //check if
+            blurInSearchBar();
+            checkoutView1.toFront();
+            inCheckout = true;
+            updateCheckoutCart();
+
+        } else {
+            populateMessageView(emptyCartMessage);
+            showMessage();
+
+        }
+    }
+
     @FXML
     private void finishCheckoutStep1() {
-        checkoutView2.toFront();
-        autoFill(); // fill the text fields in step 2 automatically
+
+        if (shownCartList.size() != 0) { // Check if cart is not empty
+            checkoutView2.toFront();
+            autoFill(); // fill the text fields in step 2 automatically
+            resetErrorLabels();
+        } else {
+            populateMessageView(emptyCartMessage);
+            showMessage();
+        }
     }
 
     @FXML
@@ -814,6 +835,7 @@ public class Controller implements Initializable {
             bc.getCustomer().setPostCode(postalCodeField.getText());
             bc.getCustomer().setPostAddress(countyField.getText());
             bc.getCustomer().setPhoneNumber(phoneField.getText());
+            resetErrorLabels();
 
             if (bc.isCustomerComplete()) {
                 checkoutView3.toFront();
@@ -860,6 +882,7 @@ public class Controller implements Initializable {
     @FXML
     private void backToCheckoutStep2() {
         checkoutView2.toFront();
+        resetErrorLabels();
     }
 
     @FXML
@@ -1028,6 +1051,8 @@ public class Controller implements Initializable {
     private boolean checkField(TextField t) {
         if (t.getText().equals("")) {
             missingTextAlert(t);
+            checkoutErrorLabel.setText(missingFieldText.getMessageContent());
+            checkoutErrorLabel2.setText(missingFieldText.getMessageContent());
             return false;
         }
         return true;
@@ -1036,18 +1061,11 @@ public class Controller implements Initializable {
 
     private void missingTextAlert(TextField t) {
         FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t);
-        fade.setFromValue(1); //the pane is invisible to start
-        fade.setToValue(0); //fades in to almost completely solid
+        fade.setFromValue(1);
+        fade.setToValue(0);
         fade.setCycleCount(4); //the amount of times the animation plays (fade in + out = 2)
-        fade.setAutoReverse(true); //in order to make it go from solid to transparent
+        fade.setAutoReverse(true);
         fade.play(); // start animation
-        fade.setOnFinished(new EventHandler<ActionEvent>() {    // Action after the animation is done
-            @Override
-            public void handle(ActionEvent event) {
-                populateMessageView(missingFieldText);  // Remove item from cart after the animation
-                showMessage();
-            }
-        });
 
     }
 
