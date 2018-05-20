@@ -40,8 +40,6 @@ class ProductListItem extends AnchorPane {
     @FXML
     private ImageView favoriteItemImageView;
     @FXML
-    private SplitPane productSplitPane;
-    @FXML
     private ImageView ecoImageView;
 
 
@@ -58,8 +56,6 @@ class ProductListItem extends AnchorPane {
 
         this.product = product;
         this.parentController = controller;
-
-        productSplitPane.setDividerPositions(0, 0, 0);
 
         // Image setup
         productImageView.setImage(controller.getSquareImage(controller.getProductImage(product)));

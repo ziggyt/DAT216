@@ -5,3 +5,9 @@
 #productImageView {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }
+
+#productBottomBar {
+    -fx-border-style: solid inside;
+    -fx-border-width: 2 0 0 0;
+    -fx-border-color: rgba(0,0,0,0.3);
+}
