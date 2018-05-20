@@ -3,6 +3,8 @@ package iMat;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Order;
 
@@ -14,6 +16,8 @@ public class PurchaseHistoryListItem extends AnchorPane {
     private Order order;
 
     @FXML
+    private RadioButton purchaseHistoryRadioButton;
+    @FXML
     private Label dateLabel;
     @FXML
     private Label numberofItemsLabel;
@@ -22,7 +26,7 @@ public class PurchaseHistoryListItem extends AnchorPane {
 
 
 
-    PurchaseHistoryListItem(Order order, Controller controller) {
+    PurchaseHistoryListItem(Order order, Controller controller, ToggleGroup toggleGroup) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("purchasehistory_listitem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -35,15 +39,21 @@ public class PurchaseHistoryListItem extends AnchorPane {
 
         this.order = order;
         this.parentController = controller;
+        this.purchaseHistoryRadioButton.setToggleGroup(toggleGroup);
 
-        //dateLabel.setText(order.getDate().toString());
+        //The Date string
+        String date = order.getDate().toString();
+        int endindex = date.indexOf("CEST");
+        dateLabel.setText(date.substring(0,endindex-9));//removes time and timezone from string
 
+        //Sets the itemLabel
         int numberofItems = 0;
         for (int i = 0; i < order.getItems().size(); i++) {
             numberofItems += order.getItems().get(i).getAmount();
         }
         numberofItemsLabel.setText(numberofItems + " varor");
 
+        //Sets the priceLabel
         int totalPrice = 0;
         for (int i = 0; i < order.getItems().size(); i++) {
             totalPrice += order.getItems().get(i).getTotal();
@@ -52,6 +62,13 @@ public class PurchaseHistoryListItem extends AnchorPane {
 
     }
 
+    public Order getOrder(){
+        return this.order;
+    }
+
+    public void setSelected(){
+        purchaseHistoryRadioButton.setSelected(true);
+    }
 
 
 

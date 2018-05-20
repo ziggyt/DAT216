@@ -210,7 +210,10 @@ public class Controller implements Initializable {
 
     private Map<String, ProductListItem> productListItemMap = new HashMap<>(); // Map of all the ProductListItems with their names as keys
     private List<Product> shownProducts; // List of products to be shown in the main view
+
     final private ToggleGroup categoryToggleGroup = new ToggleGroup(); // ToggleGroup for the categories in the sidebar
+    final private ToggleGroup purchaseHistoryToggleGroup = new ToggleGroup();//Togglegroup for the purchaseHistoryList
+
     private List<CartListItem> shownCartList = new ArrayList<>(); // List of CartListItems currently shown in the cart sidebar
     private ShoppingCart cart;
     private List<ShoppingItem> oldCartList = new ArrayList<>(); // Helper list made to remember which items where in the cart before the latest change
@@ -585,8 +588,9 @@ public class Controller implements Initializable {
 
         List <Order> orders =  bc.getOrders();
         for(int i = 0; i< orders.size(); i++){
-            purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this));
+            purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
         }
+        
     }
 
     private void populateDetailView(Product product) {
