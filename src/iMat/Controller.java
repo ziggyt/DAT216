@@ -282,6 +282,8 @@ public class Controller implements Initializable {
         coldDrinksCategoryButton.setToggleGroup(categoryToggleGroup);
         hotDrinksCategoryButton.setToggleGroup(categoryToggleGroup);
         allCategoryButton.setSelected(true);
+        category = allCategoryButton.getId();
+
 
         categoryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
@@ -289,7 +291,9 @@ public class Controller implements Initializable {
                 if (newValue == null) {
                     oldValue.setSelected(true); // Stops the currently selected toggle from being unselected when pressed
                 } else {
-                    searchField.clear();
+                    if (newValue!=allCategoryButton) {
+                        searchField.clear();
+                    }
                     ToggleButton selected = (ToggleButton) categoryToggleGroup.getSelectedToggle();
                     categoryTitleLabel.setText(selected.getText());
                     category = selected.getId();
@@ -311,14 +315,15 @@ public class Controller implements Initializable {
         searchField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                allCategoryButton.setSelected(true);
-                updateCurrentCategory();
-                shownProducts = searchProducts(newValue);
-
-                if (newValue.equals("")) {
+                if (!newValue.equals("")) {
+                    allCategoryButton.setSelected(true);
+                    updateCurrentCategory();
+                    shownProducts = searchProducts(newValue);
+                } else {
                     updateCurrentCategory();
                 }
 
+                productScrollPane.setVvalue(0); //Moves scrollposition back to top
                 updateProductList();
                 updateAmountFound();
 
