@@ -155,6 +155,8 @@ public class Controller implements Initializable {
     private AnchorPane purchaseHistoryPane;
     @FXML
     private FlowPane purchaseHistoryFlowPane;
+    @FXML
+    private FlowPane purchaseHistoryProductFlowPane;
 
     //Help View
     @FXML
@@ -614,6 +616,15 @@ public class Controller implements Initializable {
             purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
         }
         
+    }
+
+    public void populatePurchaseHistoryProductList(Order order){
+
+        purchaseHistoryProductFlowPane.getChildren().clear();
+
+        for(ShoppingItem item : order.getItems()){
+            purchaseHistoryProductFlowPane.getChildren().add(new PurchaseHistoryProductListItem(this, item));
+        }
     }
 
     private void populateDetailView(Product product) {

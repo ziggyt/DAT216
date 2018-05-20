@@ -69,6 +69,7 @@ public class PurchaseHistoryListItem extends AnchorPane {
     @FXML
     private void setSelected(){
         purchaseHistoryRadioButton.setSelected(true);
+        parentController.populatePurchaseHistoryProductList(order);
     }
 
 

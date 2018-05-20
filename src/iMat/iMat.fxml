@@ -498,20 +498,32 @@
                         <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Label>
+                           </cursor>
+                        </Label>
                         <Button layoutX="1011.0" layoutY="582.0" mnemonicParsing="false" text="Lägg till i befintlig varukorg">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
+                           </cursor>
+                        </Button>
                         <Button layoutX="1011.0" layoutY="642.0" mnemonicParsing="false" text="Ersätt befintlig varukorg">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
+                           </cursor>
+                        </Button>
                         <AnchorPane layoutX="299.0" layoutY="117.0" prefHeight="550.0" prefWidth="410.0">
                            <children>
                               <ScrollPane layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <content>
                                     <FlowPane fx:id="purchaseHistoryFlowPane" prefHeight="548.0" prefWidth="408.0" vgap="10.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="773.0" layoutY="117.0" prefHeight="418.0" prefWidth="410.0">
+                           <children>
+                              <ScrollPane layoutX="38.0" layoutY="31.0" prefHeight="480.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <FlowPane fx:id="purchaseHistoryProductFlowPane" prefHeight="419.0" prefWidth="408.0" vgap="10.0" />
                                  </content>
                               </ScrollPane>
                            </children>
