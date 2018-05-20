@@ -595,21 +595,21 @@
                               <Line endX="100.0" layoutY="85.0" AnchorPane.rightAnchor="4.0" />
                            </children>
                         </AnchorPane>
-                        <Label layoutX="360.0" layoutY="82.0" styleClass="text-title" text="Hur handlar man?" />
-                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="231.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
-                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="449.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
-                        <Circle fill="#2197ff40" layoutX="260.0" layoutY="336.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
-                        <Text layoutX="248.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
+                        <Label layoutX="350.0" layoutY="41.0" styleClass="text-title" text="Hur handlar man?" />
+                        <Circle fill="#2197ff40" layoutX="185.0" layoutY="175.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Circle fill="#2197ff40" layoutX="1073.0" layoutY="174.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Circle fill="#2197ff40" layoutX="586.0" layoutY="174.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                        <Text layoutX="173.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="23.353515625">
                            <font>
                               <Font name="Arial" size="38.0" />
                            </font>
                         </Text>
-                        <Text layoutX="248.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
+                        <Text layoutX="1061.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="23.353515625">
                            <font>
                               <Font name="Arial" size="38.0" />
                            </font>
                         </Text>
-                        <Text layoutX="248.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
+                        <Text layoutX="574.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="23.353515625">
                            <font>
                               <Font name="Arial" size="38.0" />
                            </font>
@@ -629,7 +629,40 @@
                         <Label layoutX="1148.0" layoutY="30.0" onMouseClicked="#goHome" prefHeight="62.0" prefWidth="89.0" styleClass="text-large" text="Tillbaka till Matbutik" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Label>
+                           </cursor>
+                        </Label>
+                        <ImageView fitHeight="239.0" fitWidth="174.0" layoutX="99.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/Kategorier.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="189.0" fitWidth="416.0" layoutX="22.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/Sökruta.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="42.0" layoutY="214.0" styleClass="text-large-bold" text="Sök efter varor med hjälp av sökrutan " />
+                        <Label layoutX="212.0" layoutY="370.0" styleClass="text-large-bold" text="eller" />
+                        <Label layoutX="53.0" layoutY="437.0" styleClass="text-large-bold" text="Välj en passande kategori" />
+                        <ImageView fitHeight="268.0" fitWidth="382.0" layoutX="476.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/Produktlista.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="224.0" fitWidth="254.0" layoutX="496.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/Produkt.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="495.0" fitWidth="186.0" layoutX="991.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/Kassa.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="487.0" layoutY="214.0" styleClass="text-large-bold" text="Leta bland varorna i listan" />
+                        <Label layoutX="702.0" layoutY="531.0" prefHeight="88.0" prefWidth="204.0" styleClass="text-large-bold" text="Välj antalet av produkten du vill köpa med + och - knapparna" wrapText="true" />
+                        <Label layoutX="707.0" layoutY="643.0" prefHeight="64.0" prefWidth="192.0" styleClass="text-large-bold" text="Klicka &quot;Köp&quot; för att lägga till i varukorgen" wrapText="true" />
+                        <Label layoutX="855.0" layoutY="211.0" prefHeight="61.0" prefWidth="376.0" styleClass="text-large-bold" text="För att gå vidare till kassan, klicka på den gröna knappen" wrapText="true" />
                      </children>
                   </AnchorPane>
                       <BorderPane fx:id="mainView">
