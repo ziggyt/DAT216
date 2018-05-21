@@ -985,7 +985,7 @@ public class Controller implements Initializable {
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
     private void toCheckout() {
-        if (shownCartList.size() != 0) { //check if
+        if (shownCartList.size() - (CartListItem.fadeAlertsOngoing+CartListItem.removalQueue.size()) > 0) { // Check if cart is not empty
             blurInSearchBar();
             checkoutView1.toFront();
             inCheckout = true;
@@ -1000,8 +1000,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void finishCheckoutStep1() {
-
-        if (shownCartList.size() != 0) { // Check if cart is not empty
+        if (shownCartList.size() - (CartListItem.fadeAlertsOngoing+CartListItem.removalQueue.size()) > 0) { // Check if cart is not empty
             checkoutView2.toFront();
             autoFill(); // fill the text fields in step 2 automatically
             resetCheckoutErrorLabels();

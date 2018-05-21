@@ -56,8 +56,8 @@ public class CartListItem extends AnchorPane {
     private FadeTransition addedFade;
     private FadeTransition removedFade;
 
-    private static int fadeAlertsOngoing = 0; // Number of items currently in the fadeAlert animation
-    private static List<ShoppingItem> removalQueue = new ArrayList<>(); // List of items waiting to get removed
+    static int fadeAlertsOngoing = 0; // Number of items currently in the fadeAlert animation
+    static List<ShoppingItem> removalQueue = new ArrayList<>(); // List of items waiting to get removed
 
     CartListItem(ShoppingItem si, Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart_listitem.fxml"));
