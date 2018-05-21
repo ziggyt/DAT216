@@ -172,6 +172,10 @@ public class Controller implements Initializable {
     private FlowPane purchaseHistoryFlowPane;
     @FXML
     private FlowPane purchaseHistoryProductFlowPane;
+    @FXML
+    private Button purchaseOrderButton;
+    @FXML
+    private Button replaceShoppingCartButton;
 
     private Order selectedOrder;
 
@@ -718,6 +722,14 @@ public class Controller implements Initializable {
         blurInSearchBar();
         populatePurchaseHistory();
         purchaseHistoryPane.toFront();
+
+        if (bc.getOrders().isEmpty()) {
+            purchaseOrderButton.setDisable(true);
+            replaceShoppingCartButton.setDisable(true);
+        } else {
+            purchaseOrderButton.setDisable(false);
+            replaceShoppingCartButton.setDisable(false);
+        }
     }
 
     @FXML
@@ -730,14 +742,15 @@ public class Controller implements Initializable {
         purchaseHistoryFlowPane.getChildren().clear();
 
         List <Order> orders =  bc.getOrders();
-        for(int i = 0; i< orders.size(); i++){
-            if(i==0){
+        for(int i = orders.size()-1; i >= 0; i--){
+            if(i==orders.size()-1){
                 PurchaseHistoryListItem firstItem = new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup);
                 purchaseHistoryFlowPane.getChildren().add(firstItem);
                 firstItem.setSelected();
 
+            } else {
+                purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
             }
-            purchaseHistoryFlowPane.getChildren().add(new PurchaseHistoryListItem(orders.get(i), this, purchaseHistoryToggleGroup));
         }
 
     }
