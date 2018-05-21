@@ -940,7 +940,12 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <Label layoutX="52.0" layoutY="20.0" styleClass="text-larger-bold" text="Varukorg" />
+                              <Label layoutX="54.0" layoutY="10.0" styleClass="text-larger-bold" text="Varukorg:" />
+                              <Label fx:id="cartAmountLabel" layoutX="58.0" layoutY="40.0" styleClass="text-large-bold" text="0 st varor" textFill="#007000">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                           </right>

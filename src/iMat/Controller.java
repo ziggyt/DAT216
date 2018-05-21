@@ -85,6 +85,8 @@ public class Controller implements Initializable {
     @FXML
     private Label categoryAmountLabel;
     @FXML
+    private Label cartAmountLabel;
+    @FXML
     private Label cartTotalLabel;
     @FXML
     private ScrollPane productScrollPane;
@@ -1150,6 +1152,12 @@ public class Controller implements Initializable {
 
     void updateCartTotal() {
         cartTotalLabel.setText("Totalkostnad: " + (double)(int)(cart.getTotal()*100) / 100 + " kr");
+
+        int numberOfItems = 0;
+        for (ShoppingItem si : cart.getItems()) {
+            numberOfItems += si.getAmount();
+        }
+        cartAmountLabel.setText(numberOfItems + " st varor");
 
     }
 
