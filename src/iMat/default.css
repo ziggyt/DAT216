@@ -123,15 +123,15 @@
     -fx-text-fill: #700000;
 }
 
-#detailViewPane #buyButton {
+#detailViewPane #buyButton, #placeOrderButton {
     -fx-background-color: #f4424b;
 }
 
-#detailViewPane #buyButton:hover {
+#detailViewPane #buyButton:hover, #placeOrderButton:hover {
     -fx-background-color: #e5676d;
 }
 
-#detailViewPane #buyButton:pressed {
+#detailViewPane #buyButton:pressed, #placeOrderButton:pressed {
     -fx-background-color: #7f3035;
 }
 
