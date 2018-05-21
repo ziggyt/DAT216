@@ -242,9 +242,9 @@
                               </Text>
                            </children>
                         </StackPane>
-                        <Label fx:id="checkoutErrorLabel2" layoutX="323.0" layoutY="454.0" text="Label" textFill="RED" AnchorPane.leftAnchor="323.0">
+                        <Label fx:id="checkoutErrorLabel2" layoutX="323.0" layoutY="451.0" text="Label" textFill="RED" AnchorPane.leftAnchor="323.0">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -294,9 +294,9 @@
                               <Label layoutX="46.0" layoutY="177.0" styleClass="text-large" text="Adress" />
                               <Label layoutX="43.0" layoutY="244.0" styleClass="text-large" text="Postnummer" />
                               <Label layoutX="214.0" layoutY="246.0" styleClass="text-large" text="Ort" />
-                              <Label fx:id="checkoutErrorLabel" layoutX="42.0" layoutY="327.0" text="Label" textFill="RED" AnchorPane.leftAnchor="42.0">
+                              <Label fx:id="checkoutErrorLabel" layoutX="42.0" layoutY="324.0" text="Label" textFill="RED" AnchorPane.leftAnchor="42.0">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
@@ -413,9 +413,9 @@
                                     </RadioButton>
                                  </children>
                               </AnchorPane>
-                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="183.0" text="Label" textFill="RED">
+                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="181.0" text="Label" textFill="RED">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                               <StackPane fx:id="deliveryTimeTooltipPane" layoutX="199.0" layoutY="11.0">
