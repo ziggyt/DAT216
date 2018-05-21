@@ -760,6 +760,7 @@ public class Controller implements Initializable {
         for(ShoppingItem item : selectedOrder.getItems()){
             purchaseItem(item.getProduct(), (int)item.getAmount());
         }
+        goHome();
     }
 
     @FXML
@@ -767,6 +768,7 @@ public class Controller implements Initializable {
         for(ShoppingItem item: selectedOrder.getItems()){
             purchaseItem(item.getProduct(), (int)item.getAmount());
         }
+        goHome();
     }
 
     private void populateDetailView(Product product) {
