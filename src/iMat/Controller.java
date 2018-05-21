@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -126,6 +127,8 @@ public class Controller implements Initializable {
     //Checkout 1
     @FXML
     private FlowPane checkoutFlowPane;
+    @FXML
+    private ScrollPane checkoutCartScrollPane;
     @FXML
     private Label checkoutTotalLabel;
 
@@ -267,6 +270,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Platform.runLater( () -> allCategoryButton.requestFocus()); // Initial focused element
 
         for (Product product : bc.getProducts()) {
             ProductListItem productListItem = new ProductListItem(product, this);
@@ -992,6 +996,7 @@ public class Controller implements Initializable {
         if (shownCartList.size() - (CartListItem.fadeAlertsOngoing+CartListItem.removalQueue.size()) > 0) { // Check if cart is not empty
             blurInSearchBar();
             checkoutView1.toFront();
+            Platform.runLater( () -> checkoutCartScrollPane.requestFocus());
             inCheckout = true;
             updateCheckoutCart();
 
@@ -1071,6 +1076,7 @@ public class Controller implements Initializable {
     @FXML
     private void backToCheckoutStep1() {
         checkoutView1.toFront();
+        Platform.runLater( () -> checkoutCartScrollPane.requestFocus());
     }
 
     @FXML
