@@ -250,6 +250,7 @@ public class Controller implements Initializable {
     private boolean sortedDirectionName = false;
     private boolean sortedDirectionPrice = false;
     private boolean sortedDirectionEco = false;
+    private boolean sortedAscending = true;
 
     private boolean searchFieldBlurred = false;
 
@@ -334,10 +335,10 @@ public class Controller implements Initializable {
     POD,
     BREAD,-------
     BERRY,-----
-    CITRUS_FRUIT,
+    CITRUS_FRUIT,------
     HOT_DRINKS,-----
     COLD_DRINKS,-----
-    EXOTIC_FRUIT,
+    EXOTIC_FRUIT,------
     FISH,-----
     VEGETABLE_FRUIT,------
     CABBAGE,
@@ -389,6 +390,7 @@ public class Controller implements Initializable {
                     categoryTitleLabel.setText(selected.getText());
                     category = selected.getId();
                     updateCurrentCategory();
+                    sort();
                     productScrollPane.setVvalue(0); //Moves scrollposition back to top
                     updateProductList();
                     updateAmountFound();
@@ -636,6 +638,8 @@ public class Controller implements Initializable {
                 break;
             case "fruitCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.FRUIT);
+                shownProducts.addAll(bc.getProducts(ProductCategory.CITRUS_FRUIT));
+                shownProducts.addAll(bc.getProducts(ProductCategory.EXOTIC_FRUIT));
                 break;
             case "vegetablesCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
@@ -876,43 +880,97 @@ public class Controller implements Initializable {
         }
     }
 
+    private void sort() {
+        if (sortedDirectionEco) {
+            shownProducts.sort(Comparator.comparing(Product::isEcological));
+        } else if (sortedDirectionName) {
+            shownProducts.sort(Comparator.comparing(Product::getName));
+        } else if (sortedDirectionPrice) {
+            shownProducts.sort(Comparator.comparing(Product::getPrice));
+        }
+        if (!sortedAscending) {
+            Collections.reverse(shownProducts);
+        }
+    }
 
     @FXML
     private void sortByName() {
-        if (!sortedDirectionName) {
+        if (sortedDirectionName) {
+            Collections.reverse(shownProducts);
+            sortedAscending = !sortedAscending;
+        } else {
+            resetDirs();
+            sortedDirectionName = true;
+            shownProducts.sort(Comparator.comparing(Product::getName));
+            if (!sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
+        }
+        changeArrowDir(nameUp, nameDown, sortedAscending);
+        updateProductList();
+
+        /*if (!sortedDirectionName) {
             shownProducts.sort(Comparator.comparing(Product::getName));
         } else {
             Collections.reverse(shownProducts);
         }
         changeArrowDir(nameUp, nameDown, sortedDirectionName);
         sortedDirectionName = !sortedDirectionName;
-        updateProductList();
+        updateProductList();*/
     }
 
 
     @FXML
     private void sortByEco() {
-        if (!sortedDirectionEco) {
+        if (sortedDirectionEco) {
+            Collections.reverse(shownProducts);
+            sortedAscending = !sortedAscending;
+        } else {
+            resetDirs();
+            sortedDirectionEco = true;
+            shownProducts.sort(Comparator.comparing(Product::isEcological));
+            if (!sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
+        }
+        changeArrowDir(ecoUp, ecoDown, sortedAscending);
+        updateProductList();
+
+        /*if (!sortedDirectionEco) {
             shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
         } else {
             Collections.reverse(shownProducts);
         }
         changeArrowDir(ecoUp, ecoDown, sortedDirectionEco);
         sortedDirectionEco = !sortedDirectionEco;
-        updateProductList();
+        updateProductList();*/
 
     }
 
     @FXML
     private void sortByPrice() {
-        if (!sortedDirectionPrice) {
+        if (sortedDirectionPrice) {
+            Collections.reverse(shownProducts);
+            sortedAscending = !sortedAscending;
+        } else {
+            resetDirs();
+            sortedDirectionPrice = true;
+            shownProducts.sort(Comparator.comparing(Product::getPrice));
+            if (!sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
+        }
+        changeArrowDir(priceUp, priceDown, sortedAscending);
+        updateProductList();
+
+        /*if (!sortedDirectionPrice) {
             shownProducts.sort(Comparator.comparing(Product::getPrice));
         } else {
             Collections.reverse(shownProducts);
         }
         changeArrowDir(priceUp, priceDown, sortedDirectionPrice);
         sortedDirectionPrice = !sortedDirectionPrice;
-        updateProductList();
+        updateProductList();*/
 
     }
 
