@@ -763,6 +763,18 @@
                                           <String fx:value="category-button" />
                                        </styleClass>
                                     </ToggleButton>
+                                    <ToggleButton fx:id="podCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Baljväxter">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="text-normal" />
+                                          <String fx:value="category-button" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ToggleButton>
                                     <ToggleButton fx:id="rootCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Rotfrukter">
                                        <font>
                                           <Font size="13.0" />

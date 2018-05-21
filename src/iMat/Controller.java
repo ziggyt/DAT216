@@ -60,6 +60,8 @@ public class Controller implements Initializable {
     @FXML
     private ToggleButton potatoCategoryButton;
     @FXML
+    private ToggleButton podCategoryButton;
+    @FXML
     private ToggleButton rootCategoryButton;
     @FXML
     private ToggleButton flourCategoryButton;
@@ -332,7 +334,7 @@ public class Controller implements Initializable {
         });
 
         /* All available categories
-    POD,
+    POD,-----
     BREAD,-------
     BERRY,-----
     CITRUS_FRUIT,------
@@ -341,15 +343,15 @@ public class Controller implements Initializable {
     EXOTIC_FRUIT,------
     FISH,-----
     VEGETABLE_FRUIT,------
-    CABBAGE,
+    CABBAGE,-----
     MEAT,----------
     DAIRIES,-------
-    MELONS,
+    MELONS,-----
     FLOUR_SUGAR_SALT,-----
-    NUTS_AND_SEEDS,
+    NUTS_AND_SEEDS,-----
     PASTA,-----
     POTATO_RICE,-----
-    ROOT_VEGETABLE,
+    ROOT_VEGETABLE,-----
     FRUIT,-----
     SWEET,-----
     HERB;-----
@@ -363,6 +365,7 @@ public class Controller implements Initializable {
         fishCategoryButton.setToggleGroup(categoryToggleGroup);
         pastaCategoryButton.setToggleGroup(categoryToggleGroup);
         potatoCategoryButton.setToggleGroup(categoryToggleGroup);
+        podCategoryButton.setToggleGroup(categoryToggleGroup);
         rootCategoryButton.setToggleGroup(categoryToggleGroup);
         flourCategoryButton.setToggleGroup(categoryToggleGroup);
         herbCategoryButton.setToggleGroup(categoryToggleGroup);
@@ -628,6 +631,9 @@ public class Controller implements Initializable {
             case "potatoCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.POTATO_RICE);
                 break;
+            case "podCategoryButton":
+                shownProducts = bc.getProducts(ProductCategory.POD);
+                break;
             case "rootCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.ROOT_VEGETABLE);
                 break;
@@ -641,9 +647,11 @@ public class Controller implements Initializable {
                 shownProducts = bc.getProducts(ProductCategory.FRUIT);
                 shownProducts.addAll(bc.getProducts(ProductCategory.CITRUS_FRUIT));
                 shownProducts.addAll(bc.getProducts(ProductCategory.EXOTIC_FRUIT));
+                shownProducts.addAll(bc.getProducts(ProductCategory.MELONS));
                 break;
             case "vegetablesCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.VEGETABLE_FRUIT);
+                shownProducts.addAll(bc.getProducts(ProductCategory.CABBAGE));
                 break;
             case "berryCategoryButton":
                 shownProducts = bc.getProducts(ProductCategory.BERRY);
@@ -908,7 +916,7 @@ public class Controller implements Initializable {
         }
         changeArrowDir(nameUp, nameDown, sortedAscending);
         updateProductList();
-        
+
     }
 
 
