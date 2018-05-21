@@ -1091,11 +1091,17 @@ public class Controller implements Initializable {
 
     @FXML
     private void closePurchaseHistory() {
+        if (!inCheckout) {
+            blurOutSearchBar();
+        }
         purchaseHistoryPane.toBack();
     }
 
     @FXML
     private void closeHelp() {
+        if (!inCheckout) {
+            blurOutSearchBar();
+        }
         helpPane.toBack();
     }
 
