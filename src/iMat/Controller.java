@@ -724,6 +724,7 @@ public class Controller implements Initializable {
         blurInSearchBar();
         populatePurchaseHistory();
         purchaseHistoryPane.toFront();
+        helpPane.toBack(); // Because of the transparent background and when closing the purchase history pane
 
         if (bc.getOrders().isEmpty()) {
             purchaseOrderButton.setDisable(true);
@@ -738,6 +739,7 @@ public class Controller implements Initializable {
     private void toHelp() {
         blurInSearchBar();
         helpPane.toFront();
+        purchaseHistoryPane.toBack(); // Because of the transparent background and when closing the help pane
     }
 
     private void populatePurchaseHistory(){
@@ -1085,6 +1087,16 @@ public class Controller implements Initializable {
         allCategoryButton.setSelected(true);
         updateCurrentCategory();
         updateCartList();
+    }
+
+    @FXML
+    private void closePurchaseHistory() {
+        purchaseHistoryPane.toBack();
+    }
+
+    @FXML
+    private void closeHelp() {
+        helpPane.toBack();
     }
 
     Image getSquareImage(Image image) {

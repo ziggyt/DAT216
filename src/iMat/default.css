@@ -57,6 +57,18 @@
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
 }
 
+.exitIcon {
+    -fx-image: url("./resources/icon_close.png");
+}
+
+.exitIcon:hover {
+    -fx-image: url("./resources/icon_close_hover.png");
+}
+
+.exitIcon:pressed {
+    -fx-image: url("./resources/icon_close_pressed.png");
+}
+
 #topView {
     -fx-background-color: -fx-background;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
@@ -68,6 +80,10 @@
 
 #checkoutView1, #checkoutView2, #checkoutView3, #purchaseHistoryPane, #helpPane {
     -fx-background-color: -fx-background;
+}
+
+#purchaseHistoryPane, #helpPane {
+    -fx-background-color: rgb(244, 244, 244, 0.95); /* -fx-background but with slight transparency */
 }
 
 #logo {
