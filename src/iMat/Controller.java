@@ -416,6 +416,7 @@ public class Controller implements Initializable {
                     updateCurrentCategory();
                 }
 
+                sort();
                 productScrollPane.setVvalue(0); //Moves scrollposition back to top
                 updateProductList();
                 updateAmountFound();
@@ -672,7 +673,6 @@ public class Controller implements Initializable {
                 result.add(shownProduct);
             }
         }
-        resetArrows();
         return result;
     }
 
@@ -908,15 +908,7 @@ public class Controller implements Initializable {
         }
         changeArrowDir(nameUp, nameDown, sortedAscending);
         updateProductList();
-
-        /*if (!sortedDirectionName) {
-            shownProducts.sort(Comparator.comparing(Product::getName));
-        } else {
-            Collections.reverse(shownProducts);
-        }
-        changeArrowDir(nameUp, nameDown, sortedDirectionName);
-        sortedDirectionName = !sortedDirectionName;
-        updateProductList();*/
+        
     }
 
 
@@ -929,21 +921,12 @@ public class Controller implements Initializable {
             resetDirs();
             sortedDirectionEco = true;
             shownProducts.sort(Comparator.comparing(Product::isEcological));
-            if (!sortedAscending) {
+            if (sortedAscending) {
                 Collections.reverse(shownProducts);
             }
         }
         changeArrowDir(ecoUp, ecoDown, sortedAscending);
         updateProductList();
-
-        /*if (!sortedDirectionEco) {
-            shownProducts.sort(Comparator.comparing(Product::isEcological).reversed());
-        } else {
-            Collections.reverse(shownProducts);
-        }
-        changeArrowDir(ecoUp, ecoDown, sortedDirectionEco);
-        sortedDirectionEco = !sortedDirectionEco;
-        updateProductList();*/
 
     }
 
@@ -956,21 +939,12 @@ public class Controller implements Initializable {
             resetDirs();
             sortedDirectionPrice = true;
             shownProducts.sort(Comparator.comparing(Product::getPrice));
-            if (!sortedAscending) {
+            if (sortedAscending) {
                 Collections.reverse(shownProducts);
             }
         }
         changeArrowDir(priceUp, priceDown, sortedAscending);
         updateProductList();
-
-        /*if (!sortedDirectionPrice) {
-            shownProducts.sort(Comparator.comparing(Product::getPrice));
-        } else {
-            Collections.reverse(shownProducts);
-        }
-        changeArrowDir(priceUp, priceDown, sortedDirectionPrice);
-        sortedDirectionPrice = !sortedDirectionPrice;
-        updateProductList();*/
 
     }
 
