@@ -144,11 +144,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#backToCheckoutStep2" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                        <Button mnemonicParsing="false" onAction="#backToCheckoutStep2" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="265.0">
                            <graphic>
                               <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_button.png" />
+                                    <Image url="@resources/back_arrow.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -363,11 +363,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="927.0" layoutY="648.0" mnemonicParsing="false" onAction="#backToCheckoutStep1" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                        <Button layoutX="927.0" layoutY="648.0" mnemonicParsing="false" onAction="#backToCheckoutStep1" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="265.0">
                            <graphic>
                               <ImageView fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_button.png" />
+                                    <Image url="@resources/back_arrow.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -456,11 +456,11 @@
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <Button disable="true" layoutX="917.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="255.0">
+                        <Button disable="true" layoutX="917.0" layoutY="638.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="265.0">
                            <graphic>
                               <ImageView fitWidth="48.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/back_button.png" />
+                                    <Image url="@resources/back_arrow.png" />
                                  </image>
                               </ImageView>
                            </graphic>
