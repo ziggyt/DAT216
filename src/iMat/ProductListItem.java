@@ -17,6 +17,8 @@ import se.chalmers.cse.dat216.project.Product;
 import java.io.File;
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 class ProductListItem extends AnchorPane {
     private Controller parentController;
     private Product product;
@@ -82,13 +84,15 @@ class ProductListItem extends AnchorPane {
                     quantityTextField.setText(newValue.replaceAll("[^\\d]", ""));
                 }
                 // Check if text is set to longer than 2
-                if (quantityTextField.getText().length() >= 2) {
-                    // Set length to 2
-                    quantityTextField.setText(quantityTextField.getText().substring(0, 2));
+                if (quantityTextField.getText().length() > 2) {
+                    // Set length to 99
+                    quantityTextField.setText("99");
                 }
                 // Update amount
-                if (!quantityTextField.getText().equals("")) {
+                if (!quantityTextField.getText().equals("") && Integer.parseInt(quantityTextField.getText()) > 0) {
                     amount = Integer.parseInt(quantityTextField.getText());
+                } else {
+                    quantityTextField.setText("");
                 }
 
                 // Disable the plus and minus buttons when they do nothing

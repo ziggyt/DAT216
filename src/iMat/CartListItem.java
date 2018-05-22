@@ -113,33 +113,46 @@ public class CartListItem extends AnchorPane {
                     // Set amount to 99
                     quantityTextField.setText("99");
                 }
-                if(parseInt(oldValue)>99) {
-                    oldValue = "99"; // oldValue needs to be correctly adjusted to 99 if it was larger
-                }
-                if (parseInt(quantityTextField.getText()) > parseInt(oldValue)) {
-
-                    // Handle if the item was in the process of getting removed and the purchase button gets pressed in the ProductListItem
-                    if (removalQueue.contains(shoppingItem)) {
-                        removalQueue.remove(shoppingItem);
+                try {
+                    if (Integer.parseInt(oldValue) > 99) {
+                        oldValue = "99"; // oldValue needs to be correctly adjusted to 99 if it was larger
                     }
-                    fade.setOnFinished(new EventHandler<ActionEvent>() { // Replace the on finished method (only relevant if a fade was currently playing)
-                        @Override
-                        public void handle(ActionEvent event) {
-                            fadeAlertsOngoing--;
-                            if (fadeAlertsOngoing <= 0) { // If there are no other items currently in the fadeAlert animation
-                                clearRemovalQueue(); // Remove everything in the queue
-                            }
+                } catch (NumberFormatException e) {}
+                try {
+                    if (Integer.parseInt(quantityTextField.getText()) > Integer.parseInt(oldValue)) {
+
+                        // Handle if the item was in the process of getting removed and the purchase button gets pressed in the ProductListItem
+                        if (removalQueue.contains(shoppingItem)) {
+                            removalQueue.remove(shoppingItem);
                         }
-                    });
+                        fade.setOnFinished(new EventHandler<ActionEvent>() { // Replace the on finished method (only relevant if a fade was currently playing)
+                            @Override
+                            public void handle(ActionEvent event) {
+                                fadeAlertsOngoing--;
+                                if (fadeAlertsOngoing <= 0) { // If there are no other items currently in the fadeAlert animation
+                                    clearRemovalQueue(); // Remove everything in the queue
+                                }
+                            }
+                        });
 
-                    addedFadeAlert(); // Green flash to confirm the added item
+                        addedFadeAlert(); // Green flash to confirm the added item
 
-                } else if (parseInt(quantityTextField.getText()) < parseInt(oldValue)) {
-                    removedFadeAlert(); // Red flash to confirm the removed item
-                }
+                    } else if (Integer.parseInt(quantityTextField.getText()) < parseInt(oldValue) && Integer.parseInt(quantityTextField.getText()) != 0) {
+                        removedFadeAlert(); // Red flash to confirm the removed item
+                    }
+                } catch (NumberFormatException e) {}
 
                 // Update amount
-                shoppingItem.setAmount(parseInt(quantityTextField.getText()));
+                try {
+                    if (Integer.parseInt(quantityTextField.getText()) > 0) {
+                        shoppingItem.setAmount(Integer.parseInt(quantityTextField.getText()));
+                    } else {
+                        quantityTextField.setText("");
+                    }
+                } catch (NumberFormatException e) {
+                    quantityTextField.setText("");
+                }
+
                 // Update price labels
                 priceLabel.setText((double)(int)(shoppingItem.getTotal() * 100)/100 + " kr"); // Limits to 2 decimals (otherwise it sometimes shows lots of zeros for no reason)
                 parentController.updateCartTotal();
