@@ -34,12 +34,12 @@
       <AnchorPane fx:id="removedFadePane" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane fx:id="greyPane" style="-fx-background-color: f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="80.0" layoutY="31.0" prefHeight="31.0" prefWidth="40.0" styleClass="text-normal" text="7" AnchorPane.leftAnchor="80.0">
+            <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="80.0" layoutY="31.0" prefHeight="31.0" prefWidth="40.0" styleClass="text-normal" text="7" AnchorPane.leftAnchor="99.0" AnchorPane.topAnchor="31.0">
                <font>
                   <Font />
                </font>
             </TextField>
-            <Label fx:id="priceLabel" layoutX="160.0" layoutY="33.0" prefHeight="27.0" styleClass="text-large" text="50kr" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="160.0" />
+            <Label fx:id="priceLabel" layoutX="160.0" layoutY="33.0" prefHeight="27.0" styleClass="text-large" text="50kr" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="178.0" />
             <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#openDetailView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/imat_icon.gif" />
@@ -57,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="plusButton" layoutX="122.0" layoutY="28.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="17.0" prefWidth="17.0" AnchorPane.leftAnchor="125.0">
+            <Button fx:id="plusButton" layoutX="136.0" layoutY="36.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incAmount" prefHeight="22.0" prefWidth="22.0" AnchorPane.leftAnchor="141.0" AnchorPane.topAnchor="35.0">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
                      <image>
@@ -69,7 +69,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="minusButton" layoutX="122.0" layoutY="49.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="17.0" prefWidth="17.0" AnchorPane.leftAnchor="125.0">
+            <Button fx:id="minusButton" layoutX="122.0" layoutY="49.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decAmount" prefHeight="22.0" prefWidth="22.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="35.0">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
                      <image>

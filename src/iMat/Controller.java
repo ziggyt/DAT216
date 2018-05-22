@@ -280,7 +280,7 @@ public class Controller implements Initializable {
             productListItemMap.put(product.getName(), productListItem);
         }
 
-        //bc.reset();
+        bc.reset();
 
         shownProducts = bc.getProducts();
         cart = bc.getShoppingCart();

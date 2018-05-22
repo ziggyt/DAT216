@@ -50,7 +50,7 @@
 }
 
 .category-button {
-
+    -fx-font-size: 17px;
 }
 
 .text-input, .text-input:focused {

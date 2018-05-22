@@ -688,7 +688,7 @@
                                               </ToggleButton>
                                           </children>
                                       </VBox>
-                                      <VBox layoutX="10.0" layoutY="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
+                                      <VBox layoutX="10.0" layoutY="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="92.0">
                                           <children>
                                     <Label alignment="CENTER" prefHeight="27.0" prefWidth="180.0" styleClass="text-large-bold" text="Kategorier" />
                                     <ToggleButton fx:id="breadCategoryButton" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Bröd">
@@ -965,56 +965,56 @@
                                     <FlowPane fx:id="listFlowPane" prefHeight="300.0" prefWidth="815.0" />
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="sortByNameButton" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByName" text="Sortera efter namn">
+                              <Button fx:id="sortByNameButton" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByName" text="Sortera i bokstavsordning     ">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font name="System Bold" size="13.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="sortByPriceButton" layoutX="165.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris">
+                              <Button fx:id="sortByPriceButton" layoutX="248.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByPrice" text="Sortera efter pris     ">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font name="System Bold" size="13.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="sortByEcoButton" layoutX="303.0" layoutY="35.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
+                              <Button fx:id="sortByEcoButton" layoutX="428.0" layoutY="36.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk     ">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font name="System Bold" size="13.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <ImageView fx:id="nameUp" fitHeight="12.0" fitWidth="16.0" layoutX="140.0" layoutY="36.0" rotate="-90.0">
+                              <ImageView fx:id="nameUp" fitHeight="15.0" fitWidth="20.0" layoutX="185.0" layoutY="42.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="nameDown" fitHeight="12.0" fitWidth="16.0" layoutX="141.0" layoutY="51.0" rotate="90.0">
+                              <ImageView fx:id="nameDown" fitHeight="15.0" fitWidth="20.0" layoutX="186.0" layoutY="42.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceUp" fitHeight="12.0" fitWidth="16.0" layoutX="280.0" layoutY="36.0" rotate="-90.0">
+                              <ImageView fx:id="priceUp" fitHeight="15.0" fitWidth="20.0" layoutX="364.0" layoutY="42.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="priceDown" fitHeight="12.0" fitWidth="16.0" layoutX="281.0" layoutY="51.0" rotate="90.0">
+                              <ImageView fx:id="priceDown" fitHeight="15.0" fitWidth="20.0" layoutX="365.0" layoutY="42.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoUp" fitHeight="12.0" fitWidth="16.0" layoutX="451.0" layoutY="36.0" rotate="-90.0">
+                              <ImageView fx:id="ecoUp" fitHeight="15.0" fitWidth="20.0" layoutX="580.0" layoutY="42.0" rotate="-90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="ecoDown" fitHeight="12.0" fitWidth="16.0" layoutX="452.0" layoutY="51.0" rotate="90.0">
+                              <ImageView fx:id="ecoDown" fitHeight="15.0" fitWidth="20.0" layoutX="581.0" layoutY="42.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>
