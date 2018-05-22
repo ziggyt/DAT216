@@ -981,7 +981,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="sortByEcoButton" layoutX="428.0" layoutY="36.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk     ">
+                              <Button fx:id="sortByEcoButton" layoutX="428.0" layoutY="36.0" mnemonicParsing="false" onAction="#sortByEco" text="Sortera efter ekologisk">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -1005,16 +1005,6 @@
                                  </image>
                               </ImageView>
                               <ImageView fx:id="priceDown" fitHeight="15.0" fitWidth="20.0" layoutX="365.0" layoutY="42.0" rotate="90.0">
-                                 <image>
-                                    <Image url="@resources/arrow_faded.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="ecoUp" fitHeight="15.0" fitWidth="20.0" layoutX="580.0" layoutY="42.0" rotate="-90.0">
-                                 <image>
-                                    <Image url="@resources/arrow_faded.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="ecoDown" fitHeight="15.0" fitWidth="20.0" layoutX="581.0" layoutY="42.0" rotate="90.0">
                                  <image>
                                     <Image url="@resources/arrow_faded.png" />
                                  </image>

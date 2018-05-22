@@ -231,10 +231,6 @@ public class Controller implements Initializable {
     @FXML
     private ImageView nameDown;
     @FXML
-    private ImageView ecoUp;
-    @FXML
-    private ImageView ecoDown;
-    @FXML
     private ImageView priceUp;
     @FXML
     private ImageView priceDown;
@@ -868,8 +864,6 @@ public class Controller implements Initializable {
         setArrowFaded(nameUp);
         setArrowFaded(priceDown);
         setArrowFaded(priceUp);
-        setArrowFaded(ecoDown);
-        setArrowFaded(ecoUp);
     }
 
     void resetDirs() {
@@ -936,7 +930,16 @@ public class Controller implements Initializable {
 
     @FXML
     private void sortByEco() {
-        if (sortedDirectionEco) {
+        if (!sortedDirectionEco) {
+            resetDirs();
+            sortedDirectionEco = true;
+            Collections.reverse(shownProducts);
+            shownProducts.sort(Comparator.comparing(Product::isEcological));
+            Collections.reverse(shownProducts);
+            updateProductList();
+        }
+
+        /*if (sortedDirectionEco) {
             Collections.reverse(shownProducts);
             sortedAscending = !sortedAscending;
         } else {
@@ -948,7 +951,7 @@ public class Controller implements Initializable {
             }
         }
         changeArrowDir(ecoUp, ecoDown, sortedAscending);
-        updateProductList();
+        updateProductList();*/
 
     }
 
