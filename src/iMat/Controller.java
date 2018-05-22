@@ -280,7 +280,7 @@ public class Controller implements Initializable {
             productListItemMap.put(product.getName(), productListItem);
         }
 
-        //bc.reset();
+        bc.reset();
 
         shownProducts = bc.getProducts();
         cart = bc.getShoppingCart();
@@ -314,10 +314,14 @@ public class Controller implements Initializable {
         checkoutDatePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
             @Override
             public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
-                if (newValue != null && deliveryTimePane.isDisabled()) {
-                    deliveryTimePane.setDisable(false); // When date is picked, enable delivery time selection
-                    deliveryTimeRadioButton2.setSelected(true); // Default selected
-                    deliveryTimeErrorLabel.setText(""); // Remove error message if it was showing
+                if (newValue != null) {
+                    deliveryTimeErrorLabel.setText("");
+                    checkoutDatePicker.setStyle(null);
+
+                    if (deliveryTimePane.isDisabled()) {
+                        deliveryTimePane.setDisable(false); // When date is picked, enable delivery time selection
+                        deliveryTimeRadioButton2.setSelected(true); // Default selected
+                    }
                 }
             }
         });
@@ -432,8 +436,9 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    firstNameField.setStyle(null);
                 }
             }
         });
@@ -442,8 +447,9 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    lastNameField.setStyle(null);
                 }
             }
         });
@@ -460,8 +466,9 @@ public class Controller implements Initializable {
                     }
 
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    phoneField.setStyle(null);
                 }
             }
         });
@@ -470,8 +477,9 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    addressField.setStyle(null);
                 }
             }
         });
@@ -493,8 +501,9 @@ public class Controller implements Initializable {
                     }
 
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    postalCodeField.setStyle(null);
                 }
             }
         });
@@ -503,8 +512,9 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.equals("")) {
                     if (addressFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel.setText("");
                     }
+                    countyField.setStyle(null);
                 }
             }
         });
@@ -527,8 +537,9 @@ public class Controller implements Initializable {
                     }
 
                     if (creditCardFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel2.setText("");
                     }
+                    creditCardField.setStyle(null);
                 }
             }
         });
@@ -550,8 +561,9 @@ public class Controller implements Initializable {
                     }
 
                     if (creditCardFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel2.setText("");
                     }
+                    expiryMonthField.setStyle(null);
                 }
             }
         });
@@ -573,8 +585,9 @@ public class Controller implements Initializable {
                     }
 
                     if (creditCardFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel2.setText("");
                     }
+                    expiryYearField.setStyle(null);
                 }
             }
         });
@@ -596,8 +609,9 @@ public class Controller implements Initializable {
                     }
 
                     if (creditCardFieldsAreFilled()) {
-                        resetCheckoutErrorLabels();
+                        checkoutErrorLabel2.setText("");
                     }
+                    cvcField.setStyle(null);
                 }
             }
         });
@@ -1021,6 +1035,8 @@ public class Controller implements Initializable {
         checkoutErrorLabel.setText("");
         checkoutErrorLabel2.setText("");
         deliveryTimeErrorLabel.setText("");
+        resetCheckoutErrorBorders();
+
     }
     private void showCheckoutErrorLabels() {
         checkoutErrorLabel.setText(missingFieldText.getMessageContent());
@@ -1028,6 +1044,21 @@ public class Controller implements Initializable {
     }
     private void showDeliveryTimeErrorLabel() {
         deliveryTimeErrorLabel.setText(missingDeliveryTimeText.getMessageContent());
+        checkoutDatePicker.setStyle("-fx-border-color: red");
+    }
+    private void resetCheckoutErrorBorders() {
+        firstNameField.setStyle(null);
+        lastNameField.setStyle(null);
+        phoneField.setStyle(null);
+        addressField.setStyle(null);
+        postalCodeField.setStyle(null);
+        countyField.setStyle(null);
+        checkoutDatePicker.setStyle(null);
+
+        creditCardField.setStyle(null);
+        expiryMonthField.setStyle(null);
+        expiryYearField.setStyle(null);
+        cvcField.setStyle(null);
     }
 
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
@@ -1340,6 +1371,8 @@ public class Controller implements Initializable {
 
 
     private void missingTextAlert(TextField t) {
+        t.setStyle("-fx-border-color: red");
+
         FadeTransition fade = new FadeTransition(Duration.seconds(0.5), t);
         fade.setFromValue(1);
         fade.setToValue(0);
