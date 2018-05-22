@@ -897,32 +897,55 @@ public class Controller implements Initializable {
     }
 
     private void sort() {
-        if (sortedDirectionEco) {
-            shownProducts.sort(Comparator.comparing(Product::isEcological));
-        } else if (sortedDirectionName) {
+        if (sortedDirectionName) {
             shownProducts.sort(Comparator.comparing(Product::getName));
         } else if (sortedDirectionPrice) {
             shownProducts.sort(Comparator.comparing(Product::getPrice));
         }
+
         if (!sortedAscending) {
             Collections.reverse(shownProducts);
         }
+
+        sortedDirectionEco = false; // Becuase calling this method always sorts disregarding eco
     }
 
     @FXML
     private void sortByName() {
+        resetDirs();
+        sortedDirectionName = true;
+        shownProducts.sort(Comparator.comparing(Product::getName));
         if (sortedDirectionName) {
-            Collections.reverse(shownProducts);
-            sortedAscending = !sortedAscending;
-        } else {
-            resetDirs();
-            sortedDirectionName = true;
-            shownProducts.sort(Comparator.comparing(Product::getName));
             if (!sortedAscending) {
                 Collections.reverse(shownProducts);
             }
+            sortedAscending = !sortedAscending;
+        } else {
+            if (sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
         }
-        changeArrowDir(nameUp, nameDown, sortedAscending);
+        changeArrowDir(nameUp, nameDown, !sortedAscending);
+        updateProductList();
+
+    }
+
+    @FXML
+    private void sortByPrice() {
+        resetDirs();
+        sortedDirectionPrice = true;
+        shownProducts.sort(Comparator.comparing(Product::getPrice));
+        if (sortedDirectionPrice) {
+            if (!sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
+            sortedAscending = !sortedAscending;
+        } else {
+            if (sortedAscending) {
+                Collections.reverse(shownProducts);
+            }
+        }
+        changeArrowDir(priceUp, priceDown, sortedAscending);
         updateProductList();
 
     }
@@ -931,11 +954,17 @@ public class Controller implements Initializable {
     @FXML
     private void sortByEco() {
         if (!sortedDirectionEco) {
-            resetDirs();
             sortedDirectionEco = true;
+
             Collections.reverse(shownProducts);
             shownProducts.sort(Comparator.comparing(Product::isEcological));
             Collections.reverse(shownProducts);
+
+            /*if (sortedAscending) {
+                shownProducts.sort(Comparator.comparing(Product::isEcological));
+            } else {
+                shownProducts.sort(Comparator.comparing(Product::isEcological));
+            }*/
             updateProductList();
         }
 
@@ -952,24 +981,6 @@ public class Controller implements Initializable {
         }
         changeArrowDir(ecoUp, ecoDown, sortedAscending);
         updateProductList();*/
-
-    }
-
-    @FXML
-    private void sortByPrice() {
-        if (sortedDirectionPrice) {
-            Collections.reverse(shownProducts);
-            sortedAscending = !sortedAscending;
-        } else {
-            resetDirs();
-            sortedDirectionPrice = true;
-            shownProducts.sort(Comparator.comparing(Product::getPrice));
-            if (sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
-        }
-        changeArrowDir(priceUp, priceDown, sortedAscending);
-        updateProductList();
 
     }
 
