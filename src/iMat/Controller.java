@@ -903,7 +903,7 @@ public class Controller implements Initializable {
             shownProducts.sort(Comparator.comparing(Product::getPrice));
         }
 
-        if (!sortedAscending) {
+        if (sortedAscending) {
             Collections.reverse(shownProducts);
         }
 
