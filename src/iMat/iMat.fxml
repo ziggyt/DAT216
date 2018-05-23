@@ -307,7 +307,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="288.0" layoutY="528.0" prefHeight="205.0" prefWidth="550.0" AnchorPane.topAnchor="510.0">
+                        <AnchorPane layoutX="288.0" layoutY="528.0" prefHeight="230.0" prefWidth="550.0" AnchorPane.topAnchor="510.0">
                            <children>
                               <Label layoutX="27.0" layoutY="7.0" styleClass="text-large-bold" text="Bestäm Leveranstid" underline="true" />
                               <Label layoutX="27.0" layoutY="56.0" styleClass="text-large" text="Datum:" />
@@ -344,7 +344,7 @@
                                     </RadioButton>
                                  </children>
                               </AnchorPane>
-                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="181.0" text="Label" textFill="RED">
+                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="181.0" text="Label" textFill="RED" AnchorPane.bottomAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

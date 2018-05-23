@@ -39,7 +39,10 @@
                   <Font />
                </font>
             </TextField>
-            <Label fx:id="priceLabel" layoutX="160.0" layoutY="33.0" prefHeight="27.0" styleClass="text-large" text="50kr" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="178.0" />
+            <Label fx:id="priceLabel" layoutX="160.0" layoutY="33.0" prefHeight="27.0" text="50 kr" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="175.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
             <ImageView fx:id="productImageView" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#openDetailView" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/imat_icon.gif" />
@@ -48,7 +51,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="nameLabel" maxWidth="140.0" prefWidth="140.0" styleClass="text-large" text="Kaffe" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="1.0" />
+            <Label fx:id="nameLabel" maxWidth="140.0" prefWidth="140.0" styleClass="product-name" text="Kaffe" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="1.0" />
             <ImageView fx:id="closeIconImageView" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#removeItem" onMouseEntered="#closeIconMouseEntered" onMouseExited="#closeIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@resources/icon_close.png" />

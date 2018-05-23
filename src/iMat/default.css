@@ -37,6 +37,11 @@
     -fx-font-weight: bold;
 }
 
+.product-name {
+    -fx-font-size: 20px;
+    -fx-font-family: "Avenir Book";
+}
+
 .detail-view {
     -fx-background-color: rgba(0, 0, 0, 0.5);
 }
