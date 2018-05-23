@@ -311,16 +311,16 @@
                            <children>
                               <Label layoutX="27.0" layoutY="7.0" styleClass="text-large-bold" text="Bestäm Leveranstid" underline="true" />
                               <Label layoutX="27.0" layoutY="56.0" styleClass="text-large" text="Datum:" />
-                              <DatePicker fx:id="checkoutDatePicker" editable="false" layoutX="23.0" layoutY="88.0">
+                              <DatePicker fx:id="checkoutDatePicker" editable="false" layoutX="23.0" layoutY="88.0" prefHeight="30.0" prefWidth="200.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></DatePicker>
-                              <AnchorPane fx:id="deliveryTimePane" disable="true" layoutX="250.0" layoutY="56.0">
+                              <AnchorPane fx:id="deliveryTimePane" disable="true" layoutX="250.0" layoutY="56.0" AnchorPane.leftAnchor="280.0">
                                  <children>
                                     <Label styleClass="text-large" text="Tid:" />
-                                    <RadioButton fx:id="deliveryTimeRadioButton2" layoutX="30.0" layoutY="64.0" mnemonicParsing="false" text="12:00 - 13:00">
+                                    <RadioButton fx:id="deliveryTimeRadioButton2" layoutX="30.0" layoutY="74.0" mnemonicParsing="false" text="12:00 - 13:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
@@ -328,15 +328,15 @@
                                     </RadioButton>
                                     <RadioButton fx:id="deliveryTimeRadioButton1" layoutX="30.0" layoutY="34.0" mnemonicParsing="false" text="8:00 - 9:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </RadioButton>
-                                    <RadioButton fx:id="deliveryTimeRadioButton3" layoutX="30.0" layoutY="94.0" mnemonicParsing="false" text="16:00 - 17:00">
+                                    <RadioButton fx:id="deliveryTimeRadioButton3" layoutX="30.0" layoutY="114.0" mnemonicParsing="false" text="16:00 - 17:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
