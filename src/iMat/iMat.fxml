@@ -222,8 +222,14 @@
                               </Text>
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
-                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
-                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
+                              <Text layoutX="13.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
+                              <Text layoutX="155.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Betalning" />
                            </children>
                         </AnchorPane>
@@ -425,9 +431,15 @@
                               </Text>
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
-                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
+                              <Text layoutX="13.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Leverans" />
-                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
+                              <Text layoutX="292.0" layoutY="99.0" onMouseClicked="#finishCheckoutStep2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                            </children>
                         </AnchorPane>
                      </children>
@@ -522,7 +534,10 @@
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
                               <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Varukorg" />
-                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
+                              <Text layoutX="155.0" layoutY="99.0" onMouseClicked="#finishCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
                            </children>
                         </AnchorPane>
