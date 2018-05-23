@@ -1175,7 +1175,8 @@ public class Controller implements Initializable {
         blurOutSearchBar();
         mainView.toFront();
         inCheckout = false;
-        allCategoryButton.setSelected(true);
+        allCategoryButton.setSelected(true); // Reset category
+        searchField.setText(""); // Reset search
         updateCurrentCategory();
         updateCartList();
     }
