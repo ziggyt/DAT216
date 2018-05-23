@@ -64,7 +64,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#goHome" prefHeight="765.0" prefWidth="1303.0" styleClass="detail-view" StackPane.alignment="CENTER">
+                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#closeDetailView" prefHeight="765.0" prefWidth="1303.0" styleClass="detail-view" StackPane.alignment="CENTER">
                      <children>
                         <AnchorPane blendMode="SRC_ATOP" layoutX="210.0" layoutY="76.0" onMouseClicked="#mouseTrap" prefHeight="447.0" prefWidth="771.0" styleClass="text-area" AnchorPane.bottomAnchor="242.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="76.0">
                            <children>
