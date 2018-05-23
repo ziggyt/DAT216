@@ -925,7 +925,7 @@
                                     <Image url="@resources/shopping_cart.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="toCheckoutImageView" fitHeight="66.0" fitWidth="259.0" layoutX="-10.0" layoutY="704.0" onMouseClicked="#toCheckout" onMouseEntered="#toCheckoutMouseEntered" onMouseExited="#toCheckoutMouseExited" onMousePressed="#toCheckoutMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                              <ImageView fx:id="toCheckoutImageView" fitHeight="66.0" fitWidth="259.0" layoutX="-10.0" layoutY="704.0" onMouseClicked="#toCheckout" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
                                  <image>
                                     <Image url="@resources/to_register.png" />
                                  </image>
@@ -933,7 +933,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="trashCanImageView" fitHeight="43.0" fitWidth="39.0" layoutX="210.0" layoutY="16.0" onMouseClicked="#emptyCart" onMouseEntered="#trashcanMouseEntered" onMouseExited="#trashcanMouseExited" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="trashCanImageView" fitHeight="43.0" fitWidth="39.0" layoutX="210.0" layoutY="16.0" onMouseClicked="#emptyCart" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="1.0">
                                  <image>
                                     <Image url="@resources/trashcan.png" />
                                  </image>

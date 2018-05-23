@@ -62,18 +62,6 @@
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
 }
 
-.exitIcon {
-    -fx-image: url("./resources/icon_close.png");
-}
-
-.exitIcon:hover {
-    -fx-image: url("./resources/icon_close_hover.png");
-}
-
-.exitIcon:pressed {
-    -fx-image: url("./resources/icon_close_pressed.png");
-}
-
 #topView {
     -fx-background-color: -fx-background;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
@@ -126,6 +114,38 @@
 
 #helpLabel:pressed {
     -fx-text-fill: #700000;
+}
+
+.exitIcon {
+    -fx-image: url("./resources/icon_close.png");
+}
+
+.exitIcon:hover {
+    -fx-image: url("./resources/icon_close_hover.png");
+}
+
+.exitIcon:pressed {
+    -fx-image: url("./resources/icon_close_pressed.png");
+}
+
+#trashCanImageView {
+    -fx-image: url("./resources/trashcan.png");
+}
+
+#trashCanImageView:hover {
+    -fx-image: url("./resources/trashcan_hover.png");
+}
+
+#toCheckoutImageView {
+    -fx-image: url("./resources/to_register.png");
+}
+
+#toCheckoutImageView:hover {
+    -fx-image: url("./resources/to_register_hover.png");
+}
+
+#toCheckoutImageView:pressed {
+    -fx-image: url("./resources/to_register_pressed.png");
 }
 
 #detailViewPane #buyButton, #placeOrderButton {
