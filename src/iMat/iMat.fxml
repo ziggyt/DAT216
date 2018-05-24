@@ -56,7 +56,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#goHome" prefHeight="765.0" prefWidth="1303.0" styleClass="detail-view" StackPane.alignment="CENTER">
+                  <AnchorPane fx:id="detailViewPane" onMouseClicked="#closeDetailView" prefHeight="765.0" prefWidth="1303.0" styleClass="detail-view" StackPane.alignment="CENTER">
                      <children>
                         <AnchorPane blendMode="SRC_ATOP" layoutX="210.0" layoutY="76.0" onMouseClicked="#mouseTrap" prefHeight="447.0" prefWidth="771.0" styleClass="text-area" AnchorPane.bottomAnchor="242.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="76.0">
                            <children>
@@ -214,8 +214,14 @@
                               </Text>
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
-                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
-                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
+                              <Text layoutX="13.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
+                              <Text layoutX="155.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Betalning" />
                            </children>
                         </AnchorPane>
@@ -293,20 +299,20 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="288.0" layoutY="528.0" prefHeight="205.0" prefWidth="550.0" AnchorPane.topAnchor="510.0">
+                        <AnchorPane layoutX="288.0" layoutY="528.0" prefHeight="230.0" prefWidth="550.0" AnchorPane.topAnchor="510.0">
                            <children>
                               <Label layoutX="27.0" layoutY="7.0" styleClass="text-large-bold" text="Bestäm Leveranstid" underline="true" />
                               <Label layoutX="27.0" layoutY="56.0" styleClass="text-large" text="Datum:" />
-                              <DatePicker fx:id="checkoutDatePicker" editable="false" layoutX="23.0" layoutY="88.0">
+                              <DatePicker fx:id="checkoutDatePicker" editable="false" layoutX="23.0" layoutY="88.0" prefHeight="30.0" prefWidth="200.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></DatePicker>
-                              <AnchorPane fx:id="deliveryTimePane" disable="true" layoutX="250.0" layoutY="56.0">
+                              <AnchorPane fx:id="deliveryTimePane" disable="true" layoutX="250.0" layoutY="56.0" AnchorPane.leftAnchor="280.0">
                                  <children>
                                     <Label styleClass="text-large" text="Tid:" />
-                                    <RadioButton fx:id="deliveryTimeRadioButton2" layoutX="30.0" layoutY="64.0" mnemonicParsing="false" text="12:00 - 13:00">
+                                    <RadioButton fx:id="deliveryTimeRadioButton2" layoutX="30.0" layoutY="74.0" mnemonicParsing="false" text="12:00 - 13:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
@@ -314,15 +320,15 @@
                                     </RadioButton>
                                     <RadioButton fx:id="deliveryTimeRadioButton1" layoutX="30.0" layoutY="34.0" mnemonicParsing="false" text="8:00 - 9:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </RadioButton>
-                                    <RadioButton fx:id="deliveryTimeRadioButton3" layoutX="30.0" layoutY="94.0" mnemonicParsing="false" text="16:00 - 17:00">
+                                    <RadioButton fx:id="deliveryTimeRadioButton3" layoutX="30.0" layoutY="114.0" mnemonicParsing="false" text="16:00 - 17:00">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
@@ -330,7 +336,7 @@
                                     </RadioButton>
                                  </children>
                               </AnchorPane>
-                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="181.0" text="Label" textFill="RED">
+                              <Label fx:id="deliveryTimeErrorLabel" layoutX="27.0" layoutY="181.0" text="Label" textFill="RED" AnchorPane.bottomAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -417,9 +423,15 @@
                               </Text>
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
-                              <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg" />
+                              <Text layoutX="13.0" layoutY="99.0" onMouseClicked="#backToCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Varukorg">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Leverans" />
-                              <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
+                              <Text layoutX="292.0" layoutY="99.0" onMouseClicked="#finishCheckoutStep2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                            </children>
                         </AnchorPane>
                      </children>
@@ -514,7 +526,10 @@
                               <Line endX="-22.0" layoutX="115.0" layoutY="49.0" startX="-100.0" AnchorPane.leftAnchor="80.0" />
                               <Line endX="40.0" layoutX="261.0" layoutY="49.0" startX="-40.0" />
                               <Text layoutX="13.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large-bold" text="Varukorg" />
-                              <Text layoutX="155.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans" />
+                              <Text layoutX="155.0" layoutY="99.0" onMouseClicked="#finishCheckoutStep1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Leverans">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Text>
                               <Text layoutX="292.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Betalning" />
                            </children>
                         </AnchorPane>

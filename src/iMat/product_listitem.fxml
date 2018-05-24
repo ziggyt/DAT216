@@ -39,8 +39,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </ImageView>
-                        <Label fx:id="priceLabel" layoutX="14.0" layoutY="171.0" styleClass="text-normal" text="Price" />
-                        <Label fx:id="nameLabel" layoutX="14.0" layoutY="144.0" maxWidth="130.0" prefWidth="130.0" styleClass="text-large" text="Product name" />
+                        <Label fx:id="priceLabel" layoutX="10.0" layoutY="173.0" text="Price">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                        <Label fx:id="nameLabel" layoutX="10.0" layoutY="144.0" maxWidth="130.0" prefWidth="130.0" styleClass="product-name" text="Product name" />
                   <ImageView fx:id="favoriteItemImageView" fitHeight="40.0" fitWidth="40.0" layoutX="163.0" onMouseClicked="#favIconOnClick" onMouseEntered="#favIconMouseEntered" onMouseExited="#favIconMouseExited" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <image>
                         <Image url="@resources/favorite_item_notselected.png" />

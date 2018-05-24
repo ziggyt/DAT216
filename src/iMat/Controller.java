@@ -905,7 +905,7 @@ public class Controller implements Initializable {
             shownProducts.sort(Comparator.comparing(Product::getPrice));
         }
 
-        if (!sortedAscending) {
+        if (sortedAscending) {
             Collections.reverse(shownProducts);
         }
 
@@ -1178,7 +1178,8 @@ public class Controller implements Initializable {
         blurOutSearchBar();
         mainView.toFront();
         inCheckout = false;
-        allCategoryButton.setSelected(true);
+        allCategoryButton.setSelected(true); // Reset category
+        searchField.setText(""); // Reset search
         updateCurrentCategory();
         updateCartList();
     }
