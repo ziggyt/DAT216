@@ -749,6 +749,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void toPurchaseHistory() {
+        searchField.clear();
         blurInSearchBar();
         populatePurchaseHistory();
         purchaseHistoryPane.toFront();
@@ -765,6 +766,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void toHelp() {
+        searchField.clear();
         blurInSearchBar();
         helpPane.toFront();
         purchaseHistoryPane.toBack(); // Because of the transparent background and when closing the help pane
@@ -1080,7 +1082,9 @@ public class Controller implements Initializable {
     // Separate "finish" and "back to" methods because it matters if you are completing a step or just going back to a previous one
     @FXML
     private void toCheckout() {
+
         if (shownCartList.size() - (CartListItem.fadeAlertsOngoing+CartListItem.removalQueue.size()) > 0) { // Check if cart is not empty
+            searchField.clear();
             blurInSearchBar();
             checkoutView1.toFront();
             Platform.runLater( () -> checkoutCartScrollPane.requestFocus());
