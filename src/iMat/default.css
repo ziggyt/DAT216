@@ -83,7 +83,7 @@
 }
 
 #purchaseHistoryPane, #helpPane {
-    -fx-background-color: rgb(244, 244, 244, 0.95); /* -fx-background but with slight transparency */
+    -fx-background-color: rgba(244, 244, 244, 0.95); /* -fx-background but with slight transparency */
 }
 
 #logo {

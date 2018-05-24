@@ -171,6 +171,8 @@ public class Controller implements Initializable {
     private ImageView trashCanImageView;
     @FXML
     private ScrollPane cartScrollPane;
+    @FXML
+    private ImageView logoImageView;
 
     //PurchaseHistory View
     @FXML
@@ -1085,6 +1087,7 @@ public class Controller implements Initializable {
             inCheckout = true;
             updateCheckoutCart();
 
+
         } else {
             populateMessageView(emptyCartMessage);
             showMessage();
@@ -1475,6 +1478,18 @@ public class Controller implements Initializable {
                 "iMat/resources/icon_close.png")));
     }
 
+
+    @FXML
+    public void logoButtonMouseEntered() {
+        logoImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/imat_icon_hover.gif")));
+    }
+
+    @FXML
+    public void logoButtonMouseExited() {
+        logoImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/resources/imat_icon.gif")));
+    }
     @FXML
     public void mouseTrap(Event event) {
         event.consume();
