@@ -917,16 +917,10 @@ public class Controller implements Initializable {
         resetDirs();
         sortedDirectionName = true;
         shownProducts.sort(Comparator.comparing(Product::getName));
-        if (sortedDirectionName) {
-            if (!sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
-            sortedAscending = !sortedAscending;
-        } else {
-            if (sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
+        if (!sortedAscending) {
+            Collections.reverse(shownProducts);
         }
+        sortedAscending = !sortedAscending;
         changeArrowDir(nameUp, nameDown, !sortedAscending);
         updateProductList();
 
@@ -937,16 +931,10 @@ public class Controller implements Initializable {
         resetDirs();
         sortedDirectionPrice = true;
         shownProducts.sort(Comparator.comparing(Product::getPrice));
-        if (sortedDirectionPrice) {
-            if (!sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
-            sortedAscending = !sortedAscending;
-        } else {
-            if (sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
+        if (!sortedAscending) {
+            Collections.reverse(shownProducts);
         }
+        sortedAscending = !sortedAscending;
         changeArrowDir(priceUp, priceDown, sortedAscending);
         updateProductList();
 
@@ -962,28 +950,8 @@ public class Controller implements Initializable {
             shownProducts.sort(Comparator.comparing(Product::isEcological));
             Collections.reverse(shownProducts);
 
-            /*if (sortedAscending) {
-                shownProducts.sort(Comparator.comparing(Product::isEcological));
-            } else {
-                shownProducts.sort(Comparator.comparing(Product::isEcological));
-            }*/
             updateProductList();
         }
-
-        /*if (sortedDirectionEco) {
-            Collections.reverse(shownProducts);
-            sortedAscending = !sortedAscending;
-        } else {
-            resetDirs();
-            sortedDirectionEco = true;
-            shownProducts.sort(Comparator.comparing(Product::isEcological));
-            if (sortedAscending) {
-                Collections.reverse(shownProducts);
-            }
-        }
-        changeArrowDir(ecoUp, ecoDown, sortedAscending);
-        updateProductList();*/
-
     }
 
     private void changeArrowDir(ImageView im1, ImageView im2, boolean bool) {
