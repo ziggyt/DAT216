@@ -1184,6 +1184,10 @@ public class Controller implements Initializable {
         searchField.setText(""); // Reset search
         updateCurrentCategory();
         updateCartList();
+        resetDirs();
+        sortedAscending=true;
+        sortByName();
+        productScrollPane.setVvalue(0); // Moves scrollposition back to top
     }
 
     @FXML
