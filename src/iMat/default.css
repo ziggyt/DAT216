@@ -149,15 +149,15 @@
 }
 
 #detailViewPane #buyButton, #placeOrderButton {
-    -fx-background-color: "#ff6d74";
+    -fx-background-color: "#2696ff";
 }
 
 #detailViewPane #buyButton:hover, #placeOrderButton:hover {
-    -fx-background-color: "#ff8e94";
+    -fx-background-color: "#51abff";
 }
 
 #detailViewPane #buyButton:pressed, #placeOrderButton:pressed {
-    -fx-background-color: "#91474b";
+    -fx-background-color: "#255077";
 }
 
 /* ---------------------------template------------------------------
